@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>checked.html</title>
+    <script
+      src="https://code.jquery.com/jquery-3.6.3.min.js"
+      integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      window.onload = function () {
+        const jsAll = document.querySelector("#js-all");
+        const jss = document.querySelectorAll(".js");
+        jsAll.addEventListener("click", function () {
+          if (jsAll.checked) {
+            //jss.checked = true;
+            // for (js of jss) {
+            //   js.checked = true;
+            // }
+            jss.forEach((js) => {
+              js.checked = true;
+            });
+          } else {
+            // for(let i=0;i<jss.length;j++){
+            //     jss[i].checked = false;
+            // }
+            // for(i in jss){
+            //     jss[i].checked = false;
+            // }
+            // for (js of jss) {
+            //   js.checked = false;
+            // }
+            jss.forEach((js) => {
+              js.checked = false;
+            });
+          }
+        });
+      };
+
+      $(function () {
+        $("#jq-all").on("click", function () {
+          if ($("#jq-all").is(":checked")) {
+            $(".jq").prop("checked", true);
+          } else {
+            $(".jq").prop("checked", false);
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td>js-all <input type="checkbox" id="js-all" /></td>
+        <td>jq-all <input type="checkbox" id="jq-all" /></td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" class="js" /></td>
+        <td><input type="checkbox" class="jq" /></td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" class="js" /></td>
+        <td><input type="checkbox" class="jq" /></td>
+      </tr>
+      <tr>
+        <td><input type="checkbox" class="js" /></td>
+        <td><input type="checkbox" class="jq" /></td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+package helloMemberdao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+import dbtest.JDBCUtil;
+
+public class ListAction implements Action{
+
+	@Override
+	public void execute(Scanner sc) {
+		Connection conn = null;
+		PreparedStatement stmt = null;  //옛날 쿼리창
+		ResultSet rs = null;
+		List<MemberVO> members = new ArrayList<MemberVO>();
+		
+		
+		try {
+			
+			conn = JDBCUtil.getMySqlConnection();
+			
+			String sql = "select * from member order by id";
+			stmt = conn.prepareStatement(sql);
+			rs = stmt.executeQuery();
+			
+			while(rs.next()) {
+				String id = rs.getString("id");
+				String pw = rs.getString("pw");
+				String name = rs.getString("name");
+				int age = rs.getInt("age");
+				
+				 MemberVO vo = new MemberVO(id, pw, name, age);
+				 members.add(vo);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+				try {
+					JDBCUtil.close(rs,stmt,conn);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+		}
+		
+		
+		System.out.printf("=== Member Count %s명 ===\n",members.size());
+        for(MemberVO m: members) {
+            System.out.print("ID: " + m.getId() +" / ");
+            System.out.print("PW: " + m.getPw() +" / ");
+            System.out.print("Name: " + m.getName() +" / ");
+            System.out.print("Age: " + m.getAge() );
+            System.out.println();
+        }
+	}
+}

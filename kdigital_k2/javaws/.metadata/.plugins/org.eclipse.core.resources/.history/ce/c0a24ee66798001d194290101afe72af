@@ -1,0 +1,106 @@
+package helloMemberdb;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class UpdateAction implements Action{
+
+	@Override
+	public void execute(Scanner sc) {
+		
+		// Update
+		// 수정할 ID 찾기
+		Connection conn = null;
+		PreparedStatement stmt = null; 
+		int rs = 0;
+		ResultSet rs1 = null;
+		
+		System.out.println("UpdateAction");
+		System.out.println("수정할 ID :");
+		String id = sc.next();
+		List<MemberVO> members = new ArrayList<MemberVO>();
+		MemberVO member = null;
+		
+		String sql = "select * from member";
+		stmt = conn.createStatement();
+		rs1 = stmt.executeQuery(sql);
+		
+		while(rs.next()) {
+			String id = rs.getString("id");
+			String pw = rs.getString("pw");
+			String name = rs.getString("name");
+			int age = rs.getInt("age");
+			
+			 MemberVO vo = new MemberVO(id, pw, name, age);
+			 members.add(vo);
+		}
+		for(MemberVO m: members) {
+			if(m.getId().equals(id)) {
+				member =m;
+				break;
+			}
+		}
+
+		//수정할 데이터 입력
+		if(member!=null) {
+			System.out.println("기존 PW: "+member.getPw());
+			System.out.print("수정 PW: ");
+			String pw = sc.next();
+			System.out.println("기존 Name : "+member.getName());
+			System.out.print("수정 Name : ");
+			String name = sc.next();
+			System.out.println("기존 Age : "+ member.getAge());
+			System.out.print("수정 Age : ");
+			int age = sc.nextInt();
+			
+		
+	
+		
+		String driver = "com.mysql.cj.jdbc.Driver";
+		try {
+			//1. driver loading
+			Class.forName(driver);
+			//2. Connection
+			String url = "jdbc:mysql://localhost:3306/mysqlhello";
+			url += "?ServerTimezone=UTC";
+			String user = "root";
+			String password = "rpass";
+			
+			conn = DriverManager.getConnection(url, user, password);
+			System.out.println("ok!!");
+			
+			String sql = "Update member set pw= '" + pw + "', name='" + name + "', age = '" + age + "' ";
+			sql +=" where id = '" + id + "'";
+//			sql문을 만들고 미리 넣어놔야함
+			stmt = conn.prepareStatement(sql);
+			
+			rs = stmt.executeUpdate(); //성공하면 1 출력
+			System.out.println("rs : "+rs);
+			
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+				try {
+					if(stmt !=null) stmt.close();
+					if(conn !=null) conn.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+		}
+		}
+		else {
+			System.out.println("수정할 ID가 없습니다.");
+		}
+	}
+}

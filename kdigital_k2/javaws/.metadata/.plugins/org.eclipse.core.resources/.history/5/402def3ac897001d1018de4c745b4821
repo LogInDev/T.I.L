@@ -1,0 +1,13 @@
+package dbtest;
+
+import java.sql.Connection;
+
+public class ConnectionTest {
+
+	public static void main(String[] args) {
+		Connection conn = null;
+		
+		
+	}
+
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>css2.html</title>
+    <style>
+        li.select { color : rgb(235, 12, 53);}
+        .item{color: rgb(238, 16, 16);}
+        .header{background-color: rgb(0, 110, 255);}
+        input[type="text"] {background : rgb(101, 95, 255);}
+        input[type="password"] {background-color: yellowgreen;}
+
+        /* input:enabled{background-color: rgb(148, 83, 239);}
+        input:disabled{background-color: dimgray;}
+        input:focus{background-color: hotpink;} */
+        #header h1{color:red;}
+        #section h1{color:orange;}
+    </style>
+     <!-- focus : 커서가 들어가는 건 in, 나가면 out  -->
+</head>
+<body>
+    <div id="header">
+        <h1 class="title">Lorem ipsum</h1>
+        <div id="nav">
+            <h1>Navigation</h1>
+        </div>
+    </div>
+    <div id="section">
+        <h1 class="title">Lorem ipsum</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nisi risus, sollicitudin eget vehicula sed, eleifend suscipit neque. Proin rhoncus, ante vitae mattis consequat, libero nunc posuere justo, ut laoreet dolor nunc at dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas dictum, lectus vestibulum laoreet tincidunt, nisi augue blandit risus, ut vestibulum erat dolor sit amet risus. Praesent semper consectetur mi eget auctor. Nulla facilisi. Duis bibendum massa in dui interdum sed tincidunt massa eleifend.</p>
+    </div>
+    <hr>
+    <h2>사용가능</h2>
+    <input type="text">
+    <h2>사용불가능</h2>
+    <input type="text" disabled>
+    <hr>
+    <h3 class="item header">동해물과 백두산이</h3>
+    <ul>
+        <li class="select">사과</li>
+        <li>바나나</li>
+        <li class="select">오렌지</li>
+        <li>감</li>
+    </ul>
+    <form action="">
+        <input type="text">
+        <input type="password">
+    </form>
+</body>
+</html>

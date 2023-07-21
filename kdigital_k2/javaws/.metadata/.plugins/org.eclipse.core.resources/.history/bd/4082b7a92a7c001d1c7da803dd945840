@@ -1,0 +1,40 @@
+package hello;
+
+import java.util.Scanner;
+
+public class Hello {
+
+	public static void main(String[] args) {
+		//4-14
+		int number = 12321;
+		int tmp = number;
+		int a=0;
+		
+		int result = 0;
+//		while(tmp!=0) {
+			int i=0;
+			a = tmp%10;
+			tmp/=10;
+			result += (a*(int)(Math.pow(10, i)));
+			System.out.println(result);
+			i++;
+		 i=0;
+			a = tmp%10;
+			tmp/=10;
+			result += (a*(int)(Math.pow(10, i)));
+			System.out.println((Math.pow(10, i));
+			i++;
+//		}
+		
+		if(number == result)
+			System.out.println(number + "는 회문수 입니다.");
+		else
+			System.out.println(number +"는 회문수가 아닙니다.");
+
+
+	}
+
+
+
+}
+

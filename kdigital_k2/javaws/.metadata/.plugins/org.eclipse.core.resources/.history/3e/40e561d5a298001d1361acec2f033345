@@ -1,0 +1,36 @@
+package helloAnimaldb;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import dbtest.JDBCUtil;
+
+public class SearchAction {
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+	AnimalVO animal = null;
+	AnimalDAO dao = new AnimalDAO();
+	System.out.println("DeleteAction");
+	System.out.println("삭제할 동물 이름 : ");
+	String name = sc.next();
+	
+	
+	try {
+		conn = JDBCUtil.getMySqlConnection();
+		animal = dao.getAnimal(name);
+		if(animal != null) {
+			
+			int rs = dao.DeleteAnimal(name);
+		}else {
+			System.out.println("삭제할 동물이 없습니다.");
+		}
+		
+	} catch (Exception e) {
+		e.printStackTrace();
+	}finally {
+		JDBCUtil.close(pstmt, conn);
+	}
+
+}
+
+}

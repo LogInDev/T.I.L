@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+    <meta charset="UTF-8">
+    <title>index.html</title>
+    <!-- docunemt = html문서 전체를 뜻함
+    .querySelector :css 선택자 사용가능. 하나만 선택해서 적용
+.querySelectorAll : 모두 적용. 배열이여서 []로 인덱스값 지정해야 적용됨. 
+방법2) 모든 로딩을 끝내고 적용하는 .onload을 사용
+.onload로딩하는 동안 해야할 일을 function()에 넣어줌.
+.innerHTML[Text] : 글자 내용 바꿔줌-->
+    <script>
+        window.onload = function(){
+            const header = document.querySelector('#header');
+            header.style.color='orange';
+            header.style.background='red';
+            const uname = '홍길동';
+            const span = document.querySelector('#uname');
+            span.innerHTML=uname;
+            console.dir(span);
+            header.innerHTML='<h1>Name Hong!!!</h1>';//태그를 읽어줌
+            header.innerText='<h1>Name Hong!!!</h1>';//태그를 텍스트로 읽어줌
+            
+        }
+    </script>
+
+</head>
+<body>
+    <h1 id="header">Header</h1>
+    <h1>Name : <span id="uname">이름란</span></h1>
+
+
+    <div id="contents">Name : </div>
+   &lt;h1&gt;Name&lt;/h1&gt;
+</body>
+</html>

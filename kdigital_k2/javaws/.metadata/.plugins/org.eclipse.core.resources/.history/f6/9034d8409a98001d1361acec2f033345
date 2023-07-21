@@ -1,0 +1,62 @@
+package helloAnimaldb;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Scanner;
+
+import dbtest.JDBCUtil;
+
+public class AddAction implements Action{
+
+	@Override
+	public void execute(Scanner sc) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int rs = 0;
+		
+		System.out.println("동물의 종>>");
+		String kind = sc.next();
+		System.out.println("동물의 이름>>");
+		String name = sc.next();
+		System.out.println("동물의 나이>>");
+		int age = sc.nextInt();
+		System.out.println("동물의 울음소리>>");
+		String sound = sc.next();
+		
+		System.out.printf("%s,%s,%s,%s\n",kind, name, age,sound);
+		
+		
+		try {
+			AnimalDAO dao = new AnimalDAO();
+			AnimalVO animal = new AnimalVO(kind, name, age, sound);
+			JDBCUtil.getMySqlConnection();
+			dao.InsertAnimal(animal);
+		} catch (Exception e) {
+			e.getStackTrace();
+		}finally {
+			JDBCUtil.close(pstmt, conn);
+		}
+		
+		 
+		FileWriter fw = null;
+		String file = "./data/Animal.txt";
+		try {
+			fw = new FileWriter(file,true);
+			AnimalVO animal = new AnimalVO(kind, name,Integer.parseInt(age),sound);
+			fw.write(animal.toString()+"\n");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				fw.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+	
+}

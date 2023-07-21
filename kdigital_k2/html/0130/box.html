@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>box.html</title>
+    <style>
+        div#a{
+            background-color: red;
+            width: 100px; height: 100px;
+            border:20px solid black; 
+            padding: 0 30px ;
+            margin: 0 30px ;
+            
+
+        }
+        div#b{
+            background-color: blue;
+            width: 200px; height: 100px;
+           border-radius: 30px;
+        }
+        /* css reset */
+        /* *{
+            padding: 0;
+            margin: 0;
+            border: 0;
+        } */
+        .box{
+            border-width: thick;
+            border-style: dashed;
+            border-color: rgb(246, 148, 0);
+            border-radius: 50px 40px 20px 10px;
+        }
+        .box{
+            display: block;
+        }
+        #box{
+            display: none;
+        }
+        #spanA{
+            display: inline;
+            width: 50px;
+            height: 50px;
+            background-color: maroon;
+            margin: 10px;
+        }
+        #spanB{
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background-color: rgb(7, 107, 248);
+            margin: 10px;
+        }
+        #box2{
+            display: inline;
+        }
+    </style>
+    <!-- dashed : 점선 
+    display : none은 영역이 사라짐
+              block은 none인걸 보이게 함
+    글씨하나 정도는 span style을 정해서 블럭을 만들 수 있음
+block은 한줄 다먹고 inline-block은 컨텐츠 크기 정도의 블럭을 만듦 중간에 있는걸 inline으로 만들면 3개가 한줄로 됨.-->
+    <!-- solid:실선 
+    padding은 글자를 써야 의미가 있음. 크기를 늘려나감
+border도 크기가 늘려감 but 컨텐츠는 고정, 늘어나지 않음
+css reset : 인터넷 별로 사이트 크기가 상이하여 어디서든 동일하게 보이게 아예 첨부터 기본 여백을 통일 시켜버림-->
+</head>
+<body>
+    <span>A</span>
+    <div id="box2">C</div>
+    <span>B</span>
+    <hr>
+    <span id="spanA">A</span>
+    <div id="box">C</div>
+    <span id="spanB">B</span>
+    <hr>
+    <div class="box">
+        <h1>Lorem ipsum dolor amet</h1>
+    </div>
+    <hr>
+    <div id="a">A</div>
+    <div id="b">B</div>
+</body>
+</html>

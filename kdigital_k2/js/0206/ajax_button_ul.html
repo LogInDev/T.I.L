@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        const getAJAX = function(){
+            const req = new XMLHttpRequest();
+            req.open('GET','/data/name.txt');
+            req.send();
+            req.onreadystatechange = function(){
+                if(this.readyState !== XMLHttpRequest.DONE) return;
+                if(this.status ==200){
+                    resp = req.response;
+                    datas = JSON.parse(resp);
+                    //const name = resp - 가져올 값이 배열이 아닌 경우 datas를 생략하고 바로 resp받아서 innerText로 사용
+                    //const name = datas[0];//array
+                    let div = '';
+                    for(data of datas){
+                      div += '<li id='+data+'>'+data+'</li>';
+                    }
+                    const ul = document.querySelector('#ul');
+                    ul.innerHTML = div;
+                    
+                  };
+                };
+              };
+              window.onload = function () {
+                const btn1 = document.querySelector('#btn');
+                btn1.addEventListener('click',function(){ 
+                  getAJAX();
+                });  
+                const hong = document.querySelector('#홍길동');
+                hong.addEventListener('click', function () {
+                  hong.onfocus=false;
+                })
+            
+        };
+    </script>
+</head>
+<body>
+    <h1>Name : <span></span></h1>
+    <button id="btn">getName 1</button>
+    <ul id="ul">
+      
+    </ul>
+</body>
+</html>

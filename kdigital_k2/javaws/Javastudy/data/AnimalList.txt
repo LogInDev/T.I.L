@@ -1,0 +1,5 @@
+등록된 동물 수 : 4
+Kind : 포유류Name : 댕댕이Age : 4Sound : 멍멍
+Kind : 포유류Name : 강아지Age : 3Sound : 멍멍
+Kind : 파파파Name : BAAMAge : 3434Sound : 쉬쉬
+Kind : 조류Name : 참새Age : 45Sound : 짹짹

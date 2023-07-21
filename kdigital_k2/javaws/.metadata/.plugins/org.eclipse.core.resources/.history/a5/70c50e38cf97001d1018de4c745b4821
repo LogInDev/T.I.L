@@ -1,0 +1,13 @@
+package dbtest;
+
+import java.sql.Connection;
+
+public class ConnectionTest_MSQL {
+
+	public static void main(String[] args) {
+		Connection conn = null;
+		
+		String driver = 
+	}
+
+}

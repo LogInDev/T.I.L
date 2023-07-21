@@ -1,0 +1,164 @@
+package helloAnimaldb;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import dbtest.JDBCUtil;
+
+public class AnimalDAO {
+	List<AnimalVO> SearchAnimal(String name) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<AnimalVO> animals = new ArrayList<AnimalVO>();
+		try {
+			conn = JDBCUtil.getMySqlConnection();
+			String sql = "select * from animal where name like ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%"+name+"%");
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				String kind = rs.getString("kind");
+				name = rs.getString("name");
+				int age = rs.getInt("age");
+				String sound = rs.getString("sound");
+				AnimalVO vo = new AnimalVO(kind, name, age, sound);
+				animals.add(vo);
+			}
+
+
+		} catch (Exception e) {
+			e.getStackTrace();
+		}finally {
+			JDBCUtil.close(rs, pstmt, conn);
+		}
+		return animals;
+
+	
+	}
+	
+	int DeleteAnimal(String name) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int rs = 0;
+		try {
+			conn = JDBCUtil.getMySqlConnection();
+			String sql = "delete from animal where name like ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%"+name+"%");
+			rs = pstmt.executeUpdate();
+			System.out.println("rs : "+rs);
+		}catch (Exception e) {
+			e.getStackTrace();
+		}finally {
+			JDBCUtil.close(pstmt, conn);
+		}
+		return rs;
+	}
+	
+	int UpdateAnimal(AnimalVO animal){
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int rs = 0;
+		try {
+			conn = JDBCUtil.getMySqlConnection();
+			String sql = "update animal set kind = ?, age = ?, sound = ? where name = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, animal.getKind());
+			pstmt.setInt(2, animal.getAge());
+			pstmt.setString(3, animal.getSound());
+			pstmt.setString(4, animal.getName());
+			rs = pstmt.executeUpdate();
+			System.out.println("rs : "+rs);
+		}catch (Exception e) {
+			e.getStackTrace();
+		}finally {
+			JDBCUtil.close(pstmt, conn);
+		}
+		return rs;
+	}
+
+	
+	AnimalVO getAnimal(String name) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		AnimalVO animal = null;
+		ResultSet rs = null;
+		try {
+			conn = JDBCUtil.getMySqlConnection();
+			String sql = "select * from animal where name like ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,"%"+name+"%");
+			rs = pstmt.executeQuery();
+				while(rs.next()) {
+					String kind = rs.getString("kind");
+					int age = rs.getInt("age");
+					String sound = rs.getString("sound");
+					name = rs.getString("name");
+					animal = new AnimalVO(kind, name, age, sound);
+					System.out.println("name : "+name);
+
+				}
+
+		} catch (Exception e) {
+			e.getStackTrace();
+		}finally {
+			JDBCUtil.close(rs, pstmt, conn);
+		}
+		return animal;
+
+	}
+
+	int InsertAnimal(AnimalVO animal){
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int rs = 0;
+		try {
+			conn = JDBCUtil.getMySqlConnection();
+			String sql = "insert into animal (kind, name, age, sound) values (?,?,?,?)";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, animal.getKind());
+			pstmt.setString(2, animal.getName());
+			pstmt.setInt(3, animal.getAge());
+			pstmt.setString(4, animal.getSound());
+			rs = pstmt.executeUpdate();
+		}catch (Exception e) {
+			e.getStackTrace();
+		}finally {
+			JDBCUtil.close(pstmt, conn);
+		}
+		return rs;
+	}
+
+	List<AnimalVO> getAnimalList(){
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<AnimalVO> animals = new ArrayList<AnimalVO>();
+		try {
+			conn = JDBCUtil.getMySqlConnection();
+			String sql = "select * from animal";
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				String kind = rs.getString("kind");
+				String name = rs.getString("name");
+				int age = rs.getInt("age");
+				String sound = rs.getString("sound");
+				AnimalVO vo = new AnimalVO(kind, name, age, sound);
+				animals.add(vo);
+			}
+
+
+		} catch (Exception e) {
+			e.getStackTrace();
+		}finally {
+			JDBCUtil.close(rs, pstmt, conn);
+		}
+		return animals;
+
+	}
+}

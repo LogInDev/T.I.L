@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+          let btn = (function(){
+            let isCheck = true;
+            return function(){
+              $(".n").prop('checked', isCheck ? true : false);
+              isCheck = !isCheck;
+            
+          };
+          })();
+            $('#btn1').on('click',btn);
+           
+        });
+    </script>
+</head>
+<body>
+    <h1>Name : <span></span></h1>
+    1 <input class="n" type="radio"  value="1">
+    2 <input class="n" type="radio"  value="2" >
+    all <input class="n" type="radio"  value="0">
+    <button id="btn1">getName 1</button>
+    <ul id="ul"></ul>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>INLINE_BLOCK.HTML</title>
+    <style>
+        div{
+            background-color: darkolivegreen;
+            display: inline-block;
+            width: 100px; height: 100px;
+            padding: 100px;
+            margin : 300px 0;
+        }
+        a{
+            background-color: rgb(227, 217, 230);
+            display: inline-block;
+            width: 100px; height: 100px;
+            padding: 100px;
+            margin: 10px;
+        }
+        body{
+            background-image: url('/images/back.webp');
+            background-repeat: no-repeat;
+            background-size: 100% 100px;
+            background-color: rgb(227, 214, 183);
+        }
+        h{margin-bottom: 50px;}
+    </style>
+    <!-- float으로 띄우지 않아도 옆으로 붙이는 방법
+    display는 크게 보이게 할거지 안보이게 할 건지 둘로 나뉨
+    보이게 할 경우 속성 변경 inline은 콘텐츠 크기만큼만 여백발생(padding은 적용O)영역은 X - 겹침. inline-block은 콘텐츠별 범위를 설정이 가능
+    a태그는 기본이 inline.(원래 나란히 나타남)-->
+</head>
+<body>
+    <h1>sksksk</h1>
+    <hr>
+    <div>A</div>
+    <div>B</div>
+    <div>C</div>
+    <div>D</div>
+    <hr>
+    <a href="#">A</a>
+    <a href="#">B</a>
+    <a href="#">C</a>
+    <a href="#">D</a>
+</body>
+</html>

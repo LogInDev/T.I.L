@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.sample.book.dto.BoardDTO" alias="boardDTO"/>
+		<typeAlias type="com.sample.book.dto.BookDTO" alias="bookDTO"/>
+		<typeAlias type="com.sample.book.dto.TodayDTO" alias="todayDTO"/>
+	</typeAliases>
+  <mappers>
+    <mapper resource="/sqlmap/mapper/today-mapper.xml"/>
+    <mapper resource="/sqlmap/mapper/board-mapper.xml"/>
+    <mapper resource="/sqlmap/mapper/book-mapper-dto.xml"/>
+    <mapper resource="/sqlmap/mapper/book-mapper-map.xml"/>
+  </mappers>
+</configuration>

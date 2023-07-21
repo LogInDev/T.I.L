@@ -1,0 +1,84 @@
+package helloMemberdb.copy;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
+public class ListAction implements Action{
+
+	@Override
+	public void execute(Scanner sc) {
+
+		System.out.println("ListAction");
+		//db에서 가져와서 보여줌
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		List<MemberVO> members = new ArrayList<MemberVO>();
+		String driver = "com.mysql.cj.jdbc.Driver";
+
+		try {
+			//1. driver loading
+			Class.forName(driver);
+			//2. Connection
+			String url = "jdbc:mysql://localhost:3306/mysqlhello";
+			url += "?ServerTimezone=UTC";
+			String user = "root";
+			String password = "rpass";
+
+			conn = DriverManager.getConnection(url, user, password);
+			System.out.println("ok!!");
+			String sql = "select * from member";
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+
+			while(rs.next()) {
+				String id = rs.getString("id");
+				String pw = rs.getString("pw");
+				String name = rs.getString("name");
+				int age = rs.getInt("age");
+				MemberVO vo = new MemberVO(id, pw, name, age);
+				members.add(vo);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs !=null) rs.close();
+				if(stmt !=null) stmt.close();
+				if(conn !=null) conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		System.out.println("현재 회원수 : " + members.size());
+		for(int i=0;i<members.size();i++) {
+			System.out.print("ID: " + members.get(i).getId() +" / ");
+			System.out.print("PW: " + members.get(i).getPw() +" / ");
+			System.out.print("Name: " + members.get(i).getName() +" / ");
+			System.out.print("Age: " + members.get(i).getAge() );
+			System.out.println();
+		}
+		System.out.printf("=== Member Count %s명 ===\n",members.size());
+		for(MemberVO m: members) {
+			System.out.print("ID: " + m.getId() +" / ");
+			System.out.print("PW: " + m.getPw() +" / ");
+			System.out.print("Name: " + m.getName() +" / ");
+			System.out.print("Age: " + m.getAge() );
+			System.out.println();
+		}
+
+
+	}
+}

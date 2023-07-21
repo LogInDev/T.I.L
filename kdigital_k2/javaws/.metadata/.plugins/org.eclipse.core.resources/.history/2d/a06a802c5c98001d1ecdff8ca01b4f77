@@ -1,0 +1,55 @@
+package dbtest;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
+public class ListAction implements Action{
+
+	@Override
+	public void execute(Scanner sc) {
+		FileReader fr = null;
+		BufferedReader br = null;
+		FileWriter fw = null;
+		String file = "./data/member1.txt";
+		StringTokenizer st = null;
+		String file1 = "./data/MemberList.txt";
+
+		try {
+			fr = new FileReader(file);
+			br = new BufferedReader(fr);
+
+			String str = null;
+			List<String> members = new ArrayList<String>();
+			while ((str= br.readLine())!=null) {
+				members.add(str);
+			}
+
+			fw = new FileWriter(file1);   //매번 덮어씀
+			String num = "현재 회원수 : "+members.size()+"\n";
+			fw.write(num);
+			for(int i= 0;i<members.size();i++) {
+				st = new StringTokenizer(members.get(i),",");
+				fw.write("ID : "+st.nextToken()+" PW : "+st.nextToken()
+				+" Name : "+st.nextToken()+" Age : "+st.nextToken()+" Email : "+st.nextToken()+" Tel : "+st.nextToken()+"\n");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				fr.close();
+				br.close();
+				fw.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+}

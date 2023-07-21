@@ -1,0 +1,30 @@
+package hello;
+
+import java.io.BufferedWriter;
+import java.util.Scanner;
+
+public class Hello {
+
+	public static void main(String[] args) {
+		//4-13
+		String value = "12o34";
+		char ch = ' ';
+		boolean isNumber = true;
+
+		for(int i=0; i<value.length();i++) {
+			int a=value.charAt(i);
+			System.out.println(a);
+		}
+
+		if(isNumber) {
+			System.out.println(value+"는 숫자입니다.");
+		}else {
+			System.out.println(value+"는 숫자가 아닙니다.");
+		}
+
+	}
+
+
+
+}
+

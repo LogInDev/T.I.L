@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>css.html</title>
+    <!--css : 선택자{속성 : 값}; - * : all-->
+    <style>
+        h1{color : #d28800;}
+        p{color : royalblue;}
+        #header {
+            width: 800px; margin: 0 auto;
+            background-color: rgb(185, 217, 121);
+        }
+        #wrap {
+            width: 800px; margin: 0 auto;
+            overflow: scroll;
+        }
+        #aside{
+            width: 200px; background-color: rgb(144, 207, 232);
+            float: center;
+        }
+        #content{
+            width: 200px; background-color: palegreen;
+            float: left;
+        }
+        #content2{
+            width: 100px; background-color: rgb(244, 75, 148);
+            float:right
+        }
+        </style>
+        <!--margin : 다른 컨텐츠와의 관계바깥 여백, 시계방향으로 위부터 오른쪽 각각 줄 수 있음 0 - 위아래, auto - 오른쪽 왼쪽-->
+        <!--float은 위로 띄우는 역할 위로 띄어서 왼쪽에 붙임 그래도 영역은 있으서 오른쪽에 content가 붙음,옆으로 붙여 메뉴 단추 만들때 사용-->
+</head>
+<body>
+    
+    <ul>
+        <!--class는 같은 걸 주려고 만듦-->
+        <li class="select">사과</li>
+        <li>바나나</li>
+        <li class="select">오렌지</li>
+        <li>감</li>
+    </ul>
+    <hr>
+
+    <div id="header">
+        <h1>#header</div></h1>
+    </div>
+    <div id="wrap">
+        <div id="aside">
+            <h1>#aside</h1>
+        </div>
+        <div id="content">
+            <h1>#content</h1>
+        </div>
+        <div id="content2">
+            <h1>#content2</h1>
+        </div>
+    </div>
+    <h1>Lorem ipsum dolor sit amet</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi rutrum pretium elit, at iaculis dui congue facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed augue lectus, sagittis quis commodo commodo, congue a nibh. Donec ornare leo in ipsum consectetur euismod. Sed lorem urna, adipiscing eget pharetra ullamcorper, facilisis id sapien. Phasellus ac pellentesque odio. Curabitur quis tortor vel odio dignissim congue ac sit amet nisl. Nulla placerat nibh quis mi tincidunt pretium.</p>
+            <hr>
+</body>
+</html>

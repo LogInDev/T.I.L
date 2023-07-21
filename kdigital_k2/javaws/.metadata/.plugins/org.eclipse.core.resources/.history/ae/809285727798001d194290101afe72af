@@ -1,0 +1,63 @@
+package helloMemberdao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.util.Scanner;
+
+import dbtest.JDBCUtil;
+
+public class AddAction implements Action{
+	
+
+	@Override
+	public void execute(Scanner sc) {
+		// Add member
+		System.out.println("AddAction");
+		
+		System.out.println("==회원 정보 입력==");
+		System.out.print("ID>>");
+		String id = sc.next();
+		System.out.print("PW>>");
+		String pw = sc.next();
+		System.out.print("Name>>");
+		String name = sc.next();
+		System.out.print("Age>>");
+		int age = sc.nextInt();
+		
+		
+		Connection conn = null;
+		PreparedStatement stmt = null;  //옛날 쿼리창
+		int rs = 0;
+		
+		try {
+			
+			conn = JDBCUtil.getMySqlConnection();
+			System.out.println("ok!!");
+			
+			String sql = "insert into member(id,pw,name,age) ";
+			sql +="values(?,?,?,?)";
+//			sql문을 만들고 미리 넣어놔야함
+			stmt = conn.prepareStatement(sql);
+			stmt.setString(1, id);
+			stmt.setString(2, pw);
+			stmt.setString(3, name);
+			stmt.setInt(4, age);
+			rs = stmt.executeUpdate(); //성공하면 1 출력
+			System.out.println("rs : "+rs);
+			
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+					JDBCUtil.close(stmt, conn);
+				
+		}
+		
+		
+		
+		System.out.printf("%s,%s,%s,%s\n",id,pw,name,age);
+
+	}
+}

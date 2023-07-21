@@ -1,0 +1,16 @@
+package dbtest;
+
+import java.sql.Connection;
+
+public class JDBCUtil {
+	public static Connection getConnection() {
+		Connection conn = null;
+		String driver = "com.mysql.cj.jdbc.Driver";
+		
+		try {
+			
+		} catch (Exception e) {
+		}
+		return conn;
+	}
+}

@@ -1,0 +1,10 @@
+package dbtest;
+
+public class ConnectionTest_Oracle {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fokefoke.mapper.DetailMapper">
+
+<select id="getSide" resultType="com.fokefoke.dto.ProductDTO">
+	<![CDATA[
+		SELECT productName FROM product WHERE productType = '사이드'
+	]]>
+</select>
+<select id="getBeverage" resultType="com.fokefoke.dto.ProductDTO">
+	<![CDATA[
+		SELECT productName FROM product WHERE productType = '음료'
+	]]>
+</select>
+<select id="getProduct" parameterType="com.fokefoke.dto.ProductDTO" resultType="com.fokefoke.dto.ProductDTO">
+	<![CDATA[
+		SELECT * FROM product WHERE productName = #{productName}
+	]]>
+</select>
+<select id="getAuto" parameterType="com.fokefoke.dto.ProductDTO" resultType="com.fokefoke.dto.DetailDTO">
+	<![CDATA[
+		SELECT * FROM fokeingredient WHERE memberId='admin' and productName = #{productName} 
+	]]>
+</select>
+<insert id="insertDetail" parameterType="com.fokefoke.dto.DetailDTO" >
+	<![CDATA[
+		insert into fokeingredient(memberId, productName, base, atopping, btopping, ctopping, 
+		dtopping, asource, bsource, aextratopping, bextratopping, extramain, setbeverage, setside, total, price)
+		 values(#{memberId}, #{productName}, #{base}, #{atopping}, #{btopping}, #{ctopping}, 
+		#{dtopping}, #{asource}, #{bsource}, #{aextratopping}, #{bextratopping},
+		 #{extramain}, #{setbeverage}, #{setside}, #{total}, #{price}) 
+	]]>
+</insert>
+<select id="getNutritional" parameterType="com.fokefoke.dto.ProductDTO" resultType="com.fokefoke.dto.NutritionalDTO">
+	<![CDATA[
+		SELECT * FROM Nutritional WHERE productName = #{productName}
+	]]>
+</select>
+</mapper>

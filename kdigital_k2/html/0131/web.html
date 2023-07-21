@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>web.htmle</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            color: #58666e;
+            background-color: #f0f3f4;
+        }
+        h1{font-size: 1.8em;}
+        h1,h2,h3,h4,h5,h6{margin: 10px 5px;}
+        li{list-style: none;}
+        a{text-decoration: none;}
+        #wrap{
+            margin-top:60px;
+        }
+        header{
+            width: 100%;
+            height: 60px;
+            background-color:#fff;
+            box-shadow: 0 2px 2px;
+            position: fixed;
+            top: 0;
+        }
+        nav{
+            float: right;
+        }
+        .logo{
+            display: inline-block;
+            height: 36px;
+            margin: 9px 0 12px 25px;
+        }
+        .logo>img{height: 40px;}
+        .nav-item > li {display: inline-block;}
+        .nav-item > li > a{
+            line-height: 60px;
+            padding: 0 30px;
+        }
+        .nav-item >li>a:hover{color: rgb(199, 85, 83);}
+        aside{
+            position: fixed;
+            top: 60px;
+            bottom: 0;
+            width: 200px;
+            background-color: #333;
+            padding-top: 25px;
+        }
+        aside > ul{
+            width : 200px;
+        }
+        aside >ul >li >a {
+            display: block;
+            color:#fff;
+            padding : 10px 0 10px 20px;
+        }
+        aside >ul > li >a.active{
+            background-color: rgb(215, 118, 94);
+        }
+        aside >ul >li >a:hover:not(.active){
+            background-color: #555;
+        }
+        aside > h1 {
+            padding:20px 0 20px 20px;
+            color: #fff;
+        }
+        section{
+            float: right;
+            margin-left: 200px;
+        }
+        #content-wrap:after{
+            content: "";
+            display: block;
+            clear:both
+        }
+        article{
+            margin: 10px;
+            padding: 25px;
+            background-color: white;
+        }
+        footer{
+            position: absolute;
+            height: 60px;
+            width: 100%;
+            padding: 0 25px;
+            line-height: 60px;
+            color: #8a8c8f;
+            border-top: 1px solid #dee5e7;
+            background-color: #f2f2f2;
+        }
+        .navicon{
+            cursor: pointer;
+            height: 60px;
+            padding: 28px 15px;
+            position: absolute;
+            top: 0; right: 0;
+        }
+
+        .navicon-bar{
+            display: block;
+            width: 20px;
+            height: 3px;
+            background-color: #333;
+            position: relative;
+            transition: background-color .2s ease-in;
+        }
+        /* 스타일에 설정하기 전상태, 설정 후 상태->가상요소(부모님은 내자신) */
+        .navicon-bar::before, .navicon-bar::after {
+            background-color: #333;
+            content: "";
+            display: block;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            transition: background-color .2s ease-out;
+        }
+        .navicon-bar::before{
+            top: -7px;
+        }
+        .navicon-bar::after{
+            top: 7px;
+            
+        }
+
+        .nav-toggle{display: none;}
+        .navicon{display: none;}
+
+        .nav-toggle:checked ~ .navicon > .navicon-bar {
+            background:transparent;
+        }
+        .nav-toggle:checked ~ .navicon > .navicon-bar::before {
+            transform: rotate(45deg);
+            top: 0;
+        }
+        .nav-toggle:checked ~ .navicon > .navicon-bar::after {
+            transform: rotate(-45deg);
+            top: 0;
+        }
+        @media screen and (max-width : 480px){
+            header{
+                height: 60px;
+            }
+            .nav-item{display: none;}
+            .navicon{display: block;}
+            .nav-toggle:checked ~ .nav-item{
+                display: block;
+                width : 100%;
+                background-color: #fff;
+                box-shadow: 0 2px 2px rgba(0,0,0,0.05);
+            }
+            aside{
+                top:60px;
+                width: 100%;
+                position: static;
+                padding: 5px;
+            }
+            aside > ul {
+                width: 100%;
+            }
+            aside >h1{
+                padding: 5px 0 10px 20px;
+            }
+            section{
+                float: none;
+                margin-left: 0;
+            }
+            .nav-item > li {display: block;}
+            .nav-item > li > a{
+                line-height: 50px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <header>
+            <a href="#" class="logo">
+                <img src="/images/dog/dog1.jpg" alt="dog" height="36px">
+            </a>
+            <nav> 
+                <input class="nav-toggle" id="nav-toggle" type="checkbox">
+                <label class="navicon" for="nav-toggle"><span class="navicon-bar"></span></label>
+                <ul class="nav-item">
+                    <li> <a href="#">Home</a> </li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div id="content-wrap">
+            <aside>
+                <h1>Aside</h1>
+                <ul>
+                    <li><a href="#" class="active">London</a></li>
+                    <li><a href="#" >Paris</a></li>
+                    <li><a href="#" >Tokyo</a></li>
+                    <li><a href="#" >Newyork</a></li>
+                </ul>
+            </aside>
+            <section>
+                <article id="london">
+                    <h1>London</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis enim vitae est elementum euismod. Duis lobortis euismod nunc a dapibus. Proin nulla enim, adipiscing ac pharetra quis, vehicula a mauris. Maecenas nec tellus metus. Fusce sollicitudin facilisis orci, vel fringilla nisi molestie lobortis. Suspendisse dapibus dapibus semper. Duis ac purus nulla. Quisque elementum nibh non ipsum feugiat placerat. Cras tristique urna non urna hendrerit lacinia. Pellentesque porta velit ut felis faucibus in mollis purus malesuada. Duis porta, nulla sed suscipit elementum, arcu mi consectetur enim, id auctor risus enim a metus. Phasellus lorem quam, suscipit a congue vel, viverra eu nisi. Mauris ac felis lorem.</p>
+                </article>
+                <article id="paris">
+                    <h1>Paris</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis enim vitae est elementum euismod. Duis lobortis euismod nunc a dapibus. Proin nulla enim, adipiscing ac pharetra quis, vehicula a mauris. Maecenas nec tellus metus. Fusce sollicitudin facilisis orci, vel fringilla nisi molestie lobortis. Suspendisse dapibus dapibus semper. Duis ac purus nulla. Quisque elementum nibh non ipsum feugiat placerat. Cras tristique urna non urna hendrerit lacinia. Pellentesque porta velit ut felis faucibus in mollis purus malesuada. Duis porta, nulla sed suscipit elementum, arcu mi consectetur enim, id auctor risus enim a metus. Phasellus lorem quam, suscipit a congue vel, viverra eu nisi. Mauris ac felis lorem.</p>
+                </article>
+                <article id="tokyo">
+                    <h1>Tokyo</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis enim vitae est elementum euismod. Duis lobortis euismod nunc a dapibus. Proin nulla enim, adipiscing ac pharetra quis, vehicula a mauris. Maecenas nec tellus metus. Fusce sollicitudin facilisis orci, vel fringilla nisi molestie lobortis. Suspendisse dapibus dapibus semper. Duis ac purus nulla. Quisque elementum nibh non ipsum feugiat placerat. Cras tristique urna non urna hendrerit lacinia. Pellentesque porta velit ut felis faucibus in mollis purus malesuada. Duis porta, nulla sed suscipit elementum, arcu mi consectetur enim, id auctor risus enim a metus. Phasellus lorem quam, suscipit a congue vel, viverra eu nisi. Mauris ac felis lorem.</p>
+                </article>
+                <article id="newyork">
+                    <h1>Newyork</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis enim vitae est elementum euismod. Duis lobortis euismod nunc a dapibus. Proin nulla enim, adipiscing ac pharetra quis, vehicula a mauris. Maecenas nec tellus metus. Fusce sollicitudin facilisis orci, vel fringilla nisi molestie lobortis. Suspendisse dapibus dapibus semper. Duis ac purus nulla. Quisque elementum nibh non ipsum feugiat placerat. Cras tristique urna non urna hendrerit lacinia. Pellentesque porta velit ut felis faucibus in mollis purus malesuada. Duis porta, nulla sed suscipit elementum, arcu mi consectetur enim, id auctor risus enim a metus. Phasellus lorem quam, suscipit a congue vel, viverra eu nisi. Mauris ac felis lorem.</p>
+                </article>
+            </section>
+        </div>
+        <footer>Copyleft 2023.01.31 mongmung</footer>
+    </div>
+</body>
+</html>

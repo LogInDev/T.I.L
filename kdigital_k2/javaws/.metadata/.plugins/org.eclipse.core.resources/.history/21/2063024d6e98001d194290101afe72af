@@ -1,0 +1,5 @@
+package helloMemberdao;
+
+public class JDBCUtil {
+
+}

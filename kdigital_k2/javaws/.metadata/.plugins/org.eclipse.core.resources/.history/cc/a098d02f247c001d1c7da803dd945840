@@ -1,0 +1,32 @@
+package hello;
+
+import java.util.Scanner;
+
+public class Hello {
+
+	public static void main(String[] args) {
+		//4-14
+		int answer = (int)(Math.random()*100)+1;
+		int input = 0;
+		int count = 0;
+
+		Scanner s = new Scanner(System.in);
+		do {
+			count++;
+			System.out.print("1과 100사이의 값을 입력하세요 : ");
+			input = s.nextInt();
+			if(input>answer) {
+				input--;
+			} else if(input<answer) {
+				input++;
+			} else break;
+
+		} while(true);
+
+
+	}
+
+
+
+}
+

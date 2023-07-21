@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script>
+         window.onload = function () {
+            // select selected value
+            // btn event
+            // confirm
+            // 이동 location.href = ''
+            const jsSelect = document.querySelector('#js-select');
+            const jsText = document.querySelector('#js-text');
+            //버튼 눌렀을 때 이동
+            const jsBtn = document.querySelector('#js-btn');
+            jsBtn.addEventListener('click', function () {
+                const selectedIndex = jsSelect.options.selectedIndex;
+                const selectedValue = jsSelect.options[selectedIndex].value;
+                if(selectedValue !==''){
+                    const rs = confirm(`Go ${selectedValue} ?`);
+                    if(rs)//window.은 생략 가능
+                        window.location.href = selectedValue;
+                }
+            });
+            // 선택 했을 때 이동
+            jsSelect.addEventListener('change', function () {
+                const selectedIndex = jsSelect.options.selectedIndex;
+                const selectedValue = jsSelect.options[selectedIndex].value;
+                if(selectedValue !==''){
+                    jsText.value = selectedValue;
+                    const rs = confirm(`Go ${selectedValue} ?`);
+                    if(rs)//window.은 생략 가능
+                        window.location.href = selectedValue;
+                }
+            });
+            // console.dir(jsSelect);
+        };
+       
+        $(function(){
+            $('#jq-btn').on('click', function () {
+                const selectedValue = $('#jq-select option:selected').val();
+                if(selectedValue !==''){
+                    $('#jq-text').val(selectedValue);
+                    const rs = confirm(`Go ${selectedValue} ?`);
+                    if(rs)//window.은 생략 가능
+                        // $(location).replace(selectedValue);
+                        $(location).attr('href', selectedValue);
+                }
+            });
+            $('#jq-select').on('change', function () {
+                const selectedValue = $('#jq-select option:selected').val();
+                if(selectedValue !==''){
+                    $('#jq-text').val(selectedValue);
+                    const rs = confirm(`Go ${selectedValue} ?`);
+                    if(rs)//window.은 생략 가능
+                        // $(location).replace( selectedValue);
+                        $(location).attr('href', selectedValue);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <select name="" id="js-select">
+            <option value="">==JS selected==</option>
+            <option value="http://google.com">Google</option>
+            <option value="http://naver.com">Naver</option>
+            <option value="http://daum.net">Daum</option>
+        </select>
+        <input type="text" id="js-text" />
+        <button id="js-btn">go</button>
+    </div>
+    <div>
+        <select name="" id="jq-select">
+            <option value="">==JQ selected==</option>
+            <option value="http://google.com">Google</option>
+            <option value="http://naver.com">Naver</option>
+            <option value="http://daum.net">Daum</option>
+        </select>
+        <input type="text" id="jq-text" />
+        <button id="jq-btn">go</button>
+    </div>
+</body>
+</html>

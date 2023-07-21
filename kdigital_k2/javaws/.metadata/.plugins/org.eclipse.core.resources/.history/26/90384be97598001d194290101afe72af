@@ -1,0 +1,48 @@
+package helloMemberdao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Scanner;
+
+import dbtest.JDBCUtil;
+
+public class DeleteAction implements Action{
+
+	@Override
+	public void execute(Scanner sc) {
+		Connection conn = null;
+		PreparedStatement stmt = null;  
+		ResultSet rs = null;
+		System.out.println("UpdateAction");
+		System.out.println("삭제할 ID : ");
+		String id = sc.next();
+
+		try {
+			conn = JDBCUtil.getMySqlConnection();
+
+			String sql = "select * from member where id = ?";
+			stmt = conn.prepareStatement(sql);
+			stmt.setString(1, id);
+			rs = stmt.executeQuery();
+
+			if(rs.next()) {
+				
+				sql = "delete from member where id=?";
+				stmt = conn.prepareStatement(sql);
+				stmt.setString(1,id);
+				int cnt = stmt.executeUpdate();
+				System.out.println("row : " + cnt);
+			}else {
+				System.out.println("삭제할 ID가 없습니다.");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+				JDBCUtil.close(rs, stmt, conn);
+		}
+		
+	}
+}

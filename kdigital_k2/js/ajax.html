@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        const req = new XMLHttpRequest();
+        req.open('GET','/data/test.json');
+        req.send();
+        req.onreadystatechange = function(){
+            if(this.readyState !== XMLHttpRequest.DONE) return;
+            if(this.status ==200){
+                resp = req.response;
+                datas = JSON.parse(resp);
+            };
+        };
+    </script>
+</head>
+<body>
+    <h1>Javascript - AJAX</h1>
+</body>
+</html>

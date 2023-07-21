@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        const getAJAX = function(){
+            const req = new XMLHttpRequest();
+            req.open('GET','/data/name.txt');
+            req.send();
+            req.onreadystatechange = function(){
+              if(this.readyState !== XMLHttpRequest.DONE) return;
+              if(this.status ==200){
+                resp = req.response;
+                datas = JSON.parse(resp);
+                const select1 = document.querySelector(".n:checked").value;
+                if(select1 ==="0"){
+                  n = datas.length;
+                } else{
+                  n = select1;
+                }
+                let li ="";
+                for(let i=0;i<n;i++){
+                  li += "<li>" + datas[i] + "</li>";
+                }
+                const ul = document.querySelector("ul");
+                ul.innerHTML = li;
+              };
+            };
+            
+        };
+        window.onload = function () {
+          const sel1 = document.querySelector("#s");
+          sel1.addEventListener('change',function(){
+            getAJAX();
+          });
+        };
+    </script>
+</head>
+<body>
+    <h1>Name : <span></span></h1>
+    <select id="s">
+      <option class="n" value="">==선택==</option><!--버튼 없이 선택만 해서 값이 나오게-->
+      <option class="n"  value="1">1</option>
+      <option class="n"  value="2">2</option>
+      <option class="n"  value="0">all</option>
+    </select>
+    <ul id="ul"></ul>
+</body>
+</html>

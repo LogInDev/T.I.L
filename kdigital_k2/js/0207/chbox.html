@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>chbox.html</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script>
+        window.onload = function (){
+            const jsAll = document.querySelector('#js-all');
+            const jss = document.querySelectorAll('.js');
+            jsAll.addEventListener('click', function () {
+                jss.forEach((js) => {js.checked = jsAll.checked;});
+                // for(i in jss) jss[i].checked = jsAll.checked;
+                // for(js of jss) js.checked = jsAll.checked;
+            });
+            jss[0].addEventListener('click',function(){
+                alert("aa");
+            });
+        }
+        $(function(){
+            $('#jq-all').on('click',function () {
+                $('.jq').prop('checked',$('#jq-all').is(':checked'));
+            })
+        });
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>js-all <input type="checkbox" id="js-all"></td>
+            <td>jq-all <input type="checkbox" id="jq-all"> </td>
+        </tr>
+        <tr>
+            <td> <input type="checkbox" class="js"> </td>
+            <td> <input type="checkbox" class="jq"> </td>
+        </tr>
+        <tr>
+            <td> <input type="checkbox" class="js"> </td>
+            <td> <input type="checkbox" class="jq"> </td>
+        </tr>
+        <tr>
+            <td> <input type="checkbox" class="js"> </td>
+            <td> <input type="checkbox" class="jq"> </td>
+        </tr>
+    </table>
+</body>
+</html>

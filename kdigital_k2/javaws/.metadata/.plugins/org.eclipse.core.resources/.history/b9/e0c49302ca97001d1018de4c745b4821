@@ -1,0 +1,28 @@
+package dbtest;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class ConnectionTest {
+
+	public static void main(String[] args) {
+		Connection conn = null;
+		
+		String driver = "com.mysql.cj.jdbc.Driver";
+		try {
+			//1. driver loading
+			Class.forName(driver);
+			//2. Connection
+			String url = "jdbc:mysql://localhost:3306/mysqlhello";
+			url += "?ServerTimezone=UTC";
+			String user = "root";
+			String password = "rpass";
+			
+			conn = DriverManager.getConnection(url, user, password);
+			System.out.println("ok!!");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}

@@ -1,0 +1,132 @@
+
+2월 10, 2023 17:35:11.535 NEW SESSION
+2월 10, 2023 17:35:11.535 [13948:14176:0210/173511.533:ERROR:device_event_log_impl.cc(215)] [17:35:11.532] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+2월 10, 2023 17:36:05.236 [13948:9832:0210/173605.235:ERROR:util.cc(134)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+2월 10, 2023 17:40:42.160 [960:8276:0210/174042.160:ERROR:device_event_log_impl.cc(215)] [17:40:42.160] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+2월 10, 2023 17:41:39.903 [960:13716:0210/174139.903:ERROR:util.cc(134)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+2월 10, 2023 17:45:16.681 [0210/174516.676:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\14ba1d74-cf25-4976-962a-66806d7576e1: 지정된 파일을 찾을 수 없습니다. (0x2)
+2월 10, 2023 17:45:16.683 [0210/174516.676:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\14ba1d74-cf25-4976-962a-66806d7576e1: 지정된 파일을 찾을 수 없습니다. (0x2)
+2월 10, 2023 17:45:44.691 [0210/174544.689:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\14ba1d74-cf25-4976-962a-66806d7576e1: 지정된 파일을 찾을 수 없습니다. (0x2)
+2월 10, 2023 17:45:44.692 [0210/174544.689:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\14ba1d74-cf25-4976-962a-66806d7576e1: 지정된 파일을 찾을 수 없습니다. (0x2)
+2월 10, 2023 18:03:34.709 [960:8276:0210/180334.709:ERROR:interface_endpoint_client.cc(695)] Message 1 rejected by interface blink.mojom.WidgetHost
+2월 10, 2023 18:03:34.710 [960:8276:0210/180334.709:ERROR:interface_endpoint_client.cc(695)] Message 1 rejected by interface blink.mojom.WidgetHost
+2월 10, 2023 18:10:54.704 [960:8276:0210/181054.704:ERROR:interface_endpoint_client.cc(695)] Message 1 rejected by interface blink.mojom.WidgetHost
+
+2월 23, 2023 10:41:20.299 NEW SESSION
+2월 23, 2023 10:41:20.299 [5180:9424:0223/104120.296:ERROR:interface_endpoint_client.cc(695)] Message 5 rejected by interface blink.mojom.WidgetHost
+2월 23, 2023 18:39:56.480 [11896:8624:0223/183956.479:ERROR:interface_endpoint_client.cc(695)] Message 1 rejected by interface blink.mojom.WidgetHost
+2월 23, 2023 18:39:56.480 [11896:8624:0223/183956.480:ERROR:interface_endpoint_client.cc(695)] Message 1 rejected by interface blink.mojom.WidgetHost
+
+2월 24, 2023 09:33:54.890 NEW SESSION
+2월 24, 2023 09:33:54.890 [11532:11248:0224/093354.888:ERROR:interface_endpoint_client.cc(695)] Message 1 rejected by interface blink.mojom.WidgetHost
+
+2월 24, 2023 16:47:26.353 NEW SESSION
+2월 24, 2023 16:47:26.353 [5128:12744:0224/164726.349:ERROR:interface_endpoint_client.cc(695)] Message 1 rejected by interface blink.mojom.WidgetHost
+2월 24, 2023 16:50:27.146 [5128:12744:0224/165027.146:ERROR:device_event_log_impl.cc(218)] [16:50:27.146] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
+
+2월 28, 2023 09:43:15.892 NEW SESSION
+2월 28, 2023 09:43:15.892 [libprotobuf ERROR ..\..\third_party\protobuf\src\google\protobuf\message_lite.cc:133] Can't parse message of type "safe_browsing.ClientDownloadRequest" because it is missing required fields: (cannot determine missing fields for lite message)
+
+3월 03, 2023 10:21:23.64 NEW SESSION
+3월 03, 2023 10:21:23.64 [6640:11696:0303/102123.062:ERROR:interface_endpoint_client.cc(695)] Message 1 rejected by interface blink.mojom.WidgetHost
+3월 03, 2023 10:21:23.65 [6640:11696:0303/102123.062:ERROR:interface_endpoint_client.cc(695)] Message 1 rejected by interface blink.mojom.WidgetHost
+3월 03, 2023 10:34:57.152 [libprotobuf ERROR ..\..\third_party\protobuf\src\google\protobuf\message_lite.cc:133] Can't parse message of type "safe_browsing.ClientDownloadRequest" because it is missing required fields: (cannot determine missing fields for lite message)
+3월 03, 2023 10:35:00.890 [libprotobuf ERROR ..\..\third_party\protobuf\src\google\protobuf\message_lite.cc:133] Can't parse message of type "safe_browsing.ClientDownloadRequest" because it is missing required fields: (cannot determine missing fields for lite message)
+3월 03, 2023 10:35:55.954 [6640:11696:0303/103555.954:ERROR:device_event_log_impl.cc(218)] [10:35:55.954] Bluetooth: bluetooth_adapter_winrt.cc:1073 Getting Default Adapter failed.
+3월 03, 2023 14:03:07.236 [6640:11696:0303/140307.236:ERROR:interface_endpoint_client.cc(695)] Message 5 rejected by interface blink.mojom.WidgetHost
+3월 03, 2023 15:03:55.307 [libprotobuf ERROR ..\..\third_party\protobuf\src\google\protobuf\message_lite.cc:133] Can't parse message of type "safe_browsing.ClientDownloadRequest" because it is missing required fields: (cannot determine missing fields for lite message)
+3월 03, 2023 15:03:57.215 [libprotobuf ERROR ..\..\third_party\protobuf\src\google\protobuf\message_lite.cc:133] Can't parse message of type "safe_browsing.ClientDownloadRequest" because it is missing required fields: (cannot determine missing fields for lite message)
+3월 03, 2023 15:03:58.670 [libprotobuf ERROR ..\..\third_party\protobuf\src\google\protobuf\message_lite.cc:133] Can't parse message of type "safe_browsing.ClientDownloadRequest" because it is missing required fields: (cannot determine missing fields for lite message)
+3월 03, 2023 15:04:00.101 [libprotobuf ERROR ..\..\third_party\protobuf\src\google\protobuf\message_lite.cc:133] Can't parse message of type "safe_browsing.ClientDownloadRequest" because it is missing required fields: (cannot determine missing fields for lite message)
+3월 03, 2023 15:04:01.924 [libprotobuf ERROR ..\..\third_party\protobuf\src\google\protobuf\message_lite.cc:133] Can't parse message of type "safe_browsing.ClientDownloadRequest" because it is missing required fields: (cannot determine missing fields for lite message)
+3월 03, 2023 15:04:03.452 [libprotobuf ERROR ..\..\third_party\protobuf\src\google\protobuf\message_lite.cc:133] Can't parse message of type "safe_browsing.ClientDownloadRequest" because it is missing required fields: (cannot determine missing fields for lite message)
+3월 03, 2023 15:04:05.542 [libprotobuf ERROR ..\..\third_party\protobuf\src\google\protobuf\message_lite.cc:133] Can't parse message of type "safe_browsing.ClientDownloadRequest" because it is missing required fields: (cannot determine missing fields for lite message)
+3월 03, 2023 15:04:07.503 [libprotobuf ERROR ..\..\third_party\protobuf\src\google\protobuf\message_lite.cc:133] Can't parse message of type "safe_browsing.ClientDownloadRequest" because it is missing required fields: (cannot determine missing fields for lite message)
+3월 03, 2023 15:04:09.498 [libprotobuf ERROR ..\..\third_party\protobuf\src\google\protobuf\message_lite.cc:133] Can't parse message of type "safe_browsing.ClientDownloadRequest" because it is missing required fields: (cannot determine missing fields for lite message)
+3월 03, 2023 15:04:11.809 [libprotobuf ERROR ..\..\third_party\protobuf\src\google\protobuf\message_lite.cc:133] Can't parse message of type "safe_browsing.ClientDownloadRequest" because it is missing required fields: (cannot determine missing fields for lite message)
+3월 03, 2023 15:52:00.143 [6640:11696:0303/155200.143:ERROR:sharing_service.cc(252)] Device un-registration failed with fatal error
+
+3월 07, 2023 10:47:40.890 NEW SESSION
+3월 07, 2023 10:47:40.890 [10044:12088:0307/104740.887:ERROR:interface_endpoint_client.cc(695)] Message 1 rejected by interface blink.mojom.WidgetHost
+3월 07, 2023 12:30:54.124 [10044:12088:0307/123054.124:ERROR:interface_endpoint_client.cc(695)] Message 1 rejected by interface blink.mojom.WidgetHost
+
+3월 13, 2023 16:18:32.517 NEW SESSION
+3월 13, 2023 16:18:32.517 [11016:10108:0313/161832.515:ERROR:interface_endpoint_client.cc(695)] Message 1 rejected by interface blink.mojom.WidgetHost
+
+3월 15, 2023 11:36:53.818 NEW SESSION
+3월 15, 2023 11:36:53.818 [0315/113653.806:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\14ba1d74-cf25-4976-962a-66806d7576e1: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:36:53.820 [0315/113653.807:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\1e91c3c1-35e3-4d28-a4db-455be58980ec: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:36:53.820 [0315/113653.807:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\1383a8dd-9c69-40c0-b397-66f87e4ec58a: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:36:53.820 [0315/113653.807:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\61c18eab-10d1-464f-a53e-6ec0b03f8d52: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:36:53.821 [0315/113653.807:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\26aa5af3-60ff-499d-a44d-5ee336ea88a4: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:36:53.821 [0315/113653.808:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\0c6ec987-e0ae-4ffa-b77e-db7b2d34b595: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:36:53.821 [0315/113653.808:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\6d469610-f1af-461a-9ad1-23b3d2a12288: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:36:53.821 [0315/113653.809:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\14ba1d74-cf25-4976-962a-66806d7576e1: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:36:53.821 [0315/113653.809:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\1e91c3c1-35e3-4d28-a4db-455be58980ec: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:36:53.822 [0315/113653.809:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\1383a8dd-9c69-40c0-b397-66f87e4ec58a: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:36:53.822 [0315/113653.810:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\61c18eab-10d1-464f-a53e-6ec0b03f8d52: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:36:53.822 [0315/113653.810:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\26aa5af3-60ff-499d-a44d-5ee336ea88a4: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:36:53.822 [0315/113653.810:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\0c6ec987-e0ae-4ffa-b77e-db7b2d34b595: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:36:53.822 [0315/113653.810:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\6d469610-f1af-461a-9ad1-23b3d2a12288: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:41:29.568 [0315/114129.564:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\14ba1d74-cf25-4976-962a-66806d7576e1: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:41:29.569 [0315/114129.564:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\1e91c3c1-35e3-4d28-a4db-455be58980ec: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:41:29.569 [0315/114129.564:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\1383a8dd-9c69-40c0-b397-66f87e4ec58a: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:41:29.569 [0315/114129.564:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\61c18eab-10d1-464f-a53e-6ec0b03f8d52: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:41:29.569 [0315/114129.565:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\26aa5af3-60ff-499d-a44d-5ee336ea88a4: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:41:29.569 [0315/114129.565:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\0c6ec987-e0ae-4ffa-b77e-db7b2d34b595: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:41:29.570 [0315/114129.565:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\6d469610-f1af-461a-9ad1-23b3d2a12288: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:41:29.570 [0315/114129.566:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\14ba1d74-cf25-4976-962a-66806d7576e1: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:41:29.570 [0315/114129.566:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\1e91c3c1-35e3-4d28-a4db-455be58980ec: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:41:29.570 [0315/114129.567:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\1383a8dd-9c69-40c0-b397-66f87e4ec58a: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:41:29.570 [0315/114129.567:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\61c18eab-10d1-464f-a53e-6ec0b03f8d52: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:41:29.570 [0315/114129.567:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\26aa5af3-60ff-499d-a44d-5ee336ea88a4: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:41:29.571 [0315/114129.567:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\0c6ec987-e0ae-4ffa-b77e-db7b2d34b595: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:41:29.571 [0315/114129.568:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\6d469610-f1af-461a-9ad1-23b3d2a12288: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:41:35.591 [0315/114135.591:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\14ba1d74-cf25-4976-962a-66806d7576e1: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:41:35.591 [0315/114135.591:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\1e91c3c1-35e3-4d28-a4db-455be58980ec: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:41:35.591 [0315/114135.591:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\1383a8dd-9c69-40c0-b397-66f87e4ec58a: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:41:35.592 [0315/114135.592:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\61c18eab-10d1-464f-a53e-6ec0b03f8d52: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:41:35.592 [0315/114135.592:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\26aa5af3-60ff-499d-a44d-5ee336ea88a4: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:41:35.592 [0315/114135.592:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\0c6ec987-e0ae-4ffa-b77e-db7b2d34b595: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:41:35.593 [0315/114135.592:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\6d469610-f1af-461a-9ad1-23b3d2a12288: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:41:35.593 [0315/114135.593:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\14ba1d74-cf25-4976-962a-66806d7576e1: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:41:35.594 [0315/114135.594:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\1e91c3c1-35e3-4d28-a4db-455be58980ec: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:41:35.594 [0315/114135.594:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\1383a8dd-9c69-40c0-b397-66f87e4ec58a: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:41:35.594 [0315/114135.594:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\61c18eab-10d1-464f-a53e-6ec0b03f8d52: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:41:35.594 [0315/114135.594:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\26aa5af3-60ff-499d-a44d-5ee336ea88a4: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:41:35.595 [0315/114135.595:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\0c6ec987-e0ae-4ffa-b77e-db7b2d34b595: 지정된 파일을 찾을 수 없습니다. (0x2)
+3월 15, 2023 11:41:35.595 [0315/114135.595:ERROR:filesystem_win.cc(130)] GetFileAttributes C:\Users\tjoeun_jr\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\6d469610-f1af-461a-9ad1-23b3d2a12288: 지정된 파일을 찾을 수 없습니다. (0x2)
+
+3월 17, 2023 13:02:48.710 NEW SESSION
+3월 17, 2023 13:02:48.710 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+3월 17, 2023 15:34:20.738 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+3월 17, 2023 15:51:34.19 [5908:12364:0317/155134.019:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.168 s for first_image_paint 0.155 s
+3월 17, 2023 15:51:34.602 [5908:12364:0317/155134.602:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.168 s for first_image_paint 0.155 s
+3월 17, 2023 15:51:34.851 [5908:12364:0317/155134.851:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.168 s for first_image_paint 0.155 s
+3월 17, 2023 15:51:34.960 [5908:12364:0317/155134.960:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.168 s for first_image_paint 0.155 s
+3월 17, 2023 15:51:35.99 [5908:12364:0317/155135.099:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.168 s for first_image_paint 0.155 s
+3월 17, 2023 15:51:35.208 [5908:12364:0317/155135.208:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.168 s for first_image_paint 0.155 s
+3월 17, 2023 15:51:35.410 [5908:12364:0317/155135.410:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.168 s for first_image_paint 0.155 s
+3월 17, 2023 15:51:35.580 [5908:12364:0317/155135.580:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.168 s for first_image_paint 0.155 s
+3월 17, 2023 15:51:36.141 [5908:12364:0317/155136.141:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.168 s for first_image_paint 0.155 s
+3월 17, 2023 15:51:36.242 [5908:12364:0317/155136.242:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.168 s for first_image_paint 0.155 s
+3월 17, 2023 15:51:36.366 [5908:12364:0317/155136.366:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.168 s for first_image_paint 0.155 s
+3월 17, 2023 15:51:36.481 [5908:12364:0317/155136.481:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.168 s for first_image_paint 0.155 s
+3월 17, 2023 15:51:36.633 [5908:12364:0317/155136.633:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.168 s for first_image_paint 0.155 s
+3월 17, 2023 15:51:36.762 [5908:12364:0317/155136.762:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.168 s for first_image_paint 0.155 s
+3월 17, 2023 15:51:36.870 [5908:12364:0317/155136.870:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.168 s for first_image_paint 0.155 s
+3월 17, 2023 15:51:37.161 [5908:12364:0317/155137.161:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.168 s for first_image_paint 0.155 s
+3월 17, 2023 15:51:37.513 [5908:12364:0317/155137.513:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.168 s for first_image_paint 0.155 s
+3월 17, 2023 15:51:37.845 [5908:12364:0317/155137.845:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.168 s for first_image_paint 0.155 s
+3월 17, 2023 15:51:38.00 [5908:12364:0317/155138.000:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.168 s for first_image_paint 0.155 s
+3월 17, 2023 15:51:38.187 [5908:12364:0317/155138.187:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.168 s for first_image_paint 0.155 s
+3월 17, 2023 15:51:38.337 [5908:12364:0317/155138.337:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.168 s for first_image_paint 0.155 s
+3월 17, 2023 15:51:38.513 [5908:12364:0317/155138.513:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.168 s for first_image_paint 0.155 s
+3월 17, 2023 15:51:38.668 [5908:12364:0317/155138.668:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.168 s for first_image_paint 0.155 s
+3월 17, 2023 15:51:38.776 [5908:12364:0317/155138.776:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.168 s for first_image_paint 0.155 s
+3월 17, 2023 15:51:38.793 [5908:12364:0317/155138.792:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.168 s for first_image_paint 0.155 s
+3월 17, 2023 15:51:38.876 [5908:12364:0317/155138.876:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.168 s for first_image_paint 0.155 s
+
+3월 17, 2023 16:22:55.731 NEW SESSION
+3월 17, 2023 16:22:55.731 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+3월 17, 2023 16:28:39.688 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.

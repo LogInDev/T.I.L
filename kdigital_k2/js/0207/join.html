@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>join.html</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        #use, #notuse{display:none;}
+        .red{
+            color:red;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script>
+       const idCheck = function(){
+        if ($('#uid').val().length ===0) {
+                    alert('ID 입력 필수');
+                    $('#uid').focus();
+                    return;
+        }
+        let path = '/data/idcheck.json?uid=' + $('#uid').val();
+            $.ajax({
+                type:'GET', 
+                url:path,
+                dataType : 'json',
+                success : function(datas) { 
+                    const isCheck = datas["status"];// true 중복
+                    if(isCheck){
+                        $('#notuse').css('display','block');
+                        $('#uid').val("");
+                    }else{
+                        $('#use').css('display','block');
+                    };
+                },
+                error:function(request,status, error){
+                    console.log(request,status, error);
+                }
+            });//key:value를 바로 넣을 수 있게 함.
+        };
+    </script>
+    <script>
+        //js
+        window.onload = function(){
+            const check = function () {
+                //querySelector없이 name은 바로 접근 가능 id로 접근시 querySelector필요
+                const form = document.joinForm;
+                const uid = form.uid;
+                const upw1 = form.upw1;
+                const upw2 = form.upw2;
+                const name = form.uname;
+                const age = form.uage;
+               // alert('uid = '+ uid);//실행하려면 check();사용
+               //id에 아무것도 입력안했을 경우 알림
+           
+               if (uid.value.length ===0) {
+                    alert('ID 입력 필수');
+                    uid.focus();
+                    return;
+               }
+               if (uid.value.length < 2) {
+                    alert('ID는 2글자 이상');
+                    uid.focus();
+                    return;
+               }
+               if (upw1.value.length ===0) {
+                    alert('PW 입력 필수');
+                    upw1.focus();
+                    return;
+               }
+               if (upw2.value.length ===0) {
+                    alert('PW확인 입력 필수');
+                    upw2.focus();
+                    return;
+               }
+               if (upw1.value !== upw2.value) {
+                    alert('PW와 PW확인은 같지 않음');
+                    upw1.value ='';
+                    upw2.value='';
+                    upw1.focus();
+                    return;
+               }
+               if (uname.value.length ===0) {
+                    alert('Name 입력 필수');
+                    uname.focus();
+                    return;
+               }
+               if (uname.value.length < 2) {
+                    alert('Name는 2글자 이상');
+                    uname.focus();
+                    return;
+               }
+               //작성 완료
+               form.submit();
+            };
+            
+            
+            const joinBtn = document.querySelector('#joinBtn');
+            joinBtn.onclick = function () {
+                check();
+            };
+            const checkBtn = document.querySelector('#checkBtn');
+
+            checkBtn.onclick = function () {
+                idCheck();
+            };
+        };
+    </script>
+</head>
+<body>
+    <div class="container">
+    <h1>회원가입</h1>
+    <form name="joinForm" action="join_proc.jsp" method="post">
+        <table class="table">
+            <tr>
+                <td>ID</td>
+            </tr>
+            <tr>
+                <td><input type="text" name="uid" id="uid" >
+                <button type="button" id="checkBtn">ID중복확인</button></td>
+            </tr>
+            <tr id="notuse">
+                <td><span class="red">중복된 아이디입니다.</span></td>
+            </tr>
+            <tr id="use">
+                <td><span class="red">사용 가능한 아이디입니다.</span></td>
+            </tr>
+            <tr>
+                <td>PW</td>
+            </tr>
+            <tr>
+                <td><input type="password" name="upw1" id="upw1"></td>
+            </tr>
+            <tr>
+                <td>PW 확인</td>
+            </tr>
+            <tr>
+                <td><input type="password" name="upw2" id="upw2"></td>
+            </tr>
+            <tr>
+                <td>Name</td>
+            </tr>
+            <tr>
+                <td><input type="text" name="uname" id="uname"></td>
+            </tr>
+            <tr>
+                <td>Age</td>
+            </tr>
+            <tr>
+                <td><input type="text" name="uage" id="uage"></td>
+            </tr>
+            <tr>
+                <td><button type="button" class="btn btn-outline-primary" id="joinBtn">JOIN</button></td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script>
+        $.ajax({
+            type:'GET', //POST, DELETE, PUT 으로 변경 가능.
+            url:'/data/name.txt',
+            dataType : 'json',//XML : XML객체로, html : DOM으로, json : object로 바꿔줌
+            success : function(resp) { //callback함수 (언제 성공할지는 모르지만 성공하면 시스템이 보내줌)
+                console.log(resp);
+                
+
+            },
+            error:function(request,status, error){
+                console.log(request,status, error);
+            }
+        });//key:value를 바로 넣을 수 있게 함.
+    </script>
+</head>
+<body>
+    <h1>Name : <span></span> </h1>
+</body>
+</html>

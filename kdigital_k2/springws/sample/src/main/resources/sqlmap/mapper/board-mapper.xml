@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="boardDTO">
+
+<insert id="insert" parameterType="boardDTO" useGeneratedKeys="true" 
+keyProperty="seq">
+	<![CDATA[
+		insert into board (title, writer, content) 
+		values (#{title}, #{writer}, #{content})
+	]]>
+</insert>
+
+<select id="select_list" parameterType="hashmap" resultType="boardDTO">
+	<![CDATA[
+		select seq, title, writer, content, regdate, cnt 
+		from board where 1=1
+	]]>
+	<if test="book != null ">
+		and ${book} like CONCAT('%', #{text}, '%')
+	</if>
+	<![CDATA[
+		order by regdate desc 
+	]]>
+</select>
+
+<select id="select_detail" parameterType="boardDTO" resultType="boardDTO">
+	<![CDATA[
+		select seq, title, writer, content, regdate, cnt 
+		from board where seq = #{seq} 
+	]]>
+</select>
+
+<update id="update" parameterType="boardDTO">
+	<![CDATA[
+		update board set title=#{title}, writer=#{writer}, content=#{content} 
+		where seq=#{seq}
+	]]>
+</update>
+<update id="updateCnt" parameterType="boardDTO">
+	<![CDATA[
+		update board set cnt=cnt + 1 where seq=#{seq}
+	]]>
+</update>
+<delete id="delete" parameterType="boardDTO">
+	<![CDATA[
+		delete from board where seq=#{seq}
+	]]>
+</delete>
+<delete id="deleteCheck" parameterType="java.util.List">
+         
+      DELETE FROM board  WHERE seq IN
+    <foreach item="item" collection="list" open="(" separator="," close=")">
+      #{item.seq}
+    </foreach>
+   
+   </delete>
+
+</mapper>

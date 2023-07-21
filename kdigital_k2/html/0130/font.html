@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>font.html</title>
+    <style>
+        .a{font-size: 32px;}
+        .b{font-size: 2em;}
+        .c{font-size: large;}
+        .d{font-size: small;}
+        .font-arial{
+            font-family: Arial, Helvetica, sans-serif;
+            font-style: italic;
+        }
+        .font-roman{
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bold;
+        }
+        .font-bold{ font-weight: bold;}
+        .font-italic{font-style: italic;}
+        .font-big{font-size: 2em;}
+        .font-center{text-align: center;}
+        .font-right{text-align: right;}
+        .font-red{color:red;}
+        .font-blue{color:blue;}
+        .date{
+            font-weight: bold;
+            text-align: right;
+            margin-right: 20px;
+        }
+    </style>
+    <!-- 1em은 연결 프로그램의 기본 폰트사이즈(크롬은 16px) 폰트가 없을 경우를 대비해 여러가지를 넣음. 앞에서 부터 순서대로 적용 (그래도 없으면 시스템 폰트 사용)-->
+    <!-- 각각 요소를 각각다 정의한게 부트스트랩
+    class는 중복 적용해서 모양을 만들 수 있음
+id는 중복 불가 특정할 필요가 있을 때 -->
+</head>
+<body>
+    <p class="font-bold font-italic font-big font-center">Lorem ipsum dolor sit amet</p>
+    <p class="date font-red">2019.07.10</p>
+    <p class="date font-blue">2019.07.10</p>
+    <hr>
+    <h1 class="font-arial font-big">Lorem ipsum dolor sit amet</h1>
+    <p class="font-roman">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis enim vitae est elementum euismod. Duis lobortis euismod nunc a dapibus. Proin nulla enim, adipiscing ac pharetra quis, vehicula a mauris. Maecenas nec tellus metus. Fusce sollicitudin facilisis orci, vel fringilla nisi molestie lobortis. Suspendisse dapibus dapibus semper. Duis ac purus nulla. Quisque elementum nibh non ipsum feugiat placerat. Cras tristique urna non urna hendrerit lacinia. Pellentesque porta velit ut felis faucibus in mollis purus malesuada. Duis porta, nulla sed suscipit elementum, arcu mi consectetur enim, id auctor risus enim a metus. Phasellus lorem quam, suscipit a congue vel, viverra eu nisi. Mauris ac felis lorem.</p>
+
+    <p class="a">Lorem ipsum dolor sit amet</p>
+    <p class="b">Lorem ipsum dolor sit amet</p>
+    <p class="c">Lorem ipsum dolor sit amet</p>
+    <p class="d">Lorem ipsum dolor sit amet</p>
+</body>
+</html>

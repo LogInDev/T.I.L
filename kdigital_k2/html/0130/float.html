@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>float.html</title>
+    <style>
+        .container {
+          color: white;
+          text-align: center;
+          padding: 10px;
+          background-color: #def0c2;
+        }
+        .d1, .d2 {
+          float: left;
+          width: 50%;
+          padding: 20px 0;
+        }
+        .d1 {
+          background-color: #59b1f6;
+        }
+        .d2 {
+          background-color: #ffb5b4;
+        }
+        .clearfix::after{
+            content:"";
+            display: block;
+            clear: both;
+        }
+
+      </style>
+    </head>
+    <body>
+      <div class="container clearfix">
+        <div class="d1">1</div>
+        <div class="d2">2</div>
+      </div>
+      <div style="background:red;padding:10px;color:white;">3</div>
+    </body>
+    </html>

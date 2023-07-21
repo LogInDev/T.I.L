@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sample">
+
+	<select id="getCount" resultType="int">
+	<![CDATA[
+		select count(*) from board
+	]]>
+	</select>
+	<select id="getBoardMap" parameterType="int" resultType="hashmap">
+	<![CDATA[
+		select seq, title, writer, content, regDate, cnt
+		from board where seq = #{seq}
+	]]>
+	</select>
+	<select id="getBoardVO" parameterType="int" resultType="com.mvcboard.vo.BoardVO">
+	<![CDATA[
+		select seq, title, writer, content, regDate, cnt
+		from board where seq = #{seq}
+	]]>
+	</select>
+	<select id="getBoardListMap" resultType="hashmap">
+	<![CDATA[
+		select seq, title, writer, content, regDate, cnt
+		from board order by seq desc
+	]]>
+	</select>
+	<select id="getBoardListVO" resultType="boardVO">
+	<![CDATA[
+		select seq, title, writer, content, regDate, cnt
+		from board order by seq desc
+	]]>
+	</select>
+	<select id="getBoardSearch" parameterType="String" resultType="boardVO">
+	<![CDATA[
+		select seq, title, writer, content, regDate, cnt
+		from board where 1=1
+	]]>
+	<if test="title != null">
+		and title like concat('%', #{title}, '%')
+	</if>
+	<![CDATA[
+		order by seq desc
+	]]>
+	</select>
+	<select id="getBoardSearchMap" parameterType="Map" resultType="boardVO">
+	<![CDATA[
+		select seq, title, writer, content, regDate, cnt
+		from board where 1=1
+	]]>
+	<if test="title != null">
+		and title like concat('%', #{title}, '%')
+	</if>
+	<if test="title != null">
+		and writer like concat('%', #{writer}, '%')
+	</if>
+	<![CDATA[
+		order by seq desc
+	]]>
+	</select>
+
+</mapper>

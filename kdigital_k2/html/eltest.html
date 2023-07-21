@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ajax-jquery.html</title>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const getJson = function (type) {
+        $.ajax({
+          type: "GET",
+          url: "http://localhost:9200/kibana_sample_data_ecommerce/_search",
+          dataType: "json",
+          //data:param,
+          success: function (data) {
+            console.log(data);
+            $("#area").text(data);
+          },
+          error: function (request, status, error) {
+            console.log(request, status, error);
+          },
+        });
+      };
+
+      $(function () {
+        $("#btn").on("click", getJson);
+      });
+    </script>
+  </head>
+  <body>
+    <p id="area"></p>
+    <button id="btn">es</button>
+  </body>
+</html>

@@ -1,0 +1,109 @@
+package helloMemberdb;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class DeleteAction implements Action{
+
+	@Override
+	public void execute(Scanner sc) {
+		Connection conn = null;
+		PreparedStatement pstmt = null; 
+		Statement stmt = null;
+		int rs = 0;
+		ResultSet rs1 = null;
+		String driver = "com.mysql.cj.jdbc.Driver";
+		List<MemberVO> members = new ArrayList<MemberVO>();
+		MemberVO member = null;
+		try {
+			//1. driver loading
+			Class.forName(driver);
+			//2. Connection
+			String url = "jdbc:mysql://localhost:3306/mysqlhello";
+			url += "?ServerTimezone=UTC";
+			String user = "root";
+			String password = "rpass";
+
+			conn = DriverManager.getConnection(url, user, password);
+			//Delete
+			System.out.println("DeleteAction");
+			System.out.println("삭제할 ID : ");
+			String did = sc.next();
+			int deleteIndex =-1;
+			for(int i =0;i<members.size();i++) {
+				if(members.get(i).getId().equals(did)) {
+					deleteIndex =i;
+					break;
+				}
+			}
+
+			String sql = "select * from member";
+			stmt = conn.createStatement();
+			rs1 = stmt.executeQuery(sql);
+
+			while(rs1.next()) {
+				String id = rs1.getString("id");
+				String pw = rs1.getString("pw");
+				String name = rs1.getString("name");
+				int age = rs1.getInt("age");
+
+				MemberVO vo = new MemberVO(id, pw, name, age);
+				members.add(vo);
+			}
+			for(MemberVO m: members) {
+				if(m.getId().equals(did)) {
+					member =m;
+					break;
+				}
+			}
+		//List<String> rData -> MemberVO
+			List<String> rData = new ArrayList<String>();
+		for(String data:rData) {
+			String[]dArr = data.split(",");
+			String id = dArr[0];
+			String pw = dArr[1];
+			String name = dArr[2];
+			int age = Integer.parseInt(dArr[3]);
+			member = new MemberVO(id, pw, name,age);
+			members.add(member);
+		}
+		
+		
+
+	
+        if(deleteIndex != -1) {
+
+            members.remove(deleteIndex);// 0, 0
+            String dsql = "Delete from member where id = '"+did+"'";
+            pstmt = conn.prepareStatement(dsql);
+
+			rs = pstmt.executeUpdate(); //성공하면 1 출력
+
+			System.out.println("rs : "+rs);
+        }else {
+            System.out.println("삭제할 ID가 없습니다.");
+        }
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs1 !=null) rs1.close();
+				if(stmt !=null) stmt.close();
+				if(conn !=null) conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+	}
+}

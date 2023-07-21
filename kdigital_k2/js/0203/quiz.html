@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>test.html</title>
+    <script>
+      window.onload = function(){
+        const getJson = function(){
+          const req = new XMLHttpRequest();
+                req.open('GET', '/data/quiz.json');
+                req.send();
+          req.onreadystatechange = function(){
+            if(this.readyState !== XMLHttpRequest.DONE) return;
+            if(this.status == 200){
+              const resp =this.response;
+              const datas = JSON.parse(resp);
+              const sport = datas['quiz']['sport'];
+              const maths = datas['quiz']['maths'];
+              const sop = sport['q1']['options'];
+              let div1 = '';
+              div1 +='q1>'
+              div1 +=sport['q1']['question']+'<br>';
+              let n=0;
+              let a=0;
+              for(i in sop){
+                n++;
+                div1 += 'e'+n+'>'+sop[i]+'<br>';
+                if(sop[i]=== 'Huston Rocket') a=n;
+              };
+              div1 += 'a'+a+'>'+ sport['q1']['answer'];
+              const dSport = document.querySelector('#sport');
+              dSport.innerHTML = div1;
+              let div2 = '';
+              div2 += 'q1>';
+              div2 += maths['q1']['question']+'<br>';
+              const m1op = maths['q1']['options'];
+              n=0;
+              for(i in m1op){
+                n++;
+                div2 += 'e'+n+'>'+ m1op[i] + '<br>';
+                if(m1op[i]=== '12') a=n;
+              };
+              div2 +='a'+a+'>' + maths['q1']['answer']+'<br>';
+              div2 += '<br>';
+
+              div2 +='q2>';
+              div2 += maths['q2']['question']+'<br>';
+              const m2op = maths['q2']['options'];
+              n=0;
+              for(i in m2op){
+                n++;
+                div2 += 'e'+n+'>'+ m2op[i] + '<br>';
+                if(m2op[i]=== '4') a=n;
+              };
+              div2 +='a'+a+'>' + maths['q2']['answer']+'<br>';
+              const dMaths = document.querySelector('#maths');
+              dMaths.innerHTML = div2;
+          };
+        };
+      };
+      getJson();
+    };
+    </script>
+  </head>
+  <body>
+    <h1>sport</h1>
+    <div id="sport">
+      
+    </div>
+    <h1>maths</h1>
+    <div id="maths">
+      
+    </div>
+    dddd<br>
+    dddd
+    ddd
+
+  </body>
+</html>

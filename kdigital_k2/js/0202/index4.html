@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <style>
+        #box{
+            height: 200px; width: 200px;
+            background-color: red;
+        }
+    </style>
+    
+    <script>
+        window.onload = function(){
+            
+            //--------------------------------------------------
+//             const pow1 = function(x) {
+//                 return x*x;
+//             };
+// //매개값이 1개이면 () 생략 가능. return 하나 있으면 {}생략 가능
+//             // const pow2 = (x) => {x*x};
+//             const pow2 = x => x * x;
+//             console.log(pow1(5));
+//             console.log(pow2(5));
+            //---------------------------------------------------
+            //템플릿 리터럴 : 물결 키보다 따옴표 사용해서 ${}안에 변수명 작성
+            // const first = 'Ung-mo';
+            // const last = 'Lee';
+            // let myname1 = 'My name is '+first + ' '+ last+'!!';
+            // console.log(myname1);
+            // let myname2 = `My name is ${first} ${last}!!`;
+            // console.log(myname2);
+            //-------------------------------------------
+            //클로저2
+            // function makeCounter(v){
+            //     let count = v;
+            //     function Increase(){
+            //         count++;
+            //         return count; 
+            //     }
+            //     return Increase;
+            // }
+
+            // let count1 = makeCounter(0);
+            // const plusBtn = document.querySelector('#plus');
+            // const span=document.querySelector('span');
+            // plusBtn.onclick = function(){
+            //    let n = count1();
+            //    span.innerText =n;
+            // }
+            // count1();
+            // count1();
+            // count1();// 상태값이 유지됨
+            //------------------------------------------
+            // const toggleBtn = document.querySelector('.toggle');
+            // const box = document.querySelector('#box');
+            //즉시실행(함수)(); - 동일명의 변수를 사용해도 영향을 받지 않는 보호 역할도 함.
+            //클로저 : 함수안에서 함수를 리턴하는 것
+            //return안에 함수만 계속 실행됨.
+            // let toggle = (function (){
+            //     let isShow = false;
+            //     return function (){ 
+            //         box.style.display = isShow ? 'block' : 'none';
+            //         isShow = !isShow;
+            //     };
+            // })();
+            // toggleBtn.onclick = toggle;
+            //------------------------------------
+            // const box = document.querySelector('#box');
+            // box.addEventListener('click',function (){
+            //     box.style.background = 'blue';
+            // });
+            // box.addEventListener('mouseover',function (){
+            //     box.style.background = 'yellow';
+            // });
+        };
+    </script>
+</head>
+<body>
+    <!-- <span>0</span>
+    <button id="plus">+</button> -->
+    <!-- ------------------------------------ -->
+    <!-- <button class="toggle">toggle</button>
+    <div id="box"></div> -->
+</body>
+</html>

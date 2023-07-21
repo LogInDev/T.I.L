@@ -1,0 +1,44 @@
+package helloAnimaldb;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.List;
+import java.util.Scanner;
+
+import dbtest.JDBCUtil;
+
+public class SearchAction implements Action{
+
+	@Override
+	public void execute(Scanner sc) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+     	AnimalVO vo = null;
+		AnimalDAO dao = new AnimalDAO();
+		List<AnimalVO> animal = null;
+		System.out.println("SearchAction");
+		System.out.println("찾을 동물 이름 : ");
+		String name = sc.next();
+
+
+		try {
+			conn = JDBCUtil.getMySqlConnection();
+			vo = dao.getAnimal(name);
+			if(vo != null) {
+
+				dao.SearchAnimal(name);
+			}else {
+				System.out.println(name+"동물이 없습니다.");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			JDBCUtil.close(pstmt, conn);
+		}
+
+
+
+	}
+
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax-jquery.html</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+    const getJson = function (type) {
+        const match = {
+            "query": {
+                "match": {
+                "category": "clothing"
+                }
+            },
+            size: 20
+        }
+
+        const range = {
+            "query": {
+                "range": {
+                    "day_of_week_i": {
+                    "gte": 1
+                    }
+                }
+            },
+            size: 20
+        }
+        const must = {
+            "_source": ["day_of_week","customer_full_name"], 
+            "query": {
+  "query": {
+    "match": {
+      "Age": "10"
+    }
+  }
+}
+
+        const sel = [match,range,must];
+
+        const url = 'http://localhost:9200/kg_titanic/_search'
+        const urlt = 'http://localhost:9200/kibana_sample_data_ecommerce/_search'
+        
+        $.ajax({
+            type:'POST',
+            contentType: "application/json",
+            url:url,
+            dataType:'json',
+            data:JSON.stringify(sel[type]),           
+            success: function (data) {
+                console.log(data);
+                $('#area').text(data);
+            },
+            error: function (request, status, error) {
+                console.log(request, status,error);
+            }
+        });
+    }  
+   
+    </script>
+</head>
+<body>
+    <p id="area"></p>
+    <button id="match" onclick="getJson(0)">match</button>
+    <button id="range" onclick="getJson(1)">range</button>
+    <button id="must" onclick="getJson(2)">must</button>
+
+    
+</body>
+</html>

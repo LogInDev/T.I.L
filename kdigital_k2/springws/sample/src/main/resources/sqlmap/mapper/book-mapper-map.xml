@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bookMap">
+
+	<insert id="insert" parameterType="hashmap"
+		useGeneratedKeys="true" keyProperty="book_id">
+	<![CDATA[
+		insert into book (title, category, price) 
+		values (#{title}, #{category}, #{price})
+	]]>
+	</insert>
+
+	<select id="select_list" parameterType="hashmap"
+		resultType="hashmap">
+	<![CDATA[
+		select book_id, title, category, price, insert_date 
+		from book where 1=1
+	]]>
+	<if test="book != null">	
+		and ${book} like CONCAT('%',#{text},'%') 
+	</if>
+	<![CDATA[
+		order by insert_date desc 
+	]]>
+	</select>
+
+	<select id="select_detail" parameterType="hashmap"
+		resultType="hashmap">
+	<![CDATA[
+		select book_id, title, category, price, insert_date 
+		from book where book_id = #{book_id} 
+	]]>
+	</select>
+
+	<update id="update" parameterType="hashmap">
+	<![CDATA[
+		update book set title=#{title}, category=#{category}, price=#{price} 
+		where book_id=#{book_id}
+	]]>
+	</update>
+	<delete id="delete" parameterType="hashmap">
+	<![CDATA[
+		delete from book where book_id=#{book_id}
+	]]>
+	</delete>
+
+</mapper>

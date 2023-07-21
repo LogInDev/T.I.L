@@ -1,0 +1,62 @@
+<form id="autoForm" action="/detail/select" method="post">
+    <input type="hidden" id="price" name="price" value="${product.productPrice }">
+    <div class="modal_7" style="width: 500px; height: 550px;">
+            <br> <div class="modal_se " style="height: 135px; width: 430px;">
+            <div>
+            <span style="margin-left:160px;font-size: 26pt; font-weight: 550;color:#f06923;">${product.productName }</span>
+                <span style="margin-left:157px;font-size: 26pt; font-weight: 550;">추천 꿀 조합</span>
+            </div>
+            <hr style="border : 0px;  border-top: 5px solid #469543; margin:0 -24px 0 44px;">
+                <br> 
+                <table style="width:376px;height:300px;margin: 0 0 0 64px;">
+                <tr>
+                <td style="width:150px; font-size: 16pt; font-weight: 550; color:#469543;">베이스</td>
+                <td style="font-size: 15pt; font-weight: 550;color: #3d3d3dba;">${auto.base}</td>
+                </tr>
+                <tr>
+                <td style="font-size: 16pt; font-weight: 550;color:#469543;">토핑</td>
+                <td style="font-size: 15pt; font-weight: 550;color: #3d3d3dba;">
+                    <input type="hidden" name="atopping" value="${auto.atopping }">${auto.atopping } 
+                    <c:if test="${not empty auto.btopping }">
+                         <input type="hidden" name="btopping" value="${auto.btopping }">, ${auto.btopping }
+                    </c:if> 
+                    <c:if test="${not empty auto.ctopping }">
+                        <input type="hidden" name="ctopping" value="${auto.ctopping }">, ${auto.ctopping }
+                    </c:if> 
+                    <c:if test="${not empty auto.dtopping }">
+                        <input type="hidden" name="dtopping" value="${auto.dtopping }">, ${auto.dtopping }
+                    </c:if></td>
+                </tr>
+                <tr>
+                <td style="font-size: 16pt; font-weight: 550;color:#469543;">소스</td>
+                <td style="font-size: 15pt; font-weight: 550;color: #3d3d3dba;">
+                    <input type="hidden" name="asource" value="${auto.asource }">${auto.asource } 
+                    <c:if test="${not empty auto.bsource} ">
+                        <input type="hidden" name="bsource" value="${auto.bsource }">, ${auto.bsource }
+                    </c:if>
+                </td>
+                </tr>
+                <tr>
+                <td colspan="2" >
+                <label for="aab">
+                    <h4 style="margin-left: 20px;">
+                        <input type="radio" name="base" value="현미밥 추가" id="aab" checked>
+                        <i class="circleA"></i> <span class="text">현미밥 추가</span>
+                    </h4>
+                </label><label for="abb">
+                    <h4 style="margin-left: 20px;">
+                        <input type="radio" name="base" value="샐러드만" id="abb"> <i
+                            class="circleB"></i> <span class="text">샐러드만</span>
+                    </h4>
+                </label>
+                </td>
+                </tr>
+                </table>
+                  <br>
+                <div class="d-flex justify-content-center">
+                    <button type="button" id="nextBtn7" class="btn btn-lg text-white"
+                        style="margin-left:63px;background-color: #f06923; border-radius: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;다음&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                </div>
+            </div>
+    </div>
+</form>

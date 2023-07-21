@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $('#box').css({
+                width:100, height:100,
+                background:'red'}).animate({
+                    width:300, opacity:0.5
+                },20000);
+        
+            //---------------------------
+            // $('button').on('click',function (){
+            //     $('.page').fadeToggle('slow');
+            // })
+            //----------------------------
+            // $('.box').css({
+            //     background: 'red',s
+            //     width:100,
+            //     height:100,
+            // }).on({
+            //     click:function(){
+            //     $(this).css('background','orange');},
+            //     mouseenter:function(){
+            //     $(this).css('background','blue');}
+            // })
+            // ----------------------
+            // .on('click', function(){
+            //     $(this).css('background','orange');
+            // }).on('mouseenter',function(){
+            //     $(this).css('background','blue');
+            // })
+            // -----------------------------
+            // $('.box').css('background','red');
+            // $('.box').css('width',100);
+            // $('.box').css('height',100);
+            // $('.box').css('float','left');
+            // $('.box').css('margin',10);
+            // ------------------------------------------------
+            // $('img').attr(
+            //     {
+            //         alt:'강아지', src: '/images/dog/dog1.jpg',
+            //         width :500
+            //     }
+            // )
+            // ---------------------------------------
+            // $('h1').css('color','red');
+            // $('h1').css('background','black');
+            // $('#btn1').on('click',function () {
+            //     $('#header1').hide();
+            // })
+            // $('#btn2').on('click',function () {
+            //     $('#header1').show();
+            // })
+            // $('#btn3').on('click',function () {
+            //     $('#header3').html('header3');
+            // })
+        });
+    </script>
+</head>
+<body>
+    <div id="box"></div>
+    <!-- <button>Toggle Show</button>
+    <div class="page">
+        <h1>dyqapyapaypaypaypaypa</h1>
+        <p>dyqapyapaypaypaypaypadyqapyapaypaypaypaypadyqapyapaypaypaypaypdyqapyapaypaypaypaypadyqapyapaypaypaypaypadyqapyapaypaypaypaypadyqapyapaypaypaypaypadyqapyapaypaypaypaypadyqapyapaypaypaypaypadyqapyapaypaypaypaypadyqapyapaypaypaypaypadyqapyapaypaypaypaypa
+        </p>
+    </div>
+    <div class="box"></div> -->
+    <!-- <div class="box"></div>
+    <div class="box"></div> -->
+    <!-- <img src="" alt=""> -->
+    <!-- <h1 id="header1">header</h1>
+    <h1 id="header2">header</h1>
+    <h1 id="header3">header</h1>
+    <button id="btn1">1번 숨기기</button>
+    <button id="btn2">2번 숨기기</button>
+    <button id="btn3">3번 숨기기</button> -->
+</body>
+</html>

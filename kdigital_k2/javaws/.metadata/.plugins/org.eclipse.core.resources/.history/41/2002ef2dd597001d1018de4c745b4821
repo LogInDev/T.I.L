@@ -1,0 +1,27 @@
+package dbtest;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class ConnectionTest_Oracle {
+
+	public static void main(String[] args) {
+		Connection conn = null;
+		
+		String driver = "orable.jdbc.driver.OracleDriver";
+		try {
+			Class.forName(driver);
+		String url = "jdbc:oracle:thin:@localhost:1521:SCOTT";
+		url += "?ServerTimezone=UTC";
+		String user = "scott";
+		String password = "tiger";
+		
+		conn = DriverManager.getConnection(url, user, password);
+		System.out.println("ok!!");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+}

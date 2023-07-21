@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>fadeout.html</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script>
+        // window.onload = function(){
+        //     const lis = document.querySelectorAll('li');
+        //     // // li(parameter) li: HTMLLIElement
+        //     //     lis.forEach((li) => {
+        //     //         li.addEventListener("click", function (e) {
+        //     //             e.target.style.display = 'none';
+        //     //         });
+        //     //     });
+        //     const btns = document.querySelectorAll('button');
+        //          btns.forEach((btn) => {
+        //             btn.addEventListener("click", function (e) {
+        //                 console.dir(e);
+        //                 e.target.parentElement.style.display = 'none';
+        //             });
+        //         });
+        // };
+        $(function () {
+            $('button').on('click', function (){
+                $(this).parent('li').css('display', 'none');
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <ul>
+        <li>홍길동<button>삭제</button> </li>
+        <li>이순신<button>삭제</button> </li>
+        <li>강감찬<button>삭제</button> </li>
+    </ul>
+</body>
+</html>

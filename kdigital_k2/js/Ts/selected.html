@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>selected.html</title>
+    <script
+      src="https://code.jquery.com/jquery-3.6.3.min.js"
+      integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      window.onload = function () {
+        // select selected value
+        // btn event
+        // confirm
+        // 이동 location.href= ''
+        const jsSelect = document.querySelector("#js-select");
+        const jsBtn = document.querySelector("#js-btn");
+        const jsText = document.querySelector("#js-text");
+        jsBtn.addEventListener("click", function () {
+          const selectedIndex = jsSelect.options.selectedIndex;
+          const selectedValue = jsSelect.options[selectedIndex].value;
+          if (selectedValue !== "") {
+            const rs = confirm(`Go ${selectedValue} ?`);
+            if (rs) window.location.href = selectedValue;
+          }
+        });
+        jsSelect.addEventListener("change", function () {
+          const selectedIndex = jsSelect.options.selectedIndex;
+          const selectedValue = jsSelect.options[selectedIndex].value;
+          if (selectedValue !== "") {
+            jsText.value = selectedValue;
+            const rs = confirm(`Go ${selectedValue} ?`);
+            if (rs) window.location.href = selectedValue;
+          }
+        });
+      };
+
+      $(function name(params) {
+        $("#jq-btn").on("click", function () {
+          const selectedValue = $("#jq-select option:selected").val();
+
+          if (selectedValue !== "") {
+            $("#jq-text").val(selectedValue);
+            const rs = confirm(`Go ${selectedValue} ?`);
+            if (rs) $(location).atrr("href", selectedValue);
+            //if (rs) $(location).replace(selectedValue);
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div>
+      <select id="js-select">
+        <option value="">==js selected==</option>
+        <option value="http://google.com">Google</option>
+        <option value="http://naver.com">Naver</option>
+        <option value="http://daum.net">Daum</option>
+      </select>
+      <input type="text" id="js-text" />
+      <button id="js-btn">go site</button>
+    </div>
+    <div>
+      <select id="jq-select">
+        <option value="">==jq selected==</option>
+        <option value="http://google.com">Google</option>
+        <option value="http://naver.com">Naver</option>
+        <option value="http://daum.net">Daum</option>
+      </select>
+      <input type="text" id="jq-text" />
+      <button id="jq-btn">go site</button>
+    </div>
+  </body>
+</html>

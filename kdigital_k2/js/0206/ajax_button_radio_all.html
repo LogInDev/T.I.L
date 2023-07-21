@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+          const btn1 = document.querySelector("#btn1")
+          const btn2 = document.querySelector("#btn2")
+          let radios = document.querySelectorAll('.n');
+       
+          let btn = (function(){
+            let isCheck = true;
+            return function(){
+              radios[0].checked = isCheck ? true : false;
+              radios[1].checked = isCheck ? true : false;
+              radios[2].checked = isCheck ? true : false;
+              isCheck = !isCheck;
+            
+          };
+          })();  
+          btn1.onclick = btn;
+        
+        };
+    </script>
+</head>
+<body>
+    <h1>Name : <span></span></h1>
+    1 <input class="n" type="radio"  value="1" >
+    2 <input class="n" type="radio"  value="2" >
+    all <input class="n" type="radio"  value="0">
+    <button id="btn1">getName 1</button>
+    <ul id="ul"></ul>
+</body>
+</html>

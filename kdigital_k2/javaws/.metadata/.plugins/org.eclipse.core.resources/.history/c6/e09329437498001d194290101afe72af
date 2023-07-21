@@ -1,0 +1,29 @@
+package helloMemberdao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+import dbtest.JDBCUtil;
+
+public class ListAction implements Action{
+
+	@Override
+	public void execute(Scanner sc) {
+		MemberDAO dao = new MemberDAO();
+		List<MemberVO> members = dao.getMemberList();
+		
+		
+		System.out.printf("=== Member Count %s명 ===\n",members.size());
+        for(MemberVO m: members) {
+            System.out.print("ID: " + m.getId() +" / ");
+            System.out.print("PW: " + m.getPw() +" / ");
+            System.out.print("Name: " + m.getName() +" / ");
+            System.out.print("Age: " + m.getAge() );
+            System.out.println();
+        }
+	}
+}

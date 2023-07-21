@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax.html</title>
+    <script>
+        window.onload = function(){
+            const getJson = function(p){
+
+                const req = new XMLHttpRequest();
+                req.open('GET', '/data/test.json');
+                req.send();
+                //XMLHttpRequest.DONE=4 가 출력되어야 완벽히 응답 받은거
+                //응답이 성공적으로 이루어졌을 경우 200출력
+                //.onreadystatechange : 변화가 있을 경우 작동함
+                req.onreadystatechange = function(){
+                    if(this.readyState !== XMLHttpRequest.DONE) return;
+                    if(this.status == 200){
+                        const resp =this.response;
+                        const data = JSON.parse(resp);
+                        const name = data['name'];
+                        const gender = data['gender'];
+                        const age = data['age'];
+                        const area = document.querySelector('#area');
+                        // const s_name = document.querySelector('#name').innerHTML = name;
+                        // const s_gender = document.querySelector('#gender').innerHTML = gender;
+                        // const s_age = document.querySelector('#age').innerHTML = age;
+                        if(p==='n'){
+                            area.innerHTML = name;
+                        }else if(p==='g'){
+                            area.innerHTML = gender;
+                        }else {
+                            area.innerHTML=age;
+                        }
+                    };
+                };
+            };
+            const nBtn = document.querySelector('#nBtn');
+            const gBtn = document.querySelector('#gBtn');
+            const aBtn = document.querySelector('#aBtn');
+            nBtn.addEventListener('click', function(){
+                getJson('n');
+            });
+            gBtn.addEventListener('click', function(){
+                getJson('g');
+            });
+            aBtn.addEventListener('click', function(){
+                getJson('a');
+            });
+        };
+    </script>
+</head>
+<body>
+    <h1>Javascript - AJAX</h1>
+    <h2 id="area"></h2>
+    <button id="nBtn">name</button>
+    <button id="gBtn">gender</button>
+    <button id="aBtn">age</button>
+    <!-- <div>
+        Name : <span id="name"></span>,
+        Gender : <span id="gender"></span>,
+        Age : <span id="age"></span>
+    </div> -->
+    <img src="/images/dog/dog1.jpg" alt="">
+</body>
+</html>

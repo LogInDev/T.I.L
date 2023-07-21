@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>form.html</title>
+</head>
+<body>
+  <form action="/animal/cat/cat.html" method="">
+    이름 : <input type="text" name="name" value="hong"> <br>    
+    비번 : <input type="password" name="pw" value="      "> <br>
+    파일 : <input type="file" name="file"> <br>
+    사과 <input type="checkbox" name="fruit" checked value="사과">
+    배   <input type="checkbox" name="fruit" value="배">
+    딸기 <input type="checkbox" name="fruit" value="딸기">
+    포도 <input type="checkbox" name="fruit" value="포도"> <br>
+    오버워치 <input type="radio" name="game" checked value="오버워치">
+    LOL <input type="radio" name="game" value="LOL">
+    배그 <input type="radio" name="game" value="배그"><br>
+    숨김 <input type="hidden" name="sec" value="1234"><!--페이지 소스에는 나옴. 보안상보다는 사용자한테 보여줄 필요가 없을때--> <br>
+    btn1 <input type="button" value="버튼1"><br>
+    reset <input type="reset" value="리셋"><br>
+    submit <input type="submit" value="전송"><br><!--action에 전송할 주소를 설정, 이동을 시킬 수 있으나 받을 수는 없다.-->
+  </form>
+  <hr>
+  <form action="" method="get">
+  <table >
+    <tr>
+      <td><label for="username">이름</label></td>
+      <td><input type="text" name="username" id="username"></td>
+    </tr>
+    <tr>
+      <td>성별</td>
+      <td>
+        <input type="radio" name="gender" value="m" id="man"><!--radio에 id를 명시할 경우 남자 눌러도 체크됨-->
+        <label for="man">남자</label>
+        <input type="radio" name="gender" value="w" id="woman">
+        <label for="woman">여자</label>
+     </td>
+    </tr>
+  </table>
+  <input type="submit" value="가입">
+</form>
+<hr>
+<!--input 사용하지 않고 만들기-->
+<form action=""><!--action을 생략할 시 현 페이지로 전송-->
+  <select name="sports" id="" multiple>
+    <option value="0">==스포츠 선택==</option>
+    <option value="1">야구</option>
+    <option value="2">배구</option>
+    <option value="3" selected>축구</option>
+    <option value="4">탁구</option>
+    <option value="5">농구</option>
+  </select>
+  <input type="submit" value="submit">
+</form>
+<hr>
+<form action="">
+  <select name="sel" id="">
+    <optgroup label="Sports">
+      <option value="1">야구</option>
+      <option value="2">배구</option>
+      <option value="3" >축구</option>
+      <option value="4">탁구</option>
+      <option value="5">농구</option>
+    </optgroup>
+    <optgroup label="Coding">
+      <option value="1">Java</option>
+      <option value="2">Python</option>
+      <option value="3" >HTML</option>
+    </optgroup>
+</select>
+<input type="submit" value="submit">
+</form>
+<hr>
+<form action="">
+  <fieldset>
+    <legend>입력 양식</legend>
+    <table >
+      <tr>
+        <td><label for="username">이름</label></td>
+        <td><input type="text" name="username" id="username"></td>
+      </tr>
+      <tr>
+        <td>성별</td>
+        <td>
+          <input type="radio" name="gender" value="m" id="man"><!--radio에 id를 명시할 경우 남자 눌러도 체크됨-->
+          <label for="man">남자</label>
+          <input type="radio" name="gender" value="w" id="woman">
+          <label for="woman">여자</label>
+       </td>
+      </tr>
+    </table>
+      <input type="submit" value="submit">
+  </fieldset>
+</form>
+<hr>
+<form action="">
+  <textarea name="contents" id="" cols="30" rows="10">
+    text<!--공백을 다 먹음 붙이려면 처음부터-->
+  </textarea>
+</form>
+<hr>
+
+</body>
+</html>

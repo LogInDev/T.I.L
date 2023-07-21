@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        const check = function check(n){
+            if(n.id=='btn1'){
+                n.value = '버튼1';
+                // console.log('dkdkdk');
+            } else {
+                n.innerText = '버튼2';
+                // console.log('qlqlqlql');
+            }
+        };
+        window.onload = function() {
+
+                if(n==1){
+                    alert('avababa');
+                }else{
+                    alert('vevevelle');
+                }
+            const btn1 = document.querySelector('#btn1');
+            btn1.onclick = function (){
+                check(1);
+            }
+            const btn2 = document.querySelector('#btn2');
+            btn1.onclick = function (){
+                check(2);
+            }
+        };
+        
+            //-----------------------------------------
+                
+                // setInterval(function(){
+                //         const now = new Date();
+                //         const c = document.querySelector('#clock');
+                //         c.innerHTML = now.toString();
+                //     },1000);//(행위, 몇 초마다 할건지(기본이 ms))
+                    
+                //     }
+                    
+                    </script>
+                    <!-- 동기는 계산할 때 한명 비동기는 여러곳에서 계산가능(빈곳에서 가능. 각자 따로따로 동작함)setInterval은 비동기 -->
+ </head>
+<body>
+    <form action="index.html">
+    <input id="btn1" type="button" value="btn1" >
+    <button id="btn2" type="button" >btn2</button>
+    <hr>
+    <input type="submit" value="btn1" onclick="alert('nononono');">
+    <button type="submit" onclick="alert('nononono');">btn2</button>
+    <hr>
+    <input type="reset" value="btn1" onclick="alert('nononono');">
+    <button type="reset" onclick="alert('nononono');">btn2</button>
+</form>
+    <!-- <h3 id="clock"></h3>
+    <p>시계ㅖㅖㅖㅖ</p> -->
+</body>
+</html>

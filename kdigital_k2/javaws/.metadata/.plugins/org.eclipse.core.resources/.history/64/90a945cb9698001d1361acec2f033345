@@ -1,0 +1,77 @@
+package helloAnimaldb;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class ListAction implements Action{
+
+	@Override
+	public void execute(Scanner sc) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String drive = "com.mysql.cj.jdbc.Drive";
+		List<String> animals = new ArrayList<String>();
+		try {
+			Class.forName(drive);
+			String url = "jdbc:mysql://localhost:3306/mysqlhello";
+			url += "?ServerTimezone=UTC";
+			String user = "root";
+			String password = "rpass";
+			
+			conn = DriverManager.getConnection(url, user, password);
+			System.out.println("connect!!");
+			
+			String sql = "select * from animal";
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+		}catch(Exception e) {
+			e.getStackTrace();
+		}finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+				
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+		
+			
+			fw = new FileWriter(file1);
+			String num = "등록된 동물 수 : "+animals.size()+"\n";
+			fw.write(num);
+			for(String a:animals) {
+				String[] dArr = a.split(",");
+				fw.write("Kind : "+ dArr[0]+"Name : " +dArr[1]+"Age : "+dArr[2]+"Sound : " + dArr[3]+"\n");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				fr.close();
+				br.close();
+				fw.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
+
+
+
+
+	}
+
+
+}

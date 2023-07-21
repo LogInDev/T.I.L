@@ -1,0 +1,133 @@
+package helloMemberdao_T;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import dbtest.JDBCUtil;
+import helloMemberdao.MemberVO;
+
+public class MemberDAO {
+	MemberVO getMember(String id){
+		Connection conn = null;
+		PreparedStatement stmt = null; 
+		ResultSet rs = null;
+		MemberVO member = null;
+
+
+		try {
+
+			conn = JDBCUtil.getMySqlConnection();
+
+			String sql = "select * from member where id =?";
+			stmt = conn.prepareStatement(sql);
+			stmt.setString(1, id);
+			rs = stmt.executeQuery();
+
+			while(rs.next()) {
+				String pw = rs.getString("pw");
+				String name = rs.getString("name");
+				int age = rs.getInt("age");
+
+				member = new MemberVO(id, pw, name, age);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(rs,stmt,conn);
+		}
+		return member;
+	}
+	int UpdateMember(MemberVO member) {
+		Connection conn = null;
+		PreparedStatement stmt = null;  //옛날 쿼리창
+		int rs = 0;
+
+		try {
+
+			conn = JDBCUtil.getMySqlConnection();
+			String sql = "update member set pw =?, name=?, age=? where id =?";
+			stmt = conn.prepareStatement(sql);
+			stmt.setString(1, member.getPw());
+			stmt.setString(2, member.getName());
+			stmt.setInt(3, member.getAge());
+			stmt.setString(4, member.getId());
+			rs = stmt.executeUpdate(); //성공하면 1 출력
+			System.out.println("rs : "+rs);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(stmt, conn);
+
+		}
+		return rs;
+	}
+
+	int insertMember(MemberVO member) {
+		Connection conn = null;
+		PreparedStatement stmt = null;  //옛날 쿼리창
+		int rs = 0;
+
+		try {
+
+			conn = JDBCUtil.getMySqlConnection();
+			System.out.println("ok!!");
+
+			String sql = "insert into member(id,pw,name,age) ";
+			sql +="values(?,?,?,?)";
+			//			sql문을 만들고 미리 넣어놔야함
+			stmt = conn.prepareStatement(sql);
+			stmt.setString(1, member.getId());
+			stmt.setString(2, member.getPw());
+			stmt.setString(3, member.getName());
+			stmt.setInt(4, member.getAge());
+			rs = stmt.executeUpdate(); //성공하면 1 출력
+			System.out.println("rs : "+rs);
+
+
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(stmt, conn);
+
+		}
+		return rs;
+	}
+	List<MemberVO> getMemberList(){
+		Connection conn = null;
+		PreparedStatement stmt = null; 
+		ResultSet rs = null;
+		List<MemberVO> members = new ArrayList<MemberVO>();
+
+
+		try {
+
+			conn = JDBCUtil.getMySqlConnection();
+
+			String sql = "select * from member order by id";
+			stmt = conn.prepareStatement(sql);
+			rs = stmt.executeQuery();
+
+			while(rs.next()) {
+				String id = rs.getString("id");
+				String pw = rs.getString("pw");
+				String name = rs.getString("name");
+				int age = rs.getInt("age");
+
+				MemberVO vo = new MemberVO(id, pw, name, age);
+				members.add(vo);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(rs,stmt,conn);
+		}
+		return members;
+	}
+}

@@ -1,0 +1,16 @@
+package hello;
+
+public class PrintInTest {
+
+	public static void main(String[] args) {
+	
+		int dan =2;
+		
+		for(int i=1;true;i++) {
+			System.out.println(i);
+		}
+		
+
+	}
+
+}

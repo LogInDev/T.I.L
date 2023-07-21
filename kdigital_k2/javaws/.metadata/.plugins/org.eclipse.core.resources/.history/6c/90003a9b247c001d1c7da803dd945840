@@ -1,0 +1,40 @@
+package hello;
+
+import java.util.Scanner;
+
+public class Hello {
+
+	public static void main(String[] args) {
+		//4-14
+		int answer = (int)(Math.random()*100)+1;
+		int input = 0;
+		int count = 0;
+		Scanner s = new Scanner(System.in);
+		System.out.print("1과 100사이의 값을 입력하세요 : ");
+		input = s.nextInt();
+	
+		do {
+			count++;
+			
+			if(input>answer) {
+				System.out.println(input);
+				input --;
+		
+			} else if(input<answer) {
+				System.out.println(input);
+				input++;
+			} else {
+				System.out.println("정답입니다.");
+				System.out.println(count);
+				break;
+			}
+
+		} while(true);
+
+
+	}
+
+
+
+}
+

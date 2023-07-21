@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        const getAJAX = function(){
+            const req = new XMLHttpRequest();
+            req.open('GET','/data/name.txt');
+            req.send();
+            req.onreadystatechange = function(){
+                if(this.readyState !== XMLHttpRequest.DONE) return;
+                if(this.status ==200){
+                  resp = req.response;
+                  datas = JSON.parse(resp);
+                  //const radio1 = document.querySelector("input[type=radio]:checked").value;
+                  const radio2 = document.querySelector(".n:checked").value;
+                  let cnt = 0;
+                  if(radio2 ==="0"){
+            cnt = datas.length;
+          } else{
+            cnt = radio2;
+          }
+          let li ="";
+          for(let i=0;i<cnt;i++){
+            li += "<li>" + datas[i] + "</li>";
+          }
+          console.log(li);
+          const ul = document.querySelector("ul");
+          ul.innerHTML = li;
+                };
+            };
+        };
+        window.onload = function () {
+          const btn1 = document.querySelector("#btn1")
+          btn1.addEventListener('click',function(){ //callback함수(시스템이 부르는 함수) - click되면 실행됨.
+            getAJAX();
+          });  
+            
+        
+        };
+    </script>
+</head>
+<body>
+    <h1>Name : <span></span></h1>
+    1 <input class="n" type="radio" name="n" value="1">
+    2 <input class="n" type="radio" name="n" value="2" >
+    all <input class="n" type="radio" name="n" value="0">
+    <button id="btn1">getName 1</button>
+    <ul id="ul"></ul>
+</body>
+</html>
