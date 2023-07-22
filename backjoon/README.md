@@ -2,7 +2,7 @@
 ### Let's commit 1 change a day for continuous development!💪
 - [코드업 : 기초 100제](https://codeup.kr/problemsetsol.php?psid=33)
 - [백준 단계별(1~11단계)](https://www.acmicpc.net/step)
-- [백준_알고리즘 기초 1/2](https://code.plus/course/41)
+- [백준_알고리즘 기초 1/2](https://code.plus/course/41)   
     - 200 - 자료구조 1
         - 스택
         - 단어 뒤집기
