@@ -17,8 +17,8 @@ public class BJ2292 {
 		if(N==1) {
 			System.out.println(1);
 		}else {
-			while(range < N) {
-				range = range + (6+count);
+			while(range <= N) {
+				range = range + (6*count);
 				count++;
 			}
 			System.out.println(count);
