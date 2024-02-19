@@ -22,3 +22,4 @@ public class Step9 {
         System.out.println(result);
     }
 }
+
