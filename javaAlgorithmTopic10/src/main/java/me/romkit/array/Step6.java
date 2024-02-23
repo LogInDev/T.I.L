@@ -20,10 +20,26 @@ public class Step6 {
 
     }
     static void solution(int N, int[] nums){
-        int[] reverseN = new int[N];
 
-        for(int i=0;i<N;i++) {
-
+        for(int i=0; i<N;i++) {
+            int rvs = 0;
+            int tmp = nums[i];
+            while(tmp>0){
+                int t = tmp % 10;
+                rvs = rvs * 10 + t;
+                tmp = tmp / 10;
+            }
+            if(isPrime(rvs)) System.out.print(rvs + " ");
         }
+    }
+
+    //소수 구하기
+    public static boolean isPrime(int num){
+        if(num==1) return false;
+        for(int i=2; i<num;i++){
+            if(num % i == 0) return false;
+        }
+        return true;
+
     }
 }
