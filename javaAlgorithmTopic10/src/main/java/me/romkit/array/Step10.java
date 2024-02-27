@@ -18,17 +18,41 @@ public class Step10 {
 
     }
     static void solution(int N, int[][] arr){
-        int count=0;
-        for(int i=1;i<N+1;i++) {
-            for (int j = 1; j < N+1; j++) {
-                int max=arr[i][j];
-                if(arr[i-1][j] > max) max = arr[i-1][j];
-                if(arr[i+1][j] > max) max = arr[i+1][j];
-                if(arr[i][j-1] > max) max = arr[i][j-1];
-                if(arr[i][j+1] > max) max = arr[i][j+1];
-                if(max == arr[i][j]) count++;
+        // 방향 배열을 만들어 놓음. 북, 동, 남, 서 -> 방향 수 만큼 배열을 만듦
+        int[] dx = {-1, 0, 1, 0};  // 행
+        int[] dy = {0, 1, 0, -1};  // 열
+
+        int answer = 0;
+        for(int i=0;i<N;i++){
+            for(int j=0;j<N;j++){
+                boolean flag = true;
+                for(int k=0;k<4;k++){
+                    int nx = i+dx[k];
+                    int ny = j+dy[k];
+                    if(nx>=0 && ny>=0 && ny<N && arr[nx][ny] >= arr[i][j]){
+                        //주변에 있는 0 값들 처리
+                        flag = false;
+                        break;  // 하나라도 false이면 끝냄
+                    }
+                }
+                if(flag) answer++;
             }
         }
-        System.out.println(count);
+        System.out.println(answer);
+
+
+//------------------------self풀이--------------
+//        int count=0;
+//        for(int i=1;i<N+1;i++) {
+//            for (int j = 1; j < N+1; j++) {
+//                int max=arr[i][j];
+//                if(arr[i-1][j] > max) max = arr[i-1][j];
+//                if(arr[i+1][j] > max) max = arr[i+1][j];
+//                if(arr[i][j-1] > max) max = arr[i][j-1];
+//                if(arr[i][j+1] > max) max = arr[i][j+1];
+//                if(max == arr[i][j]) count++;
+//            }
+//        }
+//        System.out.println(count);
     }
 }
