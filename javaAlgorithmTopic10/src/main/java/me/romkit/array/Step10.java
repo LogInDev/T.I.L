@@ -7,11 +7,11 @@ public class Step10 {
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
         sc.nextLine();
-        int[][] arr = new int[N+2][N+2];
-        for(int j=1;j<N+1;j++){
+        int[][] arr = new int[N][N];
+        for(int j=0;j<N;j++){
             String[] a = sc.nextLine().split(" ");
-            for(int i=1;i<N+1;i++){
-                arr[j][i] = Integer.parseInt(a[i-1]);
+            for(int i=0;i<N;i++){
+                arr[j][i] = Integer.parseInt(a[i]);
             }
         }
         solution(N, arr);
@@ -29,7 +29,7 @@ public class Step10 {
                 for(int k=0;k<4;k++){
                     int nx = i+dx[k];
                     int ny = j+dy[k];
-                    if(nx>=0 && ny>=0 && ny<N && arr[nx][ny] >= arr[i][j]){
+                    if(nx>=0 && ny>=0 && nx<N && ny<N && arr[nx][ny] >= arr[i][j]){
                         //주변에 있는 0 값들 처리
                         flag = false;
                         break;  // 하나라도 false이면 끝냄
