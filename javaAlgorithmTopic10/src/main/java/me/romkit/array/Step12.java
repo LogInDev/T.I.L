@@ -32,7 +32,7 @@ public class Step12 {
                             pj = s;
                         }
                     }
-                    if(pi>pj) {
+                    if(pi<pj) {  //i : 멘토 , j : 멘티
                         cnt++;
                     }
                 }
