@@ -25,26 +25,24 @@ public class Step1 {
     }
 
     public static void solution(int n, int m,int[] arr, int[] brr) {
-        List answer = new ArrayList();
+        ArrayList<Integer> answer = new ArrayList<Integer>();
+
         int p1 = 0, p2 = 0;
         while(p1 < n && p2 < m) {
-            if(arr[p1]>brr[p2]) {
-                answer.add(brr[p2]);
-                p2++;
-            }else {
-                answer.add(arr[p1]);
-                p1++;
-            }
+            if(arr[p1]>brr[p2]) answer.add(brr[p2++]);
+            else answer.add(arr[p1++]);
         }
-        if(p1 == n) {
-            for(int i=p2;i<m;i++) {
-                answer.add(brr[i]);
-            }
-        }else {
-            for(int i=p1;i<n;i++) {
-                answer.add(arr[i]);
-            }
-        }
+        while(p1<n) answer.add(arr[p1++]);
+        while(p2<m) answer.add(brr[p2++]);
+//        if(p1 == n) {
+//            for(int i=p2;i<m;i++) {
+//                answer.add(brr[i]);
+//            }
+//        }else {
+//            for(int i=p1;i<n;i++) {
+//                answer.add(arr[i]);
+//            }
+//        }
         for(int i=0;i<answer.size();i++) {
 
             System.out.print(answer.get(i)+" ");
