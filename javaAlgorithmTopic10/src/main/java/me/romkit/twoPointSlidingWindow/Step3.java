@@ -21,6 +21,7 @@ public class Step3 {
         for(int i=0;i<k;i++) {
             sum+=arr[i];
         }
+        max = sum; // 매출이 음수일 경우도 있으니 sum을 0으로 초기화하면안됨.
         while(rt<n) {
             sum -= arr[lt++];
             sum += arr[rt++];
