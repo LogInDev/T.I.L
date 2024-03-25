@@ -7,8 +7,8 @@ import java.util.Scanner;
 public class Step2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String a = sc.nextLine();
-        String b = sc.nextLine();
+        String a = sc.next();
+        String b = sc.next();
 
         solution(a, b);
     }
@@ -21,12 +21,11 @@ public class Step2 {
             answerA.put(x, answerA.getOrDefault(x, 0) + 1);
         }
         for(Character x:b.toCharArray()) {
-            answerB.put(x, answerB.getOrDefault(x, 0) + 1);
-        }
-        for(Character y:answerA.keySet()) {
-            if(answerA.get(y) != answerB.get(y)){
+            if(!answerA.containsKey(x) || answerA.get(x)==0) {
                 answer = "NO";
                 break;
+            }else {
+                answerA.put(x,  answerA.get(x) - 1);
             }
         }
         System.out.println(answer);
