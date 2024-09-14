@@ -134,7 +134,7 @@ public class GenericExample{
 
 > 타입 파라미터로 `?(와일드 카드)`를 사용할 수 있는데, `?`는 모든 타입으로 대체할 수 있다는 표시이다.
 
-![](../img/ch13/13-1.jpeg)
+![](13-1.jpeg)
 타입 파라미터의 데체 타입으로 Student와 자식 클래스인 HighStudent와 MiddleStudent만 가능하도록 매개변수를 선언할 수 있다.
 ```java
 리턴타입 메소드명(제네릭타입<? extends Student> 변수){...}

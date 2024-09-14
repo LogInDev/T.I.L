@@ -4,7 +4,7 @@
 > 인덱스 트리 구조를 무시하고 인덱스 세그먼트 전체를 multiblock i/o 방식으로 스캔하는 방법이다.
 > hint : `index_ffs(테이블명 인덱스명)`
 
-![](../img/sql_tuning20/chapter8/8-1.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter8/8-1.png)
 ⇒인데스 컬럼에 `not null`제약이 있어야 `index fast full scan`이 가능함.
 
 >※ 컬럼에 `not null`을 보장하는 방법
@@ -17,7 +17,7 @@
 >	`group by job;`
 
 
-![](../img/sql_tuning20/chapter8/8-2.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter8/8-2.png)
 ⇒ 한 번에 여러 블씩 읽는 `multiblock i/o`방식을 사용함.
 
 ## `index full scan`과 `index fast full scan`의 차이점
@@ -32,17 +32,17 @@
 
 ## single block i/o와 multi block i/o의 차이
  
-![](../img/sql_tuning20/chapter8/8-3.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter8/8-3.png)
 
 
 ## 논리적인 순서에 따라 배치된 index 구조
 
-![](../img/sql_tuning20/chapter8/8-4.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter8/8-4.png)
 ⇒ 알파벳 순서에 따라 생성
 
 ## 물리적인 순서에 따라 배치된 index 구조
 
-![](../img/sql_tuning20/chapter8/8-5.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter8/8-5.png)
 ⇒ 데이터 들어오는 순서에 따라 생성
 
 <br>
@@ -64,7 +64,7 @@ select /*+ gather_plan_statistics index_ffs(emp emp_job) */ job, count(*)
 from emp
 group by job;
 ```
-![](../img/sql_tuning20/chapter8/8-6.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter8/8-6.png)
 ⇒`job` 컬럼에 `not null`제약이 없어서 table full scan을 함.
 
 - `job`컬럼에 `not null`제약 설정
@@ -83,7 +83,7 @@ from emp
 where job is not null
 group by job;
 ```
-![](../img/sql_tuning20/chapter8/8-7.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter8/8-7.png)
 
 
 ## index fast full scan과 index full scan의 차이 확인하기
@@ -103,7 +103,7 @@ select /*+ gather_plan_statistics index_ffs(emp emp_deptno) */
 from emp
 group by deptno;
 ```
-![](../img/sql_tuning20/chapter8/8-8.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter8/8-8.png)
 
 - **`index full scan`**
 ```sql
@@ -112,7 +112,7 @@ select /*+ gather_plan_statistics index_fs(emp emp_deptno) */
 from emp
 group by deptno;
 ```
-![](../img/sql_tuning20/chapter8/8-9.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter8/8-9.png)
 
 
 ## 문제) index fast full scan을 유도해라

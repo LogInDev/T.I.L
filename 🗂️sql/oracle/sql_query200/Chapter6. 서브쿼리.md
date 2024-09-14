@@ -49,12 +49,12 @@ where job in
 --관리자가 아닌 사원들의 이름과 월급과 직업을 출력해라.
 select ename from emp where empno not in (select mgr from emp);
 ```
-![](6-1.png)
+![](🗂️sql/oracle/img/sql_query200/chapter6/6-1.png)
 
 ```sql
 select mgr from emp;
 ```
-![](6-2.png)
+![](🗂️sql/oracle/img/sql_query200/chapter6/6-2.png)
 
 ⇒ mgr 컬럼 값 중에 `null`이 있어서 아무것도 출력되지 않음.
 
@@ -87,7 +87,7 @@ where empno not in
 select * from dept d
 where exists (select * from emp e where e.deptno = d.deptno);
 ```
-![](6-3.png)
+![](🗂️sql/oracle/img/sql_query200/chapter6/6-3.png)
 
 >⇒ 실행순서
 >1. 메인 쿼리 실행 후 `d.deptno`의 10번  확인
@@ -159,7 +159,7 @@ select
 from emp 
 where job = 'SALESMAN';
 ```
-![](6-4.png)
+![](🗂️sql/oracle/img/sql_query200/chapter6/6-4.png)
 
 ```sql
 select 

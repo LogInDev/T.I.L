@@ -96,11 +96,11 @@ public class ParallelStramExample {
 ## 중간 처리와 최종 처리
 
 스트림은 하나 이상 연결될 수 있다. 컬렉션의 오리지널 스트림 뒤에 필터링 중간 스트림이 연결될 수 있고, 그 뒤에 매핑 중간 스트림이 연결될 수 있다. 이와 같이 스트림이 연결되어 있는 것을 `스트림 파이프라인(pipelines)`이라고 한다.
-![](../img/ch17/17-1.jpeg)
+![](17-1.jpeg)
 오리지널 스트림과 집계 처리 사이의 중간 스트림들은 최종 처리를 위해 요소를 걸러내거나(필터링), 요소를 변환시키거나(매핑), 정렬하는 작업을 수행한다. 최종 처리는 중간 처리에서 정제된 요소들을 반복하거나, 집계(카운팅, 총합, 평균) 작업을 수행한다.
 
 다음은 Student 객체를 요소로 가지는 컬렉션에서 Student 스트림을 얻고, 중간 처리를 통해 score 스트림으로 변환한 후 최종 집계 처리로 score 평균을 구하는 과정이다.
-![](../img/ch17/17-2.jpeg)
+![](17-2.jpeg)
 이를 코드로 표현하면
 ```java
 //Student 스트림
@@ -175,7 +175,7 @@ public class StreamPipLineExample {
 ## 리소스로부터 스트림 얻기
 
 `java.util.stream` 패키지에는 스트림 인터페이스들이 있다. `BaseStream` 인터페이스를 부모로 한 자식 인터페이스들로 상속 관계를 이루고 있다.
-![](../img/ch17/17-3.jpeg)
+![](17-3.jpeg)
 `BaseStream`에는 모든 스트림에서 사용할 수 있는 공통 메소드들이 정의되어 있다. 
 `Stream`은 객체 요소를 처리하는 스트림이고, `IntStream`, `LongStream`, `DoubleStream`은 각각 기본 타입인 `int`, `long`, `double` 요소를 처리하는 스트림이다.
 
@@ -369,11 +369,11 @@ public class StreamExample {
 
 `distinct()` 메서드는 요소의 중복을 제거한다. 객체 스트림(Stream)일 경우, `equals()` 메소드의 리턴값이 true이면 동일한 요소로 판단한다. IntStream, LongStream, DoubleStream은 같은 값일 경우 중복을 제거한다.
 
-![](../img/ch17/17-4.jpeg)
+![](17-4.jpeg)
 
 `filter()`메소드는 매개값으로 주어진 `Predicate`가 true를 리턴하는 요소만 필터링한다.
 
-![](../img/ch17/17-5.jpeg)
+![](17-5.jpeg)
 
 `Predicate`는 함수형 인터페이스이다.
 
@@ -454,7 +454,7 @@ public class FilteringExample {
 
 `mapXxx()`메소드는 요소를 다른 요소로 변환한 새로운 스트림을 리턴한다. 
 다음 그림처럼 원래 스트림의 A 요소는 C 요소로, B 요소는 D 요소로 변환해서 C, D 요소를 가지는 새로운 스트림이 생성된다.
-![](../img/ch17/17-6.jpeg)
+![](17-6.jpeg)
 
 - `mapXxx()`메소드의 종류
 
@@ -592,7 +592,7 @@ public class MapExample {
 > `flatMapXxx()` 메소드는 하나의 요소를 복수 개의 요소들로 변환한 새로운 스트림을 리턴한다.
 
 원래 스트림의 A 요소를 A1, A2 요소로 변환하고 B 요소를 B1, B2로 변환하면, A1, A2, B1, B2 요소를 가지는 새로운 스트림이 생성된다.
-![](../img/ch17/17-7.jpeg)
+![](17-7.jpeg)
 
 - `flatMap()`메소드의 종류
 

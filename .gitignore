@@ -14,8 +14,10 @@ reviewDocument/gu/Excalidraw
 reviewDocument/gu/Spaces
 **/.obsidian
 **/.makemd
-**/Spaces
 **/Excalidraw
+.obsidian
+.space
+.makemd
 
 
 ### IntelliJ IDEA ###

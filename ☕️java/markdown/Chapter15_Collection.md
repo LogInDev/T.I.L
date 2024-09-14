@@ -714,7 +714,7 @@ admin = 홍길동
 
 `TreeSet`에 객체를 저장하면 부모 노드의 객체와 비교해서 낮은 것은 왼쪽 자식 노드에, 높은 것은 오른쪽 자식 노드에 자동 정렬되어 저장된다.
 
-![](../img/ch15/15-1.jpeg)
+![](15-1.jpeg)
 
 - TreeSet 컬렉션 생성 방법
 ```java
@@ -825,7 +825,7 @@ public class TreeSetExample {
 
 `TreeMap`에 엔트리를 저장하면 키를 기준으로 자동 정렬되는데, 부모키 값과 비교해서 낮은 것은 왼쪽, 높은 것은 오른쪽 자식 노드에 Entry 객체를 저장한다.
 
-![](../img/ch15/15-2.jpeg)
+![](15-2.jpeg)
 
 - `TreeMap` 컬렉션 생성 방법
 ```java
@@ -1097,7 +1097,7 @@ public class ComparableExample1 {
 > 후입선출(LIFO, Last In First Out) : 나중에 넣은 객체가 먼저 빠져나가는 구조. - 스택(Stack) : JVM 스택 메모리
 > 선입선출(FIFO, First In First Out) : 먼저 넣은 객체가 먼저 빠져나가는 구조. - 큐(Queue) : 스레드풀
 
-![](../img/ch15/15-3.jpeg)
+![](15-3.jpeg)
 
 
 ### Stack

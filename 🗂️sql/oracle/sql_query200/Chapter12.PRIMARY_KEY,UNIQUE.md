@@ -29,7 +29,7 @@ select * from dept2;
 insert into dept2 values(10, 'ccc', 'dddd');      -- error
 insert into dept2 values(null, 'ccc', 'dddd');    -- error
 ```
-![](12-1.png)
+![](☕️java/img/ch12/12-1.png)
 - `dept2_deptno_pk` 제약이름인데 나중에 제약을 삭제할 때 등등의 경우에 필요함. 이름을 안줘도 oracle에서 자동으로 만들어주지만 의미있게 만들어 주지는 않음.
 
 - 현재 db에 있는 제약을 확인할 수 있는 명령어

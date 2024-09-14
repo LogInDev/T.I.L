@@ -11,7 +11,7 @@
 >`on 테이블명(컬럼1, 컬럼2, ...)`
 
 >검색하려는 데이터가 인덱스에 다 구성되어 있다면 테이블에 엑세스하지 않는다.
-![](../img/sql_tuning20/chapter6/6-1.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter6/6-1.png)
 
 
 
@@ -20,7 +20,7 @@
 > 결합 컬럼 인덱스의 첫번째 컬럼이 아닌 컬럼의 데이터를 검색할 때 인덱스 전체를 스캔하면서 원하는 데이터를 검색하는 스캔 방법이다. table full scan보다 더 성능이 좋다.
 > `/*+ index_fs(테이블명 결합컬럼명) */`
 
-![](../img/sql_tuning20/chapter6/6-2.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter6/6-2.png)
 ⇒ 검색하고 있는게 결합 컬럼 인덱스 중 두번째 컬럼이여서 바로 'JONES'가 있는 인덱스로 갈 수가 없고 첫번째 인덱스 컬럼을 full scan 한뒤 두번째 인덱스 컬럼에서 'JONES'를 찾고 해당 주소 행으로 이동해서 검색 결과를 출력하게 된다. 그리고 또 다시 'JONES'가 있는지 한번 더 찾는다. 두번째 인덱스 컬럼은 알파벳 순으로 정렬된게 아니기 때문에 한번 더 스캔하게된다.
 
 <br>
@@ -37,7 +37,7 @@ where sal = 3000;
 
 select * from table(dbms_xplan.display_cursor(null,null,'ALLSTATS LAST'));
 ```
-![](../img/sql_tuning20/chapter6/6-3.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter6/6-3.png)
 
 ## 단일 컬럼 인덱스만 있을 때
 
@@ -51,7 +51,7 @@ where sal = 3000;
 
 select * from table(dbms_xplan.display_cursor(null,null,'ALLSTATS LAST'));
 ```
-![](../img/sql_tuning20/chapter6/6-4.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter6/6-4.png)
 
 
 ## 결합 컬럼 인덱스 생성하기
@@ -69,7 +69,7 @@ where sal = 3000;
 select * 
 from table(dbms_xplan.display_cursor(null,null,'ALLSTATS LAST'));
 ```
-![](../img/sql_tuning20/chapter6/6-5.png)
+![](6-5.png)
 ⇒ table access 하지 않고 index만 scan하고 끝냄.
 
 - 검색 조건에 결합 컬럼 인덱스의 첫번째 컬럼이 있어야 `index range scan`이 가능함.
@@ -88,7 +88,7 @@ where ename='JONES';
 select * 
 from table(dbms_xplan.display_cursor(null,null,'ALLSTATS LAST'));
 ```
-![](../img/sql_tuning20/chapter6/6-6.png)
+![](6-6.png)
 
 
 ## 문제) 사원 테이블에 사원번호+사원이름+월급으로 결합 컬럼 인덱스를 생성하고 월급이 1250인 사원의 이름과 월급을 출력하는데 지금 생성한 인덱스를 사용하겠습 힌트를 주고 실행해라.
@@ -105,7 +105,7 @@ where sal = 1250;
 select * 
 from table(dbms_xplan.display_cursor(null,null,'ALLSTATS LAST'));
 ```
-![](../img/sql_tuning20/chapter6/6-7.png)
+![](6-7.png)
 
 
 <br>

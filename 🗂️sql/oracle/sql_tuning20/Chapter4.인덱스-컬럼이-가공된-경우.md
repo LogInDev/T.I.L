@@ -12,7 +12,7 @@ select /*+ gather_plan_statistics index(emp sal) */ ename, sal * 12
 from emp
 where sal * 12 = 36000;
 ```
-![](../img/sql_tuning20/chapter4/4-1.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter4/4-1.png)
 ⇒인덱스가 설정된 컬럼을 검색해도 해당 컬럼이 가공되어 full table scan을 하게 됨.
 
 - 튜닝 후
@@ -21,7 +21,7 @@ select /*+ gather_plan_statistics index(emp sal) */ ename, sal * 12
 from emp
 where sal = 36000/12;
 ```
-![](../img/sql_tuning20/chapter4/4-2.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter4/4-2.png)
 
 
 ## 문자형 인덱스 컬럼이 가공된 경우
@@ -31,7 +31,7 @@ select ename, job
 from emp
 where substr(job, 1, 5) = 'SALES';
 ```
-![](../img/sql_tuning20/chapter4/4-3.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter4/4-3.png)
 
 - 튜닝 후
 ```sql
@@ -39,7 +39,7 @@ select ename, job
 from emp
 where job like 'SALES%';
 ```
-![](../img/sql_tuning20/chapter4/4-4.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter4/4-4.png)
 
 
 ## 날짜형 인덱스 컬럼이 가공된 경우
@@ -49,7 +49,7 @@ select ename, hiredate
 from emp
 where to_char(hiredate, 'RRRR') = '1981';
 ```
-![](../img/sql_tuning20/chapter4/4-5.png)
+![](4-5.png)
 
 ```sql
 select ename, hiredate
@@ -58,7 +58,7 @@ where hiredate between to_date('1981/01/01', 'RRRR/MM/DD')
 					and to_date('1981/12/31', 'RRRR/MM/DD')+1;
 -- 날짜까지만 작성하면 00:00:00까지여서 1981/12/31이 포함되지 않으므로 +1해줘야함.
 ```
-![](../img/sql_tuning20/chapter4/4-6.png)
+![](4-6.png)
 
 <br>
 

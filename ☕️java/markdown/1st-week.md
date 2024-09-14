@@ -21,7 +21,7 @@
 > 컴퓨터가 직접 이해하고 실행할 수 있는 언어(ex : 기계어, 어셈블리어 등)
 
 `기계어(mechine code)`란 0과 1의 명령어 비트로 이루어진 언어 입니다.
-![Alt text](../img/1st-week/1-1.png)
+![Alt text](☕️java/img/1st-week/1-1.png)
 사진처럼 기계어는 오진 컴퓨터를 위해 만들어진 언어이기 때문에 사람은 그 의미를 이해하기 어렵습니다.
 
 그래서 등장한 저급언어가 `어셈블리어(assembly languge)`입니다.
@@ -362,7 +362,7 @@ char c = ' ';     // 공백(유니코드 : 32)
 자바는 `float`과 `double` 타입의 값을 부동 소수점(floating-point)방식으로 메모리에 저장한다.
 부호 + 기수 + 지수를 저장하여 `int`타입의 저장방식과는 달리 더 많은 수가 저장가능하다.
 
-![Alt text](../img/1st-week/1-2.jpeg)
+![Alt text](1-2.jpeg)
 
 
 <br/>
@@ -492,7 +492,7 @@ char charValue = byteValue;  // Error
 
 캐스팅 연산자로 괄호`()`를 사용하는데, 괄호 안에 들어가는 타입은 쪼개는 단위를 나타낸다.
 
-![Alt text](../img/1st-week/1-3.jpg)
+![Alt text](1-3.jpg)
 
 강제 타입 변환 시 더 작은 허용 범위 타입으로 쪼개어지는 것이므로 작은 타입의 허용 범위 안에 있는 값만 원래 값을 보존할 수 있다.
 
@@ -553,7 +553,7 @@ int intValue = (int) doubleValue;
 정수 리터럴이 아닌 변수가 피연산자로 사용되면 실행 시 연산을 수행한다.
 정수 타입 변수가 산술 연산식에서 피연산자로 사용되면 int타입보다 작은 byte, short 타입의 변수는 int 타입으로 자동 타입 변환되어 연산을 수행한다.
 
-![Alt text](../img/1st-week/1-4.jpeg)
+![Alt text](1-4.jpeg)
 
 
 ```java
@@ -568,7 +568,7 @@ int result = x + y;
 
 int의 혀용 범위보다 큰 long 타입의 연산 결과는 long 타입 변수에 저장한다.
 
-![Alt text](../img/1st-week/1-5.jpeg)
+![Alt text](1-5.jpeg)
 
 <br/>
 
@@ -611,7 +611,7 @@ double result = x / y;
 
 위 코드의 결과가 0.5가 되기 위해서는 x / y 부분을 정수 연산이 아닌 실수 연산으로 변경해야한다. x와 y 둘 중 하나 또는 둘 모두를 double 타입으로 변환하는 것이다.
 
-![Alt text](../img/1st-week/1-6.jpeg)
+![Alt text](1-6.jpeg)
 
 <br/>
 

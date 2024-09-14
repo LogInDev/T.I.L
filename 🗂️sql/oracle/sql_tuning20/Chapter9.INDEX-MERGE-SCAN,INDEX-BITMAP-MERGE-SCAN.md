@@ -3,9 +3,9 @@
 
 > 여러개의 인덱스를 같이 사용하여 하나의 인덱스만 사용했을 때 보다 테이블 엑세스를 줄일 수 있는 인덱스 스캔방법
 
-![](../img/sql_tuning20/chapter9/9-1.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter9/9-1.png)
 
-![](../img/sql_tuning20/chapter9/9-2.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter9/9-2.png)
 ⇒ 여러번 테이블에 access하지 않고 조건에 맞는 곳에만 접근
 
 ## index bitmap merge scan 이란
@@ -13,7 +13,7 @@
 > 일반 인덱스를 크기가 아주 작은 비트맥 인덱스로 변환하고 비트맵 인덱스들을 하나로 합쳐서 스캔하는 스캔방법
 
 - 오라클 옵티마이저가 자동으로 해줌
-![](../img/sql_tuning20/chapter9/9-3.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter9/9-3.png)
 
 <br>
 
@@ -62,7 +62,7 @@ select * from table(dbms_xplan.display_cursor(null,null,'ALLSTATS LAST'));
 
 select * from emp2;
 ```
-![](9-4.png)
+![](☕️java/img/다형성활용/9-4.png)
 
 ```sql
 select count(*) from emp2 where col1='A';  -- 917504
@@ -78,7 +78,7 @@ select /*+ gather_plan_statistics and_equal(emp2 emp2_col1 emp2_col2)*/ count(*)
 from emp2
 where col1='A' and col2='D';
 ```
-![](9-5.png)
+![](☕️java/img/다형성활용/9-5.png)
 
 ```sql
 select /*+ gather_plan_statistics and_equal(emp2 emp2_col1 emp2_col2)*/ 
@@ -86,7 +86,7 @@ select /*+ gather_plan_statistics and_equal(emp2 emp2_col1 emp2_col2)*/
 from emp2
 where col1='A' and col2='D';
 ```
-![](9-6.png)
+![](☕️java/img/다형성활용/9-6.png)
 
 
 ## index bitmap merge scan 실행하기
@@ -96,7 +96,7 @@ select /*+ gather_plan_statistics index_combine(emp2)*/ count(*)
 from emp2
 where col1='A' and col2='D';
 ```
-![](9-7.png)
+![](☕️java/img/다형성활용/9-7.png)
 
 ```sql
 select /*+ gather_plan_statistics index_combine(emp2)*/ 
@@ -104,7 +104,7 @@ select /*+ gather_plan_statistics index_combine(emp2)*/
 from emp2
 where col1='A' and col2='D';
 ```
-![](9-8.png)
+![](☕️java/img/다형성활용/9-8.png)
 
 
 ## 문제
@@ -118,7 +118,7 @@ select /*+ gather_plan_statistics index_combine(emp) */
 from emp
 where deptno = 30 and job='SALESMAN';
 ```
-![](9-8.png)
+![](☕️java/img/다형성활용/9-8.png)
 
 ```sql
 select /*+ gather_plan_statistics and_equal(emp emp_job emp_deptno) */ 
@@ -126,7 +126,7 @@ select /*+ gather_plan_statistics and_equal(emp emp_job emp_deptno) */
 from emp
 where deptno = 30 and job='SALESMAN';
 ```
-![](9-9.png)
+![](☕️java/img/다형성활용/9-9.png)
 
 
 

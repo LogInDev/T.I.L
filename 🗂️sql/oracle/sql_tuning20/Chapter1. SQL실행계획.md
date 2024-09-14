@@ -137,6 +137,6 @@ where empno = 7788;
 select * 
 from table(dbms_xplan.display_cursor(null,null,'ALLSTATS LAST'));
 ```
-![](1-7.png)
+![](☕️java/img/1st-week/1-7.png)
 
 

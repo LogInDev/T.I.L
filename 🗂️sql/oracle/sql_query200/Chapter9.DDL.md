@@ -39,14 +39,14 @@ insert into emp37 values(2222, 'smith',4000);
 
 select * from emp37;
 ```
-![](img/sql_query200/chapter9/9-1.png)
+![](🗂️sql/oracle/img/sql_query200/chapter9/9-1.png)
 
 ```sql
 commit;
 
 select * from emp37;
 ```
-![](9-2.png)
+![](☕️java/img/다형성활용/9-2.png)
 
 ```sql
 create global temporary table emp94

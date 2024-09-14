@@ -3,10 +3,10 @@
 
 > 인덱스 스킵 스탠은 결합 컬럼 인덱스의 첫 번째 컬럼이 where 조건에 존재하지 않아도 인덱스를 이용할 수 있는 인덱스 액세스 방식
 
-![](../img/sql_tuning20/chapter7/7-1.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter7/7-1.png)
 ⇒job컬럼이 인덱스에 오름차순으로 정렬된게 아니여서 결국 full table scan을 하게됨.
 
-![](../img/sql_tuning20/chapter7/7-2.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter7/7-2.png)
 ⇒ 인덱스 첫번째 컬럼별로 skip하면서 스캔하면  table full scan보다 성능이 좋은
 
 
@@ -15,16 +15,16 @@
 결합 컬럼 인덱스의 첫번째 조건이 where절에 존재하긴 하는데 등치조건(`=`)으로 사용된게 아니라 범위조건(`between ~ and ~`)으로 사용된 경우에 튜닝 방법
 - 결합 컬럼 인덱스의 첫번째 컬럼이 범위 조건이면 결합 컬럼 인덱스를 사용하더라고 index range scan 검색 성능이 느려질 수 있다. 이 때 `index skip scan`으로 유도하면 더 성능이 좋아진다.
 
-![](../img/sql_tuning20/chapter7/7-3.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter7/7-3.png)
 
-![](../img/sql_tuning20/chapter7/7-4.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter7/7-4.png)
 
 
 ## index skip scan의 효과를 높이는 결합 컬럼 인덱스
 
 > 결합 컬럼 인덱스의 첫번째 컬럼은 데이터의 종류가 적은 인덱스가 더 성능에 좋다.
 
-![](../img/sql_tuning20/chapter7/7-5.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter7/7-5.png)
 
 
 <br>
@@ -42,7 +42,7 @@ select deptno, job, rowid
 from emp
 where deptno > 0;
 ```
-![](../img/sql_tuning20/chapter7/7-6.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter7/7-6.png)
 
 ```sql
 select /*+ gather_plan_statistics */ ename, deptno, sal
@@ -52,7 +52,7 @@ where job='MANAGER';
 select * 
 from table(dbms_xplan.display_cursor(null,null,'ALLSTATS LAST'));
 ```
-![](../img/sql_tuning20/chapter7/7-7.png)
+![](7-7.png)
 
 
 ## index skip scan
@@ -66,7 +66,7 @@ where job='MANAGER';
 select * 
 from table(dbms_xplan.display_cursor(null,null,'ALLSTATS LAST'));
 ```
-![](../img/sql_tuning20/chapter7/7-8.png)
+![](7-8.png)
 
 
 ## 월급이 800에서 4500 사이이고 직업이 ANALYST인 사원들의 이름과 월급과 직업과 부서번호를 출력해라.

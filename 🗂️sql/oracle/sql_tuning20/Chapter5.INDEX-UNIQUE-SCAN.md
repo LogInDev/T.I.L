@@ -37,7 +37,7 @@ where empno = 7788;
 
 select * from table(dbms_xplan.display_cursor(null,null,'ALLSTATS LAST'));
 ```
-![](../img/sql_tuning20/chapter5/5-1.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter5/5-1.png)
 
 
 ## 예제2. unique index를 사용해라
@@ -53,7 +53,7 @@ select /*+ gather_plan_statistics */ empno, ename
 from emp
 where ename = 'SCOTT' and empno = 7788;
 ```
-![](../img/sql_tuning20/chapter5/5-2.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter5/5-2.png)
 
 
 ## 예제3. 사원 테이블에 empno에 primary key제약을 걸고 사원번호가 7788번인 사원번호와 이름을 출력해라.
@@ -63,7 +63,7 @@ where ename = 'SCOTT' and empno = 7788;
 alter table emp
 add constraint emp_empno_pk primary key (empno);
 ```
-![](../img/sql_tuning20/chapter5/5-3.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter5/5-3.png)
 
 ```sql
 select /*+ gather_plan_statistics */ empno, ename
@@ -73,7 +73,7 @@ where ename = 'SCOTT' and empno = 7788;
 select * 
 from table(dbms_xplan.display_cursor(null,null,'ALLSTATS LAST'));
 ```
-![](../img/sql_tuning20/chapter5/5-4.png)
+![](5-4.png)
 
 
 ## 문제) 부서 테이블에 deptno에 primary key제약을 걸고 부서번호가 20번인 부서위치와 부서명을 출력해라.
@@ -89,6 +89,6 @@ where deptno = 20;
 select * 
 from table(dbms_xplan.display_cursor(null,null,'ALLSTATS LAST'));
 ```
-![](../img/sql_tuning20/chapter5/5-5.png)
+![](5-5.png)
 
 

@@ -57,7 +57,7 @@ where sal = 1600;
 select * 
 from table (dbms_xplan.display_cursor(null,null, 'ALLSTATS LAST'));
 ```
-![](../img/sql_tuning20/chapter3/3-1.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter3/3-1.png)
 
 
 ## 예제2. [문자형 컬럼]이름이 SCOTT인 사원의 이름과 월급을 출력해라. 
@@ -71,7 +71,7 @@ where ename = 'SCOTT';
 
 select * from table(dbms_xplan.display_cursor(null,null,'ALLSTATS LAST'));
 ```
-![](../img/sql_tuning20/chapter3/3-2.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter3/3-2.png)
 
 
 ## 예제3. [중복된 데이터가 있는 경우]직업이 MANAGER인 사원들의 이름과 월급을 출력해라.
@@ -93,7 +93,7 @@ select job, rowid
 from emp
 where job > ' ';
 ```
-![](../img/sql_tuning20/chapter3/3-3.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter3/3-3.png)
 ⇒ 인덱스가 'MANAGER'를 찾고 'PRESIDENT'전까지 검색한 후 찾으러가는 것이 `index range scan`이다.
 
 
@@ -110,5 +110,5 @@ where hiredate = to_date('1981/11/17');
 select * 
 from table(dbms_xplan.display_cursor(null,null,'ALLSTATS LAST'));
 ```
-![](../img/sql_tuning20/chapter3/3-4.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter3/3-4.png)
 

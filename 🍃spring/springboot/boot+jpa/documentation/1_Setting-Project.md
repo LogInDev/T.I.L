@@ -1,3 +1,6 @@
+---
+sticker: emoji//261d-fe0f
+---
 # 프로젝트 생성
 - [스프링 부트 스타터(https://start.spring.io/)](https://start.spring.io/)
 - springframework.boot 3.3.2(java17)
@@ -14,9 +17,9 @@
 - 스프링 부트 3.2 부터 JDK 17 이상과, 빌드시 IntelliJ IDEA가 아니라 Gradle을 선택해야 한다.
 - `Mac` : `File` -> `Project Structure`
 - `Windows` : `File` -> `Project Structure`
-		![](1-1.png)
+		![](🍃spring/springboot/boot+jpa/documentation/img/part_1/1-1.png)
 - `Preferences` -> `Build, Execution, Deployment` -> `Build Tools` -> `Gradle`
-		![](img/part_1/1-2.png)
+		![](🍃spring/springboot/boot+jpa/documentation/img/part_1/1-2.png)
 		Gradle JVM을 새로 설치한 자바 17 또는 그 이상으로 지정합니다.
 
 ## JUnit4 추가

@@ -94,7 +94,7 @@ String newStr = oldStr.replacd("자바", "JAVA");
 
 때문에 `replace()` 메소드가 리턴하는 문자열은 원래 문자열의 수정본이 아니라 완전히 새로운 문자열이다. 
 
-![[5-1.png]]
+![[☕️java/img/5th-week/5-1.png]]
 
 ### 문자열 잘라내기 - substring()
 

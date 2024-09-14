@@ -35,14 +35,14 @@ select sal, rowid
 from emp
 where sal >= 0;    -- 숫자형 컬럼을 인덱스에서 불러오려면 0보다 크다는 조건을 추가해야함.
 ```
-![](../img/sql_tuning20/chapter2/2-1.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter2/2-1.png)
 ⇒인덱스에서 읽어와서 오름차순으로 정렬이 되어있음.
 
 ```sql
 select sal, rowid
 from emp;
 ```
-![](../img/sql_tuning20/chapter2/2-2.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter2/2-2.png)
 ⇒테이블에서 읽어와서 정렬되어 있지 않은채로 출력됨.
 
 ## 예제2. [문자형 컬럼]이름에 인덱스를 생성하고 인덱스의 구조를 확인해라.
@@ -55,7 +55,7 @@ select ename, rowid
 from emp
 where ename > ' ';   -- 문자를 인덱스에서 불러오려면 빈칸보다 크다는 조건을 추가해야함.
 ```
-![](../img/sql_tuning20/chapter2/2-3.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter2/2-3.png)
 
 - index에서 불러왔는지 확인하는 방법
 ```sql
@@ -66,7 +66,7 @@ where ename > ' ';
 select * 
 from table(dbms_xplan.display_cursor(null,null, 'ALLSTATS LAST'));
 ```
-![](../img/sql_tuning20/chapter2/2-4.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter2/2-4.png)
 
 - 테이블에서 읽어온 경우
 ```sql
@@ -76,7 +76,7 @@ from emp;
 select * 
 from table(dbms_xplan.display_cursor(null,null, 'ALLSTATS LAST'));
 ```
-![](../img/sql_tuning20/chapter2/2-5.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter2/2-5.png)
 
 
 ## 예제3. [날짜형 컬럼]입사일에 인덱스를 생성하고 인덱스의 구조를 확인해라.
@@ -92,8 +92,8 @@ where hiredate < to_date('9999/12/31', 'RRRR/MM/DD');
 
 select * from table(dbms_xplan.display_cursor(null,null, 'ALLSTATS LAST'));
 ```
-![](../img/sql_tuning20/chapter2/2-6.png)
-![](../img/sql_tuning20/chapter2/2-7.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter2/2-6.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter2/2-7.png)
 
 
 - 테이블에서 날짜형 데이터를 읽어오는 경우(insert된 순서대로 출력됨)
@@ -104,8 +104,8 @@ from emp;
 select * 
 from table(dbms_xplan.display_cursor(null,null, 'ALLSTATS LAST'));
 ```
-![](../img/sql_tuning20/chapter2/2-9.png)
-![](../img/sql_tuning20/chapter2/2-8.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter2/2-9.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter2/2-8.png)
 
 
 ## 문제1) dept 테이블에 loc에  인덱스를 생성하고 인덱스의 구조를 확인해라.
@@ -121,6 +121,6 @@ where loc> ' ';
 select * 
 from table(dbms_xplan.display_cursor(null,null, 'ALLSTATS LAST'));
 ```
-![](../img/sql_tuning20/chapter2/2-10.png)
-![](../img/sql_tuning20/chapter2/2-11.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter2/2-10.png)
+![](🗂️sql/oracle/img/sql_tuning20/chapter2/2-11.png)
 

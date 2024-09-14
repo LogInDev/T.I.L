@@ -42,7 +42,7 @@ df.tail(3)   # 마지막 3개 행의 데이터 출력
 df.info()
 ```
 
-![1.png](./youtube_LAB_img/1.png)
+![1.png](1.png)
 
 - `entries` : 행의 단위
 - `non-null` : null이 없다는 의미
@@ -55,7 +55,7 @@ df.info()
 df.info(**memory_usage='deep**)
 ```
 
-![1.png](./youtube_LAB_img/1%201.png)
+![1.png](1%201.png)
 
 ### DataFrame의 구성요소
 
@@ -63,7 +63,7 @@ df.info(**memory_usage='deep**)
 - **`DataFrame.columns`**: 열 index
 - **`DataFrame.values`** : 2차원 데이터
 
-![1.png](./youtube_LAB_img/1%202.png)
+![1.png](1%202.png)
 
 ```python
 # index 구성요소 확인
@@ -79,7 +79,7 @@ df.info(**memory_usage='deep**)
 df.values
 ```
 
-![1.png](./youtube_LAB_img/1%203.png)
+![1.png](1%203.png)
 
 ⇒ **`ndarray` - `numpy`의 배열, 2차원 배열( array타입보다 효율적이고 빠름)**
 
@@ -94,7 +94,7 @@ print(type(s))
 s.head(5)
 ```
 
-![1.png](./youtube_LAB_img/1%204.png)
+![1.png](1%204.png)
 
 ```python
 temp = df[['title', 'video']]
@@ -105,14 +105,14 @@ temp.head(3)
 💡 `**df[ ]` : 인덱싱 - Series타입
 `df[[]]` : 목록 - DataFrame타입\*\*
 
-![1.png](./youtube_LAB_img/1%205.png)
+![1.png](1%205.png)
 
 ### Series의 구성요소
 
 - `**Seriex.index**` : Series의 행 index
 - `**Series.values**` : 1차원 Series 데이터
 
-![1.png](./youtube_LAB_img/1%206.png)
+![1.png](1%206.png)
 
 ```python
 df['title'].index      # RangeIndex(start=0, stop=1000, step=1)
@@ -122,7 +122,7 @@ df['title'].index      # RangeIndex(start=0, stop=1000, step=1)
 df['title'].values[:10] # 슬라이싱
 ```
 
-![1.png](./youtube_LAB_img/1%207.png)
+![1.png](1%207.png)
 
 💡 **DataFrame의 index, columns 및 Series의 index 는 할당연산을 사용하여 변경 가능**
 ✅ **단, 개수가 동일해야 함**
@@ -134,7 +134,7 @@ df.columns **=** ['채널', '카테고리', '구독자', '조회', '영상']
 df.head(2)
 ```
 
-![1.png](./youtube_LAB_img/1%208.png)
+![1.png](1%208.png)
 
 ## 데이터 타입 변경
 
@@ -153,7 +153,7 @@ df.dtypes
 df['subscriber'].dtype      # object
 ```
 
-![1.png](./youtube_LAB_img/1%209.png)
+![1.png](1%209.png)
 
 ### 데이터 타입 변경하는 방법
 
@@ -166,7 +166,7 @@ df['subscriber'].dtype      # object
 ~~df['subscriber'].astype('int64')~~
 ```
 
-![1.png](./youtube_LAB_img/1%2010.png)
+![1.png](1%2010.png)
 
 ### ⇒ 데이터 값 변경 후 타입 변경 → `Series` 타입으로 출력
 
@@ -231,7 +231,7 @@ df['video'].replace(['\,', '개'], '', regex=True).astype('int32').head()
 df['category'].value_counts()
 ```
 
-![1.png](./youtube_LAB_img/1%2011.png)
+![1.png](1%2011.png)
 
 ```python
 # df의 'category'에 대해 '[', ']'을 제거하고, astype('category') 를 사용하여 category 타입으로 변경합니다.
@@ -241,9 +241,9 @@ temp.value_counts()
 df['category'].replace(['\[','\]'], '', regex=True).astype('category')
 ```
 
-![1.png](./youtube_LAB_img/1%2012.png)
+![1.png](1%2012.png)
 
-![2.png](./youtube_LAB_img/2.png)
+![2.png](2.png)
 
 ```python
 #ⅱ) 첫글자와 마지막 글자만 확인(문자열 중간까지 확인X)**
@@ -261,7 +261,7 @@ df['category'] = df['category'].str[1:-1].astype('category')
 df.info()
 ```
 
-![1.png](./youtube_LAB_img/1%2013.png)
+![1.png](1%2013.png)
 
 ```python
 # 'youtube_v1.xlsx' 엑셀 파일로 저장하기
@@ -272,7 +272,7 @@ temp.info()
 
 - `0 Unnamed` - index까지 저장돼서. index를 저장하지 않으려면 저장 시 `index=False`가 필요함
 
-![1.png](./youtube_LAB_img/1%2014.png)
+![1.png](1%2014.png)
 
 ```python
 df.to_excel('youtube_v1.xlsx', index=False)
@@ -280,7 +280,7 @@ temp = pd.read_excel('youtube_v1.xlsx', engine='openpyxl')
 temp.info()
 ```
 
-![2.png](./youtube_LAB_img/2%201.png)
+![2.png](2%201.png)
 
 **⇒ 다시 사용하기 위해서는 다운로드/업로드가 필요함 - 자동 삭제됨**
 
@@ -302,13 +302,13 @@ temp = pd.DataFrame({'날짜_일반': ['2021/01/01', '2021/01/02', '2021/01/03',
 temp
 ```
 
-![1.png](./youtube_LAB_img/1%2015.png)
+![1.png](1%2015.png)
 
 ```python
 temp.info()
 ```
 
-![1.png](./youtube_LAB_img/1%2016.png)
+![1.png](1%2016.png)
 
 ```python
 import numpy as np
@@ -317,7 +317,7 @@ s1 = temp['날짜_일반'].astype(np.datetime64)
 s1
 ```
 
-![1.png](./youtube_LAB_img/1%2017.png)
+![1.png](1%2017.png)
 
 ```python
 # Series.astype(np.datetime64) 을 사용하여 '날짜_시간'의 dtype을 변경해 보자
@@ -325,7 +325,7 @@ s2 = temp['날짜_시간'].astype(np.datetime64)
 s2
 ```
 
-![1.png](./youtube_LAB_img/1%2018.png)
+![1.png](1%2018.png)
 
 ```python
 # Series.astype(np.datetime64)을 사용하여 '날짜_특수'의 dtype을 변경해 보자
@@ -333,7 +333,7 @@ s3 = temp['날짜_특수'].astype(np.datetime64)
 s3
 ```
 
-![1.png](./youtube_LAB_img/1%2019.png)
+![1.png](1%2019.png)
 
 - 연원일을 제대로 인식하지 못함
   ⇒ `format`형식 설정 필요
@@ -342,7 +342,7 @@ s3
 s4 =  pd.to_datetime(temp['날짜_특수'], format='%y-%m-%d')
 ```
 
-![1.png](./youtube_LAB_img/1%2020.png)
+![1.png](1%2020.png)
 
 ```python
 # Series.astype('category')를 사용하여 '범주'의 dtype을 변경해 보자
@@ -350,13 +350,13 @@ s5 = temp['범주'].astype('category')
 s5
 ```
 
-![1.png](./youtube_LAB_img/1%2021.png)
+![1.png](1%2021.png)
 
 ```pytho# 가나다라 순으로 값 정렬
 s5.sort_values()
 ```
 
-![1.png](./youtube_LAB_img/1%2022.png)
+![1.png](1%2022.png)
 
 ```python
 s6 = pd.Categorical(temp['범주'],
@@ -364,7 +364,7 @@ s6 = pd.Categorical(temp['범주'],
 s6, s6.sort_values()
 ```
 
-![1.png](./youtube_LAB_img/1%2023.png)
+![1.png](1%2023.png)
 
 ## 인기 채널 확인하기
 
@@ -394,7 +394,7 @@ df.head(2)
 df.sort_values('subscriber', ascending=False).head()
 ```
 
-![1.png](./youtube_LAB_img/1%2024.png)
+![1.png](1%2024.png)
 
 ```python
 # 'view'가 가장 많은 5개 채널을 알아봅니다
@@ -425,20 +425,20 @@ temp = pd.DataFrame({'A': [1, 2, 3, 4],
 temp
 ```
 
-![1.png](./youtube_LAB_img/1%2025.png)
+![1.png](1%2025.png)
 
 ```python
 temp[[True, True, False, True]] #행의 인덱스 0,1,3출력
 ```
 
-![1.png](./youtube_LAB_img/1%2026.png)
+![1.png](1%2026.png)
 
 ```python
 temp.loc[[False, True, False, True]]
 temp.loc[[False, True, False, True], ['A', 'C']]
 ```
 
-![1.png](./youtube_LAB_img/1%2027.png)
+![1.png](1%2027.png)
 
 ```python
 # 'category'가 '음악/댄스/가수'인 채널의 subscriber TOP5를 알아봅니다.
@@ -446,7 +446,7 @@ temp.loc[[False, True, False, True], ['A', 'C']]
 df[df['category'] == '음악/댄스/가수'].sort_values('subscriber', ascending=False).head()
 ```
 
-![1.png](./youtube_LAB_img/1%2028.png)
+![1.png](1%2028.png)
 
 ```python
 # 'category'가 'TV/방송'인 채널의 view TOP5를 알아봅니다.
@@ -459,7 +459,7 @@ df[df['category'] == 'TV/방송'].sort_values('view', ascending=False).head()
 df[df['subscriber'] >= 30000000]
 ```
 
-![1.png](./youtube_LAB_img/1%2029.png)
+![1.png](1%2029.png)
 
 ```python
 # 'video' 개수가 30000 이상 35000 이하인 채널을 알아봅니다
@@ -468,7 +468,7 @@ df[(df['video'] >= 30000) & (df['video'] <= 35000)]  << **괄호로 꼭 묶어�
 df.loc[(df['subscriber'] >= 30000000) | (df['video'] >=50000), :] << **:** - 전부 다
 ```
 
-![1.png](./youtube_LAB_img/1%2030.png)
+![1.png](1%2030.png)
 
 ### Series의 value가 목록에 포함된 내용인지 확인
 
@@ -479,7 +479,7 @@ df.loc[(df['subscriber'] >= 30000000) | (df['video'] >=50000), :] << **:** - 전
 df['category'].value_counts(# 개수별로 내림차순으로 보여줌
 ```
 
-![1.png](./youtube_LAB_img/1%2031.png)
+![1.png](1%2031.png)
 
 ```python
 # 'category'가 'TV/방송' 이거나 '게임'인 채널의 개수를 확인합니다.  (262개)
@@ -496,16 +496,16 @@ temp
 len(temp)  # 262
 ```
 
-![1.png](./youtube_LAB_img/1%2032.png)
+![1.png](1%2032.png)
 
-![1.png](./youtube_LAB_img/1%2033.png)
+![1.png](1%2033.png)
 
 ```python
 # 'category'가 '음악/댄스/가수'인 채널의 subscriber TOP5를 알아봅니다. (isin 활용)
 df[df['category'].isin(**[**'음악/댄스/가수'**]**)].sort_values('subscriber', ascending=False).head()
 ```
 
-![1.png](./youtube_LAB_img/1%2034.png)
+![1.png](1%2034.png)
 
 ### Series(Object타입)의 str Accessor 사용
 
@@ -526,7 +526,7 @@ df.loc[df['title'].str.lower().str.contains('kbs'), 'title'].to_numpy()
 df.loc[df['title'].str.upper().str.contains('KBS'), 'title'].to_numpy()
 ```
 
-![1.png](./youtube_LAB_img/1%2035.png)
+![1.png](1%2035.png)
 
 ## 통계값 알아보기
 
@@ -560,7 +560,7 @@ pd.optins.display.float_format = '{:,.2f}'.format
 df.describe()
 ```
 
-![1.png](./youtube_LAB_img/1%2036.png)
+![1.png](1%2036.png)
 
 ```python
 # 'video' 컬럼의 데이터 개수를 구합니다
@@ -577,7 +577,7 @@ df['subscriber'].max(), df['subscriber'].min(# (51400000, 400000)
 df['subscriber'].mode(), df['subscriber'].mode()[0]# 하나만 구하려면 인덱싱이 필요함
 ```
 
-![1.png](./youtube_LAB_img/1%2037.png)
+![1.png](1%2037.png)
 
 ```python
 # 'subscriber'의 Q1, Q2, Q3(25% 50%, 75%) 를 구합니다.
@@ -599,7 +599,7 @@ print(Q1, Q2, Q3, Q3-Q1)        # 540000.0 780000.0 1392500.0 852500.0
 df.groupby('category').mean()
 ```
 
-![1.png](./youtube_LAB_img/1%2038.png)
+![1.png](1%2038.png)
 
 ```python
 # category 별 view에 대한 평균을 구합니다.# type()
@@ -607,13 +607,13 @@ df.groupby('category')['view'].mean()    # pandas.core.series.Series 타입
 df.groupby('category')[['view']].mean()  # pandas.core.frame.DataFrame 타입
 ```
 
-![1.png](./youtube_LAB_img/1%2039.png)
+![1.png](1%2039.png)
 
-![2.png](./youtube_LAB_img/2%202.png)
+![2.png](2%202.png)
 
 ```python
 # category 별 view, video에 대한 합계를 구합니다.
 df.groupby('category')[['view', 'video']].sum()
 ```
 
-![1.png](./youtube_LAB_img/1%2040.png)
+![1.png](1%2040.png)

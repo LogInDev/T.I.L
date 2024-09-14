@@ -314,7 +314,7 @@ Member[id=winter, name=눈송이, age=25]
 ### intelliJ 롬북적용
 1. 설정(Setting) - plugins에서 lombok 검색 후 설치
 2. 설정(Setting) - Annotation Processors에서 `Enable annotation processing` 체크
-	![alt](../img/ch12/12-1.png)
+	![alt](☕️java/img/ch12/12-1.png)
 
 
 ### 롬북 Annotation
@@ -363,7 +363,7 @@ int keyCode = System.in.read();
 
 in필드를 이용해 read() 메소드를 호출하면 입력된 키의 코드값을 얻을 수 있다.
 키 코드는 각 키에 부여되어 있는 번호이다.
-![keyCode](../img/ch12/12-2.jpeg)
+![keyCode](12-2.jpeg)
 
 - `read()`메소드는 Enter 키를 누르면 입력했던 키들을 하나씩 읽기 시작한다.
 - `read()` 메소드는 `IOException`을 발생할 수 있는 코드이므로 예외 처리가 필요하다.
@@ -737,21 +737,21 @@ Calendar now = Calendar.getInstance(timeZone);
 
 > 숫자를 형식화된 문자열로 변환
 
-![](../img/ch12/12-3.jpeg)
+![](12-3.jpeg)
 	
 
 ## `SimpleDateFormat`
 
 > 날짜를 형식화된 문자열로 변환
 
-![](../img/ch12/12-4.jpeg)
+![](12-4.jpeg)
 
 <br>
 
 ---
 # 정규 표현식 클래스
 
-![](../img/ch12/12-5.jpeg)
+![](12-5.jpeg)
 
 ## Pattern 클래스로 검증
 

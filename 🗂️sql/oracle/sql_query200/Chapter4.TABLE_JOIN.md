@@ -28,7 +28,7 @@ select e.ename, e.sal, s.grade
 from emp e, salgrade s
 where e.sal between s.losal and s.hisal;
 ```
-![](4-1.png)
+![](☕️java/img/4th-week/4-1.png)
 
 ```sql
 --급여등급이 4등급인 사원들의 이름과 월급을 출력하는데 월급이 높은 사원부터 출력해라.
@@ -49,7 +49,7 @@ order by e.sal desc;
 ```sql
 select e.ename, d.loc from emp e, dept d where e.deptno (+) = d.deptno;
 ```
-![](4-2.png)
+![](☕️java/img/4th-week/4-2.png)
 
 ```sql
 select e.ename, d.loc 
@@ -70,7 +70,7 @@ select 사원.ename as 사원, 사원.job as 직업,
 from emp 사원, emp 관리자 
 where 사원.mgr = 관리자.empno;
 ```
-![](4-3.png)
+![](☕️java/img/4th-week/4-3.png)
 
 ```sql
 select 사원.ename as 사원, 사원.job as 직업, 
@@ -189,5 +189,5 @@ from emp e full outer join dept d
 on (e.deptno = d.deptno) 
 where e.job = 'ANALYST' or d.loc = 'BOSTON';
 ```
-![](4-4.png)
+![](🗂️sql/oracle/img/sql_query200/chapter4/4-4.png)
 

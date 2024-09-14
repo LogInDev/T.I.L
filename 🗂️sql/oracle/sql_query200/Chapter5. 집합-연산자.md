@@ -1,7 +1,7 @@
 ## 합집합 - UNION ALL
 
 > 위아래 쿼리를 붙여준다. 합치는 쿼리의 결과 컬럼 갯수와 타입이 같아야 한다.
-![](5-1.png)
+![](☕️java/img/5th-week/5-1.png)
 
 ```sql
 select deptno, sum(sal) 
@@ -32,7 +32,7 @@ order by job asc;
 ## 합집합 - UNION
 
 >위 아래 쿼리를 붙여준다.
-![](5-1.png)
+![](☕️java/img/5th-week/5-1.png)
 
 ```sql
 select deptno, sum(sal) 
@@ -69,7 +69,7 @@ order by hiredate;
 ## 교집합 - INTERSECT
 
 > 위 아래 쿼리의 공통된 데이터를 출력
-![](5-2.png)
+![](🗂️sql/oracle/img/sql_query200/chapter5/5-2.png)
 
 ```sql
 select ename, sal, job, deptno
@@ -92,7 +92,7 @@ select deptno from dept;
 ## 차집합 - MINUS
 
 > A - B의 결과를 출력
-![](5-3.png)
+![](🗂️sql/oracle/img/sql_query200/chapter5/5-3.png)
 
 ```sql
 select ename, sal, job, deptno

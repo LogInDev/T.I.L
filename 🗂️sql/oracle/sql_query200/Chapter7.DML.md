@@ -129,25 +129,25 @@ update set e.dname = d.dname;
 > 하나의 세션에서 `update`실행시 해당 행은 `LOCK`이 걸려서 다른 세션에서 수정하지 못하게 됨.
 > ⇒ 항상 일관된 데이터를 볼 수 있게 해주는 것.(`LOCK`은 행 전체가 적용된다.)
 
-![](7-1.png)
+![](🗂️sql/oracle/img/sql_query200/chapter7/7-1.png)
 
 - `LOCK`이 풀리는 시점은 `update`한 세션에서 `commit` 혹은 `rollback` 실행시 풀림.
-![](7-2.png)
+![](🗂️sql/oracle/img/sql_query200/chapter7/7-2.png)
 
 - 오른쪽 세션에서 `update`를 했지만 `select`로 출력되는 결과는 최종 `commit`된 결과를 보여줌.
-![](7-3.png)
+![](🗂️sql/oracle/img/sql_query200/chapter7/7-3.png)
 
 - 오른쪽 세션에서 `commit`을 하면 최종 `commit`내용이 보여짐
-![](7-4.png)
+![](🗂️sql/oracle/img/sql_query200/chapter7/7-4.png)
 
 
 ### SELECT 시에도 LOCK 적용 - SELECT FOR UPDATE절
 
 >`select ~ for update;` 조회하는 동안 `LOCK`을 걸어서 접근하지 못하게 함.
 
-![](7-5.png)
+![](🗂️sql/oracle/img/sql_query200/chapter7/7-5.png)
 
-![](7-6.png)
+![](🗂️sql/oracle/img/sql_query200/chapter7/7-6.png)
 
 ```sql
 --부서번호가 10, 20번인 사원들의 이름과 직업과 부서번호를 조회하는 동안 다른 사람이 부서번호 10,20번인 사원들의 데이터를 갱신하지 못하도록 해라.

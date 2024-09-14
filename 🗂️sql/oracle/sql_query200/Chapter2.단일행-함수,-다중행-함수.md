@@ -31,7 +31,7 @@
 select ename, lower(ename), upper(ename), initcap(ename) from emp;
 ```
 
-![](2-1.png)
+![](🗂️sql/oracle/img/sql_query200/chapter2/2-1.png)
 
 - `lower()` : 전부 소문자로 출력
 - `upper()` : 전부 대문자로 출력
@@ -47,7 +47,7 @@ select ename, lower(ename), upper(ename), initcap(ename) from emp;
 select substr('SMITH', 2, 2) from dual;
 ```
 
-![](2-2.png)
+![](🗂️sql/oracle/img/sql_query200/chapter2/2-2.png)
 
 ```sql
 -- 이름의 첫글자만 출력하고 첫글자를 소문자로 출력해라.
@@ -121,7 +121,7 @@ select ename, rpad(sal, 10, '*') from emp;
 select 'smith', ltrim('smith', 's'), rtrim('smith', 'h'), trim('s' from 'smiths') from dual;
 ```
 
-![](2-3.png)
+![](🗂️sql/oracle/img/sql_query200/chapter2/2-3.png)
 
 ```sql
 insert into emp(empno, ename, sal) values(3821, 'JACK ', 3000);
@@ -141,7 +141,7 @@ select ename, sal from emp where rtrim(ename) = 'JACK';
 ```sql
 select 876.567, round(876.567, 2) from dual;
 ```
-![](2-4.png)
+![](🗂️sql/oracle/img/sql_query200/chapter2/2-4.png)
 
 - 자릿수
 
@@ -186,7 +186,7 @@ select empno, ename from emp where mod(empno, 2) = 1;
 select sysdate from dual;
 ```
 
-![](2-5.png)
+![](🗂️sql/oracle/img/sql_query200/chapter2/2-5.png)
 
 ```sql
 select ename, round(months_between(sysdate, hiredate)) from emp;
@@ -204,7 +204,7 @@ select months_between(sysdate, '1993/08/11')from dual;
 select add_months('2019/5/1', 100) from dual;
 ```
 
-![](2-6.png)
+![](🗂️sql/oracle/img/sql_query200/chapter2/2-6.png)
 
 ```sql
 -- 오늘부터 100달 뒤의 날짜
@@ -235,7 +235,7 @@ select next_day(sysdate, 6) from dual;
 ```sql
 select last_day('2021/5/5') from dual;
 ```
-![](2-7.png)
+![](☕️java/img/2nd-week/2-7.png)
 
 ```sql
 -- 오늘부터 이번달 마지막 일까지 남은 일수
@@ -262,7 +262,7 @@ select ename, to_char(hiredate, 'day'),
 	to_char(sal, '999,999') 
 from emp where ename = 'SCOTT';
 ```
-![](2-8.png)
+![](🗂️sql/oracle/img/sql_query200/chapter2/2-8.png)
 
 ```sql
 select ename, hiredate, to_char(hiredate, 'RRRR'), 
@@ -270,7 +270,7 @@ select ename, hiredate, to_char(hiredate, 'RRRR'),
 		to_char(hiredate, 'day'), to_char(hiredate, 'dy')
 from emp where ename = 'SCOTT';
 ```
-![](2-9.png)
+![](🗂️sql/oracle/img/sql_query200/chapter2/2-9.png)
 
 ```sql
 -- 태어난 날짜의 요일을 구해라 - to_date()사용안하면 에러남.
@@ -297,14 +297,14 @@ select ename, hiredate from emp where hiredate = to_date('81/11/17', 'rr/mm/dd')
 ```sql
 select * from nls_session_parameters;
 ```
-![](2-10.png)
+![](🗂️sql/oracle/img/sql_query200/chapter2/2-10.png)
 
 - 현재 세션의 날짜 형식을 DD/MM/RR 로 변경
 
 ```sql
 alter session set nls_date_format='DD/MM/RR';
 ```
-![](2-11.png)
+![](🗂️sql/oracle/img/sql_query200/chapter2/2-11.png)
 
 
 ---
@@ -346,18 +346,18 @@ select ename, sal from emp where sal like '30%';
 ```sql
 select ename, sal,  comm, sal+comm from emp;
 ```
-![](2-14.png)
+![](☕️java/Excalidraw/2-14.png)
 
 ```sql
 select ename, sal,  comm, sal+nvl(comm,0) from emp;
 ```
-![](2-15.png)
+![](☕️java/Excalidraw/2-15.png)
 
 ```sql
 --comm 컬럼을 출력하는데 null인 경우 'no comm'으로 출력되게 해라
 select ename, nvl(comm, 'no comm') from emp;
 ```
-![](2-16.png)
+![](☕️java/Excalidraw/2-16.png)
 
 ⇒ comm컬럼은 숫자 타입인데 대체 값으로 문자형을 넣어서 에러가 남.
 

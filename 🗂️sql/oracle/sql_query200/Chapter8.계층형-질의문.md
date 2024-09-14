@@ -8,7 +8,7 @@ select empno, mgr, ename, level, sal, job from emp
 start with ename='KING'
 connect by prior empno = mgr;
 ```
-![](8-1.png)
+![](☕️java/img/다형성1/8-1.png)
 
 - level을 시각화해서 표현
 ```sql
@@ -16,7 +16,7 @@ select rpad(' ',level*3) || ename, sal, job from emp
 start with ename='KING'
 connect by prior empno = mgr;
 ```
-![](8-2.png)
+![](☕️java/img/다형성1/8-2.png)
 
 ```sql
 select ename,level, job from emp 
@@ -24,7 +24,7 @@ where level = 2
 start with ename='KING'
 connect by prior empno=mgr;
 ```
-![](8-3.png)
+![](☕️java/img/다형성1/8-3.png)
 
 
 ```sql
@@ -34,7 +34,7 @@ start with ename = 'KING'
 connect by prior empno=mgr
 and ename != 'BLAKE';
 ```
-![](8-4.png)
+![](☕️java/img/다형성1/8-4.png)
 
 ```sql
 select rpad(' ', level*3) || ename as emplyee, level, sal, job from emp
@@ -42,7 +42,7 @@ start with ename = 'KING'
 connect by prior empno=mgr
 and ename not in( 'SCOTT', 'FORD');
 ```
-![](8-5.png)
+![](☕️java/img/다형성1/8-5.png)
 
 
 ### 서열 순위 유지하면서 정렬하기
@@ -56,7 +56,7 @@ start with ename='KING'
 connect by prior empno=mgr
 order siblings by sal desc;
 ```
-![](8-6.png)
+![](☕️java/img/다형성1/8-6.png)
 
 ```sql
 -- BLAKE와 BLAKE팀원만 나오고 월급이 낮은 순서대로 정렬해라
@@ -66,7 +66,7 @@ start with ename='BLAKE'
 connect by prior empno=mgr
 order siblings by sal;
 ```
-![](8-7.png)
+![](☕️java/img/다형성1/8-7.png)
 
 
 ---
@@ -80,7 +80,7 @@ from emp
 start with ename='KING'
 connect by prior empno = mgr;
 ```
-![](8-8.png)
+![](☕️java/img/다형성1/8-8.png)
 
 ```sql
 select ename || '('||sal||')', 
@@ -89,6 +89,6 @@ from emp
 start with ename='KING'
 connect by prior empno=mgr
 ```
-![](8-9.png)
+![](☕️java/img/다형성1/8-9.png)
 
 

@@ -27,7 +27,7 @@ select ename || sal from emp;
 ```sql
 select ename||'의 직업은 '||job||'입니다.' from emp;
 ```
-![[1-2.png||290]]
+![[🗂️sql/oracle/img/sql_query200/1-2.png||290]]
 
 <br>
 
