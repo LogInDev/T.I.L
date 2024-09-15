@@ -412,7 +412,7 @@ Setter가 모두 열려있다면 변경 포인트가 너무 많아서, 유지보
 - 연관된 엔티티를 함께 DB에서 조회해야 하면, fetch join 또는 엔티티 그래프 기능을 사용한다.
 - `@XToOne(OneToOne, ManyToOne)` 관계는 기본이 즉시로딩이므로 직접 지연로딩으로 설정해야 한다.
   (`@XToMany(OneToMany, ManyToMany)` 관계는 기본이 지연로딩(`LAZY`)임.)
-- 지연로딩(`LAZY`) 설정으로 트렌젝션 에러가 날 경우. 트랜젝션을 조금 빨리 가져오거나 상황에 따라 오프세션 인 뷰를 사용하거나 fetch join으로 해결 가능함. 대부분 fetch join으로 해결가능. (즉시로딩(`EAGER`) X) 
+- 지연로딩(`LAZY`) 설정으로 트렌젝션 에러가 날 경우. 트랜잭션을 조금 빨리 가져오거나 상황에 따라 오프세션 인 뷰를 사용하거나 fetch join으로 해결 가능함. 대부분 fetch join으로 해결가능. (즉시로딩(`EAGER`) X) 
 
 ## 컬렉션 필드에서 초기화 하자.
 컬렉션은 필드에서 바로 초기화 하는 것이 안전하다.
@@ -450,8 +450,22 @@ spring.jpa.hibernate.naming.implicit-strategy: org.springframework.boot.orm.jpa.
 spring.jpa.hibernate.naming.physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
 ```
 
+# 애플리케이션 아키텍처
+![](img/part_2/2-5.png)
+## 계층형 구조 사용
+유연하되 단방향으로 만들 것.
+- controller, web : 웹 계층
+- service : 비즈니스 로직, 트랜잭션 처리
+- repository : JPA를 직접 사용하는 계층, 엔티티 매니저 사용
+- domain : 엔티티가 모여 있는 계층 , 모든 계층에서 사용
 
-
+## 패키지 구조
+- jpabook.jpashop
+	- domain
+	- exception(공통 예외를 모아두는 곳)
+	- repository
+	- service
+	- web
 
 
 
