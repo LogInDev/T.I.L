@@ -210,9 +210,12 @@ class MemberServiceTest {
         memberService.join(member1);  
   
         //then  
-        Assertions.assertThatThrownBy(() -> memberService.join(member2))  
-                .isInstanceOf(IllegalStateException.class)  
-                .hasMessage("이미 존재하는 회원입니다."); // 예외가 발생해야 한다!!  
+    IllegalStateException thrown = assertThrows(IllegalStateException.class, () -> {  
+        memberService.join(member2);  
+    });  
+  
+    assertThat("이미 존재하는 회원입니다.").isEqualTo(thrown.getMessage());  
+}
     }  
   
 }
