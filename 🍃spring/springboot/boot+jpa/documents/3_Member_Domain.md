@@ -109,7 +109,7 @@ public class MemberService {
 ```
 - `@Service` : `@Component`스캔의 대상
 - `@Transactional` : 트랜잭션, 영속성 컨텍스트.(java에서 제공하는 것보다는 springframwork에서 제공하는 걸 추천 - 더 기능이 많음)
-	- `readOnly=true` : 데이터의 변경이 없는 읽기 전용 메서드에 사용. 영속성 컨텍스트를 플러시 하지 않으므로 약간의 성능 향상(읽기 전용에는 다 적용) - default
+	- `readOnly=true` : 데이터의 변경이 없는 읽기 전용 메서드에 사용. 영속성 컨텍스트를 플러시 하지 않으므로 약간의 성능 향상(읽기 전용에는 다 적용) - default는 `readOnly=false`
 	- 데이터베이스 드라이버가 지원하면 DB에서 성능 향상
 - `@Autowired`
 	- 생성자 Injection 많이 사용. 생성자가 하나면 생략 가능
