@@ -15,6 +15,7 @@
 
 **/.idea/
 **/.gradle/
+**/h2/
 
 **/HELP.md
 **/build/
