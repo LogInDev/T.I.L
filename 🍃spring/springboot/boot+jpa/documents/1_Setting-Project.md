@@ -1,6 +1,3 @@
----
-sticker: emoji//261d-fe0f
----
 # 프로젝트 생성
 - [스프링 부트 스타터(https://start.spring.io/)](https://start.spring.io/)
 - springframework.boot 3.3.2(java17)
