@@ -1,8 +1,8 @@
-package jpabook.jpashop.repository;
+package jpabook.jpashop.service;
 
 import jpabook.jpashop.domain.item.Book;
 import jpabook.jpashop.exception.NotEnoughStockException;
-import jpabook.jpashop.service.ItemService;
+import jpabook.jpashop.repository.ItemRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 @Transactional
-class ItemRepositoryTest {
+class ItemServiceTest {
 
     @Autowired
     ItemRepository itemRepository;
@@ -54,6 +54,5 @@ class ItemRepositoryTest {
         // 예외 메시지 확인 (선택 사항)
         assertEquals("need more stock", thrown.getMessage());
     }
-
 
 }
