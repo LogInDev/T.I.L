@@ -65,7 +65,7 @@ public class OrderRepository {
 
         return query.getResultList();
     }
-    
+
 
     /**
      * JPA Criteria - jpql를 자바 표준으로 작성하게 하는 jpql에서 제공하는 표준
