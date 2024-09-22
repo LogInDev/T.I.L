@@ -1318,7 +1318,172 @@ public class CollectExample1 {
 오해영
 ```
 
-`Collectors.groupingBy()` 메소드는
+`Collectors.groupingBy()` 메소드는 그룹핑 후 매핑 및 집계(평균, 카운팅, 연결, 최대, 최소, 합계)를 수행할 수 있도록 두 번째 매개값인 `Collector`를 가질 수 있다. 다음은 두 번째 매개값으로 사용될 `Collector`를 얻을 수 있는 `Collector`의 정적 메소드들이다.
+
+| 리턴 타입     | 메소드(매개변수)                                                                | 설명       |
+| --------- | ------------------------------------------------------------------------ | -------- |
+| Collector | mapping(Function, Collector)                                             | 매핑       |
+| Collector | averageingDouble(ToDoubleFunction)                                       | 평균값      |
+| Collector | counting()                                                               | 요소 수     |
+| Collector | maxBy(Comparator)                                                        | 최대값      |
+| Collector | minBy(Comparator)                                                        | 최소값      |
+| Collector | reducing(BinaryOperator\<T>)<br>reducing(T identity, BinaryOperator\<T>) | 커스텀 집계 값 |
+
+다음은 학생들을 성별로 그룹핑하고 각각의 평균 점수를 구해서 Map으로 얻는 예제이다.
+`CollectExample.java`
+```java
+import java.util.ArrayList;  
+import java.util.List;  
+import java.util.Map;  
+import java.util.stream.Collectors;  
+  
+public class CollectExample2 {  
+    public static void main(String[] args) {  
+        List<Student> totalList = new ArrayList<>();  
+        totalList.add(new Student("홍길동", "남", 92));  
+        totalList.add(new Student("김수영", "여", 87));  
+        totalList.add(new Student("감자바", "남", 95));  
+        totalList.add(new Student("오해영", "여", 93));  
+  
+        Map<String, Double> map = totalList.stream()  
+                .collect(  
+                        Collectors.groupingBy(  
+                                s -> s.getSex(),  
+                                Collectors.averagingDouble(s -> s.getScore())  
+                        )  
+                );  
+        System.out.println("map = " + map);  
+    }  
+}
+```
+`[실행결과]`
+```
+map = {남=93.5, 여=90.0}
+```
+
+
+## 요소 병렬 처리
+> 요소 병렬 처리(Parallel Operation)란 멀티 코어 CPU 환경에서 전체 요소를 분할해서 각각의 코어가 병렬적으로 처리하는 것을 말한다. 요소 병렬 처리의 목적은 작업 처리 시간을 줄이는 것에 있다. 자바는 요소 병렬 처리를 위해 병렬 스트림을 제공한다.
+
+### 동시성과 병렬성
+멀티 스레드는 `동시성(Concurrency)` 또는 `병렬성(Parallelism)`으로 실행된다.
+![](../img/ch17/17-8.png)
+- `동시성` 
+	- 멀티 작업을 위해 멀티 스레드가 하나의 코어에서 번갈아 가며 실행하는 것.
+	- 한 시점에 하나의 작업만 실행한다.
+- `병렬성` 
+	- 멀티 작업을 위해 멀티 코어를 각각 이용해서 병렬로 실행하는 것을 말한다.
+	- 한 시점에 여러 개의 작업을 병렬로 실행하기 때문에 동시성보다는 좋은 성능을 낸다.
+	- `데이터 병렬성(Data parallelism)`과 `작업 병렬성(Task parallelism)`으로 구분할 수 있다.
+	- `데이터 병렬성` : 전체 데이터를 분할해서 서브 데이터셋으로 만들고 이 서브 데이터셋을 병렬처리해서 작업을 빨리 끝내는 것. 자바 병렬 스트림은 데이터 병렬성을 구현한 것이다.
+	- `작업 병렬성` : 서로 다른 작업을 병렬 처리하는 것을 말한다. 작업 병렬성의 대표적인 예는 서버 프로그램이다. 서버는 각각의 클라이언트에서 요청한 내용을 개별 스레드에서 병렬로 처리한다.
+
+### 포크조인 프레임워크
+ 포크조인 프레임워크(ForkJoin Framework)란 
+ - `포크 단계`에서 전체 요소들을 서브 요소셋으로 분할하고, 각각의 서브 요소셋을 멀티 코어에서 병렬로 처리한다. 
+ - `조인 단계`에서는 서브 결과를 결합해서 최종 결과를 만들어 낸다.
+예를 들어 쿼드 코어 CPU에서 병렬 스트림으로 요소들을 처리할 경우 먼저 포크 단계에서 스트림의 전체 요소드을 4개의 서브 요소셋으로 분할한다. 그리고 각각의 서브 요소셋을 개별 코어에서 처리하고, 조인 단계에서는 3번의 결합 과정을 거쳐 최종 결과를 산출한다.
+![](../img/ch17/17-9.png)
+병렬 처리 스트림은 포크 단계에서 요소를 순서대로 분할하지 않는다. 위 그림처럼 앞에서부터 차례대로 4등분하는 건 아니고 내부적으로 요소들을 나누는 알고리즘이 있다.
+포크조인 프레임워크는 병렬 처리를 위해 스레드풀을 사용한다. 각각의 코어에서 서브 요소셋을 처리하는 것은 작업 스레드가 해야 하므로 스레드 관리가 필요하다.
+포크조인 프레임워크는 `ExecutorService`의 구현 객체인 `ForkJoinPool`을 사용해서 작업 스레드를 관리한다.
+![](../img/ch17/17-10.png)
+
+### 병렬 스트림 사용
+자바 병렬 스트림을 이용할 경우 백그라운드에서 포크조인 프레임워크가 사용되기 때문에 쉽게 병렬 처리를 할 수 있다.
+
+| 리턴 타입                                             | 메소드              | 제공 컬렉션 또는 스트림                                                                             |
+| ------------------------------------------------- | ---------------- | ----------------------------------------------------------------------------------------- |
+| Stream                                            | parallelStream() | List 또는 Set 컬렉션                                                                           |
+| Stream<br>IntStream<br>LongStream<br>DoubleStream | parallel()       | java.util.Stream<br>java.util.IntStream<br>java.util.LongStream<br>java.util.DoubleStream |
+`parallelStream()`메소드는 컬렉션(List, Set)으로부터 병렬 스트림을 리턴한다. 
+`parallel()`메소드는 기존 스트림을 병렬 처리 스트림으로 변환한다.
+
+다음 예제는 1억 개의 점수에 대한 평균을 얻을 때 일반 스트림과 병렬 스트림의 처리 시간을 측정한 것이다.
+`ParallelExample.java`
+```java
+import java.util.ArrayList;  
+import java.util.List;  
+import java.util.Random;  
+import java.util.stream.Stream;  
+  
+public class ParallelExample {  
+    public static void main(String[] args) {  
+        Random random = new Random();  
+  
+        List<Integer> scores = new ArrayList<>();  
+        for (int i = 0; i < 100000000; i++) {  
+            scores.add(random.nextInt(101));  
+        }  
+  
+        double avg = 0.0;  
+        long startTime = 0;  
+        long endTime = 0;  
+        long time = 0;  
+  
+        Stream<Integer> stream = scores.stream();  
+        startTime = System.nanoTime();  
+        avg = stream  
+                .mapToInt(i -> i.intValue())  
+                .average()  
+                .getAsDouble();  
+        endTime = System.nanoTime();  
+        time = endTime - startTime;  
+        System.out.println("avg: " + avg + ", 일반 스트림 처리 시간: " + time + "ns");  
+  
+        Stream<Integer> parallelStream = scores.parallelStream();  
+        startTime = System.nanoTime();  
+        avg = parallelStream  
+                .mapToInt(i -> i.intValue())  
+                .average()  
+                .getAsDouble();  
+        endTime = System.nanoTime();  
+        time = endTime - startTime;  
+        System.out.println("avg: " + avg + ", 병렬 스트림 처리 시간: " + time + "ns");  
+          
+    }  
+}
+```
+`[실행결과]`
+```
+avg: 50.00651087, 일반 스트림 처리 시간: 96053542ns
+avg: 50.00651087, 병렬 스트림 처리 시간: 44598500ns
+```
+
+
+### 병렬 처리 성능
+스트림 병렬 처리가 스트림 순차 처리보다 항상 실행 성능이 좋다고 판단해서는 안된다. 
+
+**병렬 처리에 영향을 미치는 3가지 요인**
+1. 요소의 수와 요소당 처리시간
+	- 컬렉션에 전체 요소의 수가 적고 요소당 처리 시간이 짧으면 일반 스트림이 병렬 스트림보다 빠를 수 있다. 병렬 처리는 포크 및 조인 단계가 있고, 스레드 풀을 생성하는 추가적인 비용이 발생하기 때문이다.
+2. 스트림 소스의 종류
+	- ArrayList와 배열은 인덱스로 요소를 관리하기 때문에 포크 단계에서 요소를 쉽게 분리할 수 있어 병렬 처리 시간이 절약된다. 반면에 HashSet, TreeSet은 요소 분리가 쉽지 않고, LinkedList 역시 링크를 따라가야 하므로 요소 분리가 쉽지 않다. 이러한 소스들은 상대적으로 병렬 처리가 늦다.
+3. 코어의 수
+	- CPU 코어(Core)의 수가 많으면 많을수록 병렬 스트림의 성능은 좋아진다. 하지만 코어의 수가 적을 경우에는 일반 스트림이 더 빠를 수 있다. 병렬 스트림은 스레드 수가 증가하여 동시성이 많이 일어나므로 오히려 느려진다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
