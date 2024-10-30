@@ -13,6 +13,6 @@ public class P68644 {
             }
         }
 
-        return result.stream().distinct().sorted().mapToInt(Integer::intValue).toArray();
+        return result.stream().sorted().mapToInt(Integer::intValue).toArray();
     }
 }
