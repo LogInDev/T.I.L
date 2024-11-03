@@ -362,7 +362,7 @@ char c = ' ';     // 공백(유니코드 : 32)
 자바는 `float`과 `double` 타입의 값을 부동 소수점(floating-point)방식으로 메모리에 저장한다.
 부호 + 기수 + 지수를 저장하여 `int`타입의 저장방식과는 달리 더 많은 수가 저장가능하다.
 
-![Alt text](1-2.jpeg)
+![Alt text](java/img/1st-week/1-2.jpeg)
 
 
 <br/>
