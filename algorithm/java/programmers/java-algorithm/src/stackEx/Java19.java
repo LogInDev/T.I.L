@@ -7,8 +7,7 @@ public class Java19 {
         int decimal = 12345;
         solution(decimal);
     }
-    public static int[] solution(int decimal) {
-        int[] answer;
+    public static String solution(int decimal) {
         ArrayDeque<Integer> stack = new ArrayDeque<>();
 
         while(decimal>0){
@@ -18,7 +17,12 @@ public class Java19 {
             stack.push(rest);
         }
 
-        System.out.println("stack = " + stack);
-        return new int[1];
+
+        StringBuilder sb = new StringBuilder();
+        while (!stack.isEmpty()) {
+            sb.append(stack.pop());
+        }
+        System.out.println("sb = " + sb);
+        return sb.toString();
     }
 }
