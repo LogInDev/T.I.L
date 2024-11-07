@@ -1,9 +1,8 @@
 package hashEx;
 
 import java.util.*;
-import java.util.stream.IntStream;
 
-public class java18 {
+public class Java18 {
     public static void main(String[] args) {
         int[] arr = {2,3,5,9};
         int target = 10;

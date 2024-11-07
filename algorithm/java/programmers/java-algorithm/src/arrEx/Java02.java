@@ -1,9 +1,8 @@
 package arrEx;
 
 import java.util.*;
-import java.util.stream.IntStream;
 
-public class java02 {
+public class Java02 {
     public static void main(String[] args) {
         int[] arr = {4, 2, 2, 1, 3, 4};
         int[] result = solution(arr);
