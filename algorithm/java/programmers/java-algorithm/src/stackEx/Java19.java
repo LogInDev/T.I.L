@@ -8,6 +8,7 @@ public class Java19 {
         solution(decimal);
     }
     public static String solution(int decimal) {
+        int target = decimal;
         ArrayDeque<Integer> stack = new ArrayDeque<>();
 
         while(decimal>0){
@@ -23,6 +24,8 @@ public class Java19 {
             sb.append(stack.pop());
         }
         System.out.println("sb = " + sb);
+        System.out.println("toBinaryString = " + Integer.toBinaryString(target)); // String 타입으로 반환
+
         return sb.toString();
     }
 }
