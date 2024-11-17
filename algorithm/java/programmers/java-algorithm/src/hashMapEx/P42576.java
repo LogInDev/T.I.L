@@ -1,6 +1,5 @@
-package hashEx;
+package hashMapEx;
 
-import java.awt.image.AreaAveragingScaleFilter;
 import java.util.*;
 
 public class P42576 {
