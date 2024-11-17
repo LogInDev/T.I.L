@@ -12,6 +12,18 @@ public class P131127 {
 //        String[] discount = {"chicken", "apple", "apple", "banana", "rice", "apple", "pork", "banana", "pork", "rice", "pot", "banana", "apple", "banana"};
         String[] discount = {"banana", "banana", "banana", "banana", "banana", "banana", "banana", "banana", "banana", "banana"};
         solution(want, number, discount);
+
+        HashMap<String, Integer> map1 = new HashMap<>();
+        map1.put("abc", 1);
+        map1.put("bcd", 1);
+        map1.put("cde", 1);
+        HashMap<String, Integer> map2 = new HashMap<>();
+        map2.put("abc", 1);
+        map2.put("bcd", 1);
+        map2.put("cde", 1);
+
+        System.out.println(map1.equals(map2));
+
     }
     public static int solution(String[] want, int[] number, String[] discount) {
         int answer = 0;

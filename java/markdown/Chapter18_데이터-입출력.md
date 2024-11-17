@@ -3,9 +3,9 @@
 
 자바는 입력 스트림과 출력 스트림을 통해 데이터를 입출력한다. 
 스트림(Stream)은 단방향으로 데이터가 흐르는 것을 말하는데, 데이터는 출발지에서 나와 도착지로 흘러들어간다.
-![](../img/ch18/18-1.png)
+![](18-1.png)
 프로그램을 기준으로 데이터가 들어오면 입력 스트림, 데이터가 나가면 출력 스트림이 된다. 프로그램이 다른 프로그램과 데이터를 교환하려면 양쪽 모두 입력 스트림과 출력 스트림이 필요하다.
-![](../img/ch18/18-2.png)
+![](18-2.png)
 
 어떤 데이터를 입출력하느냐에 따라 스트림을 두 종류로 나눌 수 있다.
 - `바이트 스트림` : 그림, 멀티미디어, 문자 등 모든 종류의 데이터를 입출력할 때 사용
@@ -17,13 +17,13 @@
 | ------- | ---------------- | --------------------------- | -------------------------------------------------------------------- |
 | 바이트 스트림 | 입력 스트림<br>출력 스트림 | InputStream<br>OutputStream | XXXInputStream(FileInputStream)<br>XXXOutputStream(FileOutputStream) |
 | 문자 스트림  | 입력스트림<br>출력스트림   | Reader<br>Writer            | XXXReader(FileReader)<br>XXXWriter(FileWriter)                       |
-![](../img/ch18/18-3.png)
+![](18-3.png)
 
 
 
 ## 바이트 출력 스트림
 > `OutputStream`은 바이트 출력 스트림의 최상위 클래스로 추상 클래스이다. 모든 바이트 출력 스트림 클래스는 이 `OutputStream` 클래스를 상속받아서 만들어진다.
-![](../Img/ch18/18-4.png)
+![](18-4.png)
 
 | 리턴 타입 | 메소드                               | 설명                                  |
 | ----- | --------------------------------- | ----------------------------------- |
@@ -35,7 +35,7 @@
 
 ### 1byte 출력
 `write(int b)` 메소드는 매개값 int(4byte)에서 끝 1byte만 출력한다. 매개변수가 4byte인 int타입이므로 모두를 보내는 것은 아니다.
-![](../img/ch18/18-5.png)
+![](18-5.png)
 
 다음 예제는 10, 20, 30이 저장된 바이트를 파일 `test1.db`로 출력해서 저장한다.
 `WriteExample.java`
@@ -84,7 +84,7 @@ public class WriteExample {
 
 ### 바이트 배열 출력
 일반적으로 1byte를 출력하는 경우는 드물고, 보통 바이트 배열을 통째로 출력하는 경우가 많다. `write(byte[] b)`메소드는 매개값으로 주어진 배열의 모든 바이트를 출력한다.
-![](../img/ch18/18-6.png)
+![](18-6.png)
 
 다음 예제는 10, 20, 30이 저장된 바이트 배열을 `test2.db` 파일로 출력해서 저장한다.
 `WriteExample.java`
@@ -117,7 +117,7 @@ public class WriteExample {
 
 ## 바이트 입력 스트림
 > `InputStream`은 바이트 입력 스트림의 최상위 클래스로, 추상 클래스이다. 모든 바이트 입력 스트림은 `InputStream` 클래스를 상속받아 만들어진다.
-![](../img/ch18/18-7.png)
+![](18-7.png)
 
 | 리턴 타입 | 메소드            | 설명                                      |
 | ----- | -------------- | --------------------------------------- |
@@ -128,7 +128,7 @@ public class WriteExample {
 
 ### 1byte 읽기
 `read()` 메소드는 입력 스트림으로부터 1byte를 읽고 int(4byte)타입으로 리턴한다. 따라서 리턴된 4byte 중 끝 1byte에만 데이터가 들어 있다. 
-![](../img/ch18/18-8.png)
+![](18-8.png)
 더 이상 입력 스트림으로부터 바이트를 읽을 수 없다면 `read()` 메소드는`-1`을 리턴한다.
 다음 예제는 ch18.sec02.exam01.WriteExample에서 저장한 test1.db에 저장한 내용을 1byte씩 끝까지 읽는다.
 `ReadExample.java`
@@ -172,7 +172,7 @@ public class ReadExample {
 ### 바이트 배열로 읽기
 
 `read(bytep[] b)` 메소드는 입력 스트림으로부터 주어진 배열의 길이만큼 바이트를 읽고 배열에 저장한 다음 읽은 바이트 수를 리턴한다. 예를 들어 입력 스트림에 5개의 바이트가 들어오면 다음과 같이 길이 3인 배열로 두 번 읽을 수 있다.
-![](../img/ch18/18-9.png)
+![](18-9.png)
 `read(byte[] b)` 역시 입력 스트림으로부터 바이트를 더 이상 읽을 수 없다면 `-1`을 리턴한다.
 
 다음은 ch18.sec02.exam02.WriteExample에서 test2.db에 저장한 내용을 끝까지 읽고 출력하는 예제이다.
@@ -262,7 +262,7 @@ Java9부터는 입력 스트림에서 출력 스트림으로 바이트를 복사
 
 ## 문자 출력
 >`Writer`는 문자 출력 스트림의 최상위 클래스로, 추상 클래스이다. 모든 문자 출력 스트림 클래스는 `Writer`클래스를 상속받아서 만들어진다.
-![](../img/ch18/18-10.png)
+![](18-10.png)
 
 **`Writer`클래스의 주요 메서드**
 
@@ -322,7 +322,7 @@ public class WriteExample {
 
 ## 문자 읽기
 >`Reader`는 문자 입력 스트림의 최상위 클래스로, 추상 클래스이다. 모든 문자 입력 스트림 클래스는 `Reader` 클래스를 상속받아서 만들어 진다.
-![](../img/ch18/18-11.png)
+![](18-11.png)
 
 **`Reader` 주요 메소드**
 
@@ -386,7 +386,7 @@ ABCDEFGH
 
 # 보조 스트림
 >보조 스트림이란 다른 스트림과 연결되어 여러 가지 편리한 기능을 제공해주는 스트림을 말한다. 보조 스트림은 자체적으로 입출력을 수행할 수 없기 땜누에 입출력 소스로부터 직접 생성된 입출력 스트림에 연결해서 사용해야 한다.
-![](../img/ch18/18-12.png)
+![](18-12.png)
 
 입출력 스트림에 보조 스트림을 연결하려면 보조 스트림을 생성할 때 생성자 매개값으로 입출력 스트림을 제공하면 된다.
 ```java
@@ -425,7 +425,7 @@ BufferedReader br = new BufferedReader(reader);
 
 ## InputStream을 Reader로 변환
 >`InputStream`을 `Reader`로 변환하려면 `InputStreamReader` 보조 스트림을 연결하면 된다.
-![](../img/ch18/18-13.png)
+![](18-13.png)
 ```java
 InputStream is = new FileInputStream("/Users/g.u./Temp/test.txt");
 Reader reader = new InputStreamReader(is);
@@ -437,7 +437,7 @@ Reader reader = new InputStreamReader(is);
 
 ## OutputStream을 Writer로 변환
 >`OutputStream`을 `Writer`로 변환하려면 `OutputStreamWriter`보조 스트림을 연결하면 된다.
-![](../img/ch18/18-14.png)
+![](18-14.png)
 ```java
 OutputStream os = new FileOutputStream("/Users/g.u./Temp/test.txt");
 Writer writer = new OutputStreamWriter(os);
@@ -490,10 +490,10 @@ public class CharacterConvertStreamExample {
 >이 문제에 대한 완전한 해결책은 될 수 없지만, 프로그램이 입출력 소스와 직접 작업하지 않고 중간에 메모리 버퍼(buffer)와 작업함으로써 실행 성능을 향상시킬 수 있다.
 
 출력 스트림의 경우 직접 하드 디스크에 데이터를 보내지 않고 메모리 버퍼에 데이터를 보냄으로써 출력 속도를 향상시킬 수 있다. 버퍼는 데이터가 쌓이기를 기다렸다가 꽉 차게 되면 데이터를 한꺼번에 하드 디스크로 보냄으로써 출력 횟수를 줄여준다.
-![](../img/ch18/18-15.png)
+![](18-15.png)
 
 입력 스트림에서도 버퍼를 사용하면 읽기 성능이 좋아진다. 하드 디스크로부터 직접 읽는 것 보다는 메모리 버퍼로부터 읽는 것이 빠르다.
-![](../img/ch18/18-16.png)
+![](18-16.png)
 
 Java에서 메모리 버퍼를 제공하여 프로그램의 실행 성능을 향상시키는 보조 스트림은
 - 바이트 스트림에는 `BufferedInputStream`, `BufferedOutputStream`
@@ -622,7 +622,7 @@ public class ReadLineExample {
 
 # 기본 타입 스트림
 >바이트 스트림에 `DataInputStream`과 `DataOutputStream` 보조 스트림을 연결하면 기본 타입인 boolean, char, short, int, long, float, double 값을 입출력할 수 있다.
-![](../img/ch18/18-17.png)
+![](18-17.png)
 ```java
 DataInputStream dis = new DataInputStream(바이트 입력 스트림);
 DataOutputStream dos = new DataOutputStream(바이트 출력 스트림);
@@ -693,7 +693,7 @@ public class DataInputOutputStreamExample {
 
 # 프린트 스트림
 >`PrintStream`과 `PrintWriter`는 프린터와 유사하게 출력하는 `print()`, `println()`, `printf()` 메소드를 가지고 있는 보조 스트림이다. 지금까지 콘솔에 출력하려고 `System.out.println()`을 사용했던 이유는 out이 `PrintStream`타입이기 때문이다.
-![](../img/ch18/18-18.png)
+![](18-18.png)
 
 `PrintStream`은 바이트 출력 스트림과 연결되고, `PrintWriter`는 문자 출력 스트림과 연결된다.
 ```java
@@ -753,7 +753,7 @@ public class PrintStreamExample {
 
 `ObjectInputStream`과 `ObjectOutputStream`은 객체를 입출력할 수 있는 보조 스트림이다.
 `ObjectOutputStream`은 바이트 출력 스트림과 연결되어 객체를 직렬화하고, `ObjectInputStream`은 바이트 입력 스트림과 연결되어 객체로 복원하는 역직렬화를 한다.
-![](../img/ch18/18-19.png)
+![](18-19.png)
 
 ```java
 ObjectInputStream ois = new ObjectInputStream(바이트 입력 스트림);
@@ -904,13 +904,13 @@ public class XXX implements Serializable {
 직렬화할 때 사용된 클래스와 역직렬화할 때 사용된 클래스는 기본적으로 동일한 클래스여야 한다. 만약 클래스의 이름이 같더라도 클래스의 내용이 다르면 역직렬화에 실패한다.
 
 클래스의 내용이 다르다 할지라도 직렬화된 필드를 공통으로 포함하고 있다면 역직렬화할 수 있는 방법이 있다. 두 클래스가 동일한 `serialVersionUID` 상수값을 가지고 있으면 된다.
-![](../img/ch18/18-20.png)
-![](../img/ch18/18-21.png)
+![](18-20.png)
+![](18-21.png)
 
 >Intellij에서 `serialVersionUID` 자동 생성되게 만들기
 >이클립스는 자동 생성 기능을 제공하는 반면, intellij에서는 따로 옵션을 체크해 줘야한다.
 >`Serializable class without 'serialVersionUID'` 체크!
->![](../img/ch18/18-22.png)
+>![](18-22.png)
 
 
 
@@ -1111,38 +1111,5 @@ tel: 010-123-1234
 `Files`는 입출력 스트림을 사용하지 않아도 파일의 데이터를 쉽게 읽고 쓸 수 있다. 
 `writeString()` 메소드는 문자열을 파일에 저장하고, 
 `readString()` 메소드는 텍스트 파일의 내용을 전부 읽고 String으로 리턴한다.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
