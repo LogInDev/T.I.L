@@ -1413,8 +1413,11 @@ q
 [클라이언트] 서버 연결 끊김
 ```
 
+## IntellJ에서 하나의 클래스를 동시에 여러개 실행하기
+![](../img/ch19/19-11.png)
 
-
+여러개를 실행할 `Configurations` 옵션에 들어가서 `Allow multiple Instanecs`
+를 체크해주면 된다.
 
 
 
