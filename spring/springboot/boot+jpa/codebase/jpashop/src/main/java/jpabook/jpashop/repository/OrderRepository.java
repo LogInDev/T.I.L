@@ -96,4 +96,37 @@ public class OrderRepository {
     }
 
 
+    public List<Order> findAllWithMemberDelivery() {
+        //xxxToOne 관계에 걸린 객체는 패치조인으로 한번에 가져와라.
+        //아직 OrderItem은 해결되지 않음 -> OrderItem은 N+1문제가 터질 것이다.
+        return em.createQuery(
+                "select o from Order o" +
+                        " join fetch o.member m" +
+                        " join fetch o.delivery d", Order.class
+        ).getResultList();
+    }
+
+
+    public List<Order> findAllWithItem() {
+        // 스프링부트 3버전부터는 hibernate6버전을 사용하는데 hibernate6는 페치 조인시 자동으로 중복제거해줘서 distinct안해줘도 됨.
+        return em.createQuery(
+                "select o from Order o " +
+                        " join fetch o.member m" +
+                        " join fetch o.delivery d " +
+                        " join fetch o.orderItems oi" +
+                        " join fetch oi.item i", Order.class)
+//                .setFirstResult(1)
+//                .setMaxResults(100)
+                .getResultList();
+    }
+
+    public List<Order> findAllWithMemberDelivery(int offset, int limit) {
+        return em.createQuery(
+                "select o from Order o" +
+                        " join fetch o.member m" +
+                        " join fetch o.delivery d", Order.class)
+                .setFirstResult(offset)
+                .setMaxResults(limit)
+                .getResultList();
+    }
 }

@@ -28,11 +28,12 @@ public class Order {
     @JoinColumn(name = "member_id")
     private Member member;
 
-    @JsonIgnore
+//    @JsonIgnore
+//    @BatchSize(size = 100)
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderItem> orderItems = new ArrayList<>();
 
-    @JsonIgnore
+//    @JsonIgnore
     @OneToOne(fetch = LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "delivery_id")
     private Delivery delivery;
