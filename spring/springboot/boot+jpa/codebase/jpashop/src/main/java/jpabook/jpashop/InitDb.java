@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 /**
- * 종 주문 2개
+ * 총 주문 2개
  * * userA
  * 	 * JPA1 BOOK
  * 	 * JPA2 BOOK
