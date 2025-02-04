@@ -1,4 +1,4 @@
-package hashEx;
+package hashMapEx;
 
 import java.util.*;
 
