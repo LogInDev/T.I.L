@@ -11,7 +11,7 @@ public class Java36 {
         int n = 3;
 
         int[] result = solution(graph, start, n);
-        System.out.println(result);
+        System.out.println(Arrays.toString(result));
     }
     static class Node{
         int dest, cost;
@@ -45,6 +45,8 @@ public class Java36 {
         // 3. 모든 노드의 거리 값을 무한대로 초기화
         Arrays.fill(dist, Integer.MAX_VALUE);
 
+        boolean[] visited = new boolean[n]; // 추가 - 방문 여부를 저장할 배열
+
         // 4. 시작 노드의 거리 값은 0으로 초기화
         dist[start] = 0;
 
@@ -55,9 +57,13 @@ public class Java36 {
         while (!pq.isEmpty()) {
             // 6. 현재 가장 거리가 짧은 노드를 가져옴
             Node now = pq.poll();
+
+            if (visited[now.dest]) continue; // 추가 - 이미 방문한 노드면 건너 뜀.
+
+            visited[now.dest] = true; // 추가 - 현재 노드 방문처리
             
-            // 7. 만약 현재 노드의 거리 값이 큐에서 가져온 거리 값보다 크면, 해당 노드는 이미 방문한 것이므로 무시
-            if(dist[now.dest] < now.cost) continue;
+//            // 7. 만약 현재 노드의 거리 값이 큐에서 가져온 거리 값보다 크면, 해당 노드는 이미 방문한 것이므로 무시
+//            if(dist[now.dest] < now.cost) continue;
 
             // 8. 현재 노드와 인접한 노드들의 거리 값을 계산하여 업데이트
             for (Node next : adjList[now.dest]) {
